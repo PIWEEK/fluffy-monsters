@@ -1,21 +1,26 @@
 extends Node
 
 signal game_start()
-signal player_ready(player)
+
+signal player_join_start(player: Player)
+signal player_join_end(player_name: String, player: int)
+
+signal begin_game_start()
+signal begin_game_end(player: int)
+
+signal begin_turn_start()
+signal begin_turn_end(player: int)
 
 signal draw_start()
-signal draw_end(player)
+signal draw_end(player: int)
 
 signal play_start()
-signal play_end(player, data)
+signal play_end(player: int, actions: Array[PlayerAction])
 
-signal resolve_turn_start(data)
-signal resolve_turn_end(player)
+signal finish_turn_start()
+signal finish_turn_end(player: int)
 
-signal next_turn_start()
-signal next_turn_end(player)
+signal finish_game_start()
+signal finish_game_end(player: int)
 
-signal finish_game_start(data)
-signal finish_game_end(player)
-
-signal close_game()
+signal game_end()

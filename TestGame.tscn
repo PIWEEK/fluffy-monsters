@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c212vrbsl3oy0"]
+[gd_scene load_steps=6 format=3 uid="uid://c212vrbsl3oy0"]
 
 [ext_resource type="Script" path="res://LoggingOutput.gd" id="2_i7twu"]
 [ext_resource type="Script" path="res://GameLogic.gd" id="2_pv6xq"]
 [ext_resource type="Script" path="res://DummyPlayerAI.gd" id="2_vn0dd"]
 [ext_resource type="Script" path="res://HumanPlayer.gd" id="3_lfwrd"]
+[ext_resource type="Texture2D" uid="uid://7bdu148lucdt" path="res://resources/images/avatar.png" id="4_lx8w5"]
 
 [node name="TestGame" type="Control"]
 layout_mode = 3
@@ -21,6 +22,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_lfwrd")
+player_name = "Player"
+player_avatar = ExtResource("4_lx8w5")
 
 [node name="TxtOutput" type="RichTextLabel" parent="HumanPlayer"]
 layout_mode = 1
@@ -49,6 +52,8 @@ text = "NEXT"
 
 [node name="DummyPlayerAI" type="Node" parent="."]
 script = ExtResource("2_vn0dd")
+player_name = "Bot"
+player_avatar = ExtResource("4_lx8w5")
 
 [node name="GameLogic" type="Node" parent="."]
 script = ExtResource("2_pv6xq")

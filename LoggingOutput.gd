@@ -19,56 +19,68 @@ func add_entry(player, msg):
 	append_text("[b][color=%s]%s[/color][/b] %s\n" % [color, player_name, msg])
 
 func _on_game_start():
-	add_entry(0, "START")
-	
-func _on_player_ready(player):
-	add_entry(player, "Player Ready")
+	add_entry(0, "Start")
+
+func _on_player_join_start(player: Player):
+	add_entry(0, "Join %s" % [player.player_name])
+
+func _on_player_join_end(player: int):
+	add_entry(player, "Joined")
+
+func _on_begin_game_start():
+	add_entry(0, "Begin Game")
+
+func _on_begin_game_end(player: int):
+	add_entry(player, "Begin Game End")
+
+func _on_begin_turn_start():
+	add_entry(0, "Begin Turn")
+
+func _on_begin_turn_end(player: int):
+	add_entry(player, "Begin Turn End")
 
 func _on_draw_start():
-	add_entry(0, "Draw Start")
+	add_entry(0, "Draw")
 
-func _on_draw_end(player):
+func _on_draw_end(player: int):
 	add_entry(player, "Draw End")
 
 func _on_play_start():
-	add_entry(0, "Play Start")
+	add_entry(0, "Play")
 
-func _on_play_end(player, data):
-	add_entry(player, "Play End")
+func _on_play_end(player: int, actions: Array[PlayerAction]):
+	add_entry(player, "PLAY END %s" % [actions.size()])
 
-func _on_resolve_turn_start(data):
-	add_entry(0, "Resolve Turn Start")
+func _on_finish_turn_start():
+	add_entry(0, "Finish Turn")
 
-func _on_resolve_turn_end(player):
-	add_entry(player, "Resolve Turn End")
+func _on_finish_turn_end(player: int):
+	add_entry(player, "Finish Turn End")
 
-func _on_next_turn_start():
-	add_entry(0, "Next Turn Start")
+func _on_finish_game_start():
+	add_entry(0, "Finish Game")
 
-func _on_next_turn_end(player):
-	add_entry(player, "Next Turn End")
-
-func _on_finish_game_start(data):
-	add_entry(0, "Finish Game Start")
-
-func _on_finish_game_end(player):
+func _on_finish_game_end(player: int):
 	add_entry(player, "Finish Game End")
 
-func _on_close_game():
+func _on_game_end():
 	add_entry(0, "END")
 
 func _ready():
-	print("ready logs")
 	events.connect("game_start", _on_game_start)
-	events.connect("player_ready", _on_player_ready)
+	events.connect("player_join_start", _on_player_join_start)
+	events.connect("player_join_end", _on_player_join_end)
+	events.connect("begin_game_start", _on_begin_game_start)
+	events.connect("begin_game_end", _on_begin_game_end)
+	events.connect("begin_turn_start", _on_begin_turn_start)
+	events.connect("begin_turn_end", _on_begin_turn_end)
 	events.connect("draw_start", _on_draw_start)
 	events.connect("draw_end", _on_draw_end)
 	events.connect("play_start", _on_play_start)
 	events.connect("play_end", _on_play_end)
-	events.connect("resolve_turn_start", _on_resolve_turn_start)
-	events.connect("resolve_turn_end", _on_resolve_turn_end)
-	events.connect("next_turn_start", _on_next_turn_start)
-	events.connect("next_turn_end", _on_next_turn_end)
+	events.connect("finish_turn_start", _on_finish_turn_start)
+	events.connect("finish_turn_end", _on_finish_turn_end)
 	events.connect("finish_game_start", _on_finish_game_start)
 	events.connect("finish_game_end", _on_finish_game_end)
-	events.connect("close_game", _on_close_game)
+	events.connect("game_end", _on_game_end)
+

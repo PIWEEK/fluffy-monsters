@@ -25,3 +25,12 @@ var player2: Player
 
 var player1_data: PlayerGameData
 var player2_data: PlayerGameData
+
+func set_player(player_num: int, player: Player):
+	pass
+
+func set_phase(phase: Phase):
+	pass
+
+func execute_actions(player: int, actions: Array[PlayerAction]):
+	pass
