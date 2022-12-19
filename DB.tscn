@@ -1,0 +1,181 @@
+[gd_scene load_steps=6 format=3 uid="uid://byutaow3kyfaj"]
+
+[ext_resource type="Script" path="res://src/db/Card.gd" id="1_7pqrb"]
+[ext_resource type="Texture2D" uid="uid://dl7llbh77aahj" path="res://resources/images/cards/Image Pasted at 2022-12-15 12-22.png" id="2_ralv4"]
+[ext_resource type="Script" path="res://src/db/Location.gd" id="3_qdwtv"]
+[ext_resource type="Script" path="res://src/db/CustomDeck.gd" id="3_qj7j8"]
+[ext_resource type="Texture2D" uid="uid://w6f163qpbpo8" path="res://resources/images/locations/new-york.jpg" id="4_ydx5r"]
+
+[node name="DB" type="Node"]
+
+[node name="Cards" type="Node" parent="."]
+
+[node name="test-card-1-2" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+id = "test-card-1-2"
+card_name = "Card 1"
+cost = 1
+power = 2
+image = ExtResource("2_ralv4")
+text = "Destroy!!"
+
+[node name="test-card-2-4" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+id = "test-card-1-2"
+card_name = "Card 1"
+cost = 2
+power = 4
+image = ExtResource("2_ralv4")
+text = "Destroy!!"
+
+[node name="test-card-3-6" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+id = "test-card-1-2"
+card_name = "Card 1"
+cost = 3
+power = 6
+image = ExtResource("2_ralv4")
+text = "Destroy!!"
+
+[node name="test-card-4-8" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+id = "test-card-1-2"
+card_name = "Card 1"
+cost = 5
+power = 8
+image = ExtResource("2_ralv4")
+text = "Destroy!!"
+
+[node name="test-card-5-10" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+id = "test-card-1-2"
+card_name = "Card 1"
+cost = 5
+power = 10
+image = ExtResource("2_ralv4")
+text = "Destroy!!"
+
+[node name="test-card-6-12" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+id = "test-card-1-2"
+card_name = "Card 1"
+cost = 6
+power = 12
+image = ExtResource("2_ralv4")
+text = "Destroy!!"
+
+[node name="other-card-1-2" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+id = "test-card-1-2"
+card_name = "Card 1"
+cost = 1
+power = 2
+image = ExtResource("2_ralv4")
+text = "Destroy!!"
+
+[node name="other-card-2-4" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+id = "test-card-1-2"
+card_name = "Card 1"
+cost = 2
+power = 4
+image = ExtResource("2_ralv4")
+text = "Destroy!!"
+
+[node name="other-card-3-6" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+id = "test-card-1-2"
+card_name = "Card 1"
+cost = 3
+power = 6
+image = ExtResource("2_ralv4")
+text = "Destroy!!"
+
+[node name="other-card-4-8" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+id = "test-card-1-2"
+card_name = "Card 1"
+cost = 5
+power = 8
+image = ExtResource("2_ralv4")
+text = "Destroy!!"
+
+[node name="other-card-5-10" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+id = "test-card-1-2"
+card_name = "Card 1"
+cost = 5
+power = 10
+image = ExtResource("2_ralv4")
+text = "Destroy!!"
+
+[node name="other-card-6-12" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+id = "test-card-1-2"
+card_name = "Card 1"
+cost = 6
+power = 12
+image = ExtResource("2_ralv4")
+text = "Destroy!!"
+
+[node name="Locations" type="Node" parent="."]
+
+[node name="madrid" type="Node" parent="Locations"]
+script = ExtResource("3_qdwtv")
+id = "madrid"
+location_name = "Madrid"
+text = ""
+image = ExtResource("4_ydx5r")
+
+[node name="new-york" type="Node" parent="Locations"]
+script = ExtResource("3_qdwtv")
+id = "new-york"
+location_name = "New York"
+text = ""
+image = ExtResource("4_ydx5r")
+
+[node name="barcelona" type="Node" parent="Locations"]
+script = ExtResource("3_qdwtv")
+id = "barcelona"
+location_name = "Barcelona"
+text = ""
+image = ExtResource("4_ydx5r")
+
+[node name="london" type="Node" parent="Locations"]
+script = ExtResource("3_qdwtv")
+id = "london"
+location_name = "London"
+text = ""
+image = ExtResource("4_ydx5r")
+
+[node name="rio" type="Node" parent="Locations"]
+script = ExtResource("3_qdwtv")
+id = "rio"
+location_name = "Rio de Janeiro"
+text = ""
+image = ExtResource("4_ydx5r")
+
+[node name="los-angeles" type="Node" parent="Locations"]
+script = ExtResource("3_qdwtv")
+id = "los-angeles"
+location_name = "Los Angeles"
+text = ""
+image = ExtResource("4_ydx5r")
+
+[node name="Decks" type="Node" parent="."]
+
+[node name="Test" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
+script = ExtResource("3_qj7j8")
+deck_name = "Test"
+card1 = NodePath("../../Cards/test-card-1-2")
+card2 = NodePath("../../Cards/test-card-2-4")
+card3 = NodePath("../../Cards/test-card-3-6")
+card4 = NodePath("../../Cards/test-card-4-8")
+card5 = NodePath("../../Cards/test-card-5-10")
+card6 = NodePath("../../Cards/test-card-6-12")
+card7 = NodePath("../../Cards/other-card-1-2")
+card8 = NodePath("../../Cards/other-card-2-4")
+card9 = NodePath("../../Cards/other-card-3-6")
+card10 = NodePath("../../Cards/other-card-4-8")
+card11 = NodePath("../../Cards/other-card-5-10")
+card12 = NodePath("../../Cards/other-card-6-12")

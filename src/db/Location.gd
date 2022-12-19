@@ -2,7 +2,7 @@ extends Node
 
 class_name Location
 
-var id: String
-var location_name: String
-var text: String
-var image: Image
+@export var id: String
+@export var location_name: String
+@export_multiline var text: String
+@export var image: Texture
