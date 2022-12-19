@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://byutaow3kyfaj"]
+[gd_scene load_steps=11 format=3 uid="uid://byutaow3kyfaj"]
 
 [ext_resource type="Script" path="res://src/db/Card.gd" id="1_7pqrb"]
 [ext_resource type="Texture2D" uid="uid://dl7llbh77aahj" path="res://resources/images/cards/Image Pasted at 2022-12-15 12-22.png" id="2_ralv4"]
 [ext_resource type="Script" path="res://src/db/Location.gd" id="3_qdwtv"]
 [ext_resource type="Script" path="res://src/db/CustomDeck.gd" id="3_qj7j8"]
+[ext_resource type="Texture2D" uid="uid://ol2pxjnpsr0h" path="res://resources/images/locations/madrid.jpg" id="4_7vlbj"]
 [ext_resource type="Texture2D" uid="uid://w6f163qpbpo8" path="res://resources/images/locations/new-york.jpg" id="4_ydx5r"]
+[ext_resource type="Texture2D" uid="uid://clj67eycgm4b1" path="res://resources/images/locations/barcelona.jpg" id="6_o74b8"]
+[ext_resource type="Texture2D" uid="uid://bttbekdv7pj8v" path="res://resources/images/locations/tokyo.jpg" id="7_4mh3e"]
+[ext_resource type="Texture2D" uid="uid://dyoydo5yiw47t" path="res://resources/images/locations/rio.jpg" id="8_p7js3"]
+[ext_resource type="Texture2D" uid="uid://bfl6hminj5e12" path="res://resources/images/locations/los-angeles.jpg" id="9_4hd2b"]
 
 [node name="DB" type="Node"]
 
@@ -125,7 +130,7 @@ script = ExtResource("3_qdwtv")
 id = "madrid"
 location_name = "Madrid"
 text = ""
-image = ExtResource("4_ydx5r")
+image = ExtResource("4_7vlbj")
 
 [node name="new-york" type="Node" parent="Locations"]
 script = ExtResource("3_qdwtv")
@@ -139,28 +144,28 @@ script = ExtResource("3_qdwtv")
 id = "barcelona"
 location_name = "Barcelona"
 text = ""
-image = ExtResource("4_ydx5r")
+image = ExtResource("6_o74b8")
 
-[node name="london" type="Node" parent="Locations"]
+[node name="tokyo" type="Node" parent="Locations"]
 script = ExtResource("3_qdwtv")
-id = "london"
-location_name = "London"
+id = "tokyo"
+location_name = "tokyo"
 text = ""
-image = ExtResource("4_ydx5r")
+image = ExtResource("7_4mh3e")
 
 [node name="rio" type="Node" parent="Locations"]
 script = ExtResource("3_qdwtv")
 id = "rio"
 location_name = "Rio de Janeiro"
 text = ""
-image = ExtResource("4_ydx5r")
+image = ExtResource("8_p7js3")
 
 [node name="los-angeles" type="Node" parent="Locations"]
 script = ExtResource("3_qdwtv")
 id = "los-angeles"
 location_name = "Los Angeles"
 text = ""
-image = ExtResource("4_ydx5r")
+image = ExtResource("9_4hd2b")
 
 [node name="Decks" type="Node" parent="."]
 

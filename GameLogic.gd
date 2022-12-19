@@ -8,6 +8,10 @@ var player1_ready = false
 var player2_ready = false
 
 func init_game():
+	var state_node = GameState.new()
+	state_node.name = "GameState"
+	get_node(".").add_child(state_node)
+
 	player1_ready = false
 	player2_ready = false
 	print("emit game_start")

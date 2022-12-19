@@ -1,7 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://c212vrbsl3oy0"]
+[gd_scene load_steps=5 format=3 uid="uid://c212vrbsl3oy0"]
 
-[ext_resource type="Script" path="res://src/game/GameState.gd" id="1_g4ltp"]
-[ext_resource type="PackedScene" uid="uid://byutaow3kyfaj" path="res://DB.tscn" id="1_iy3h2"]
 [ext_resource type="Script" path="res://LoggingOutput.gd" id="2_i7twu"]
 [ext_resource type="Script" path="res://GameLogic.gd" id="2_pv6xq"]
 [ext_resource type="Script" path="res://DummyPlayerAI.gd" id="2_vn0dd"]
@@ -14,11 +12,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="DB" parent="." instance=ExtResource("1_iy3h2")]
-
-[node name="GameState" type="Node" parent="."]
-script = ExtResource("1_g4ltp")
 
 [node name="HumanPlayer" type="Panel" parent="."]
 layout_mode = 1

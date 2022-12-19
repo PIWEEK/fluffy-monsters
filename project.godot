@@ -82,6 +82,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*res://Events.gd"
+DB="*res://DB.tscn"
 
 [display]
 
