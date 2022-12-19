@@ -8,6 +8,64 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Node",
+"class": &"Card",
+"language": &"GDScript",
+"path": "res://src/db/Card.gd"
+}, {
+"base": "Node",
+"class": &"GameLocation",
+"language": &"GDScript",
+"path": "res://src/game/GameLocation.gd"
+}, {
+"base": "Node",
+"class": &"GameState",
+"language": &"GDScript",
+"path": "res://src/game/GameState.gd"
+}, {
+"base": "Node",
+"class": &"HandCard",
+"language": &"GDScript",
+"path": "res://src/game/HandCard.gd"
+}, {
+"base": "Node",
+"class": &"Location",
+"language": &"GDScript",
+"path": "res://src/db/Location.gd"
+}, {
+"base": "Node",
+"class": &"Modifier",
+"language": &"GDScript",
+"path": "res://src/game/Modifier.gd"
+}, {
+"base": "Node",
+"class": &"PlayedCard",
+"language": &"GDScript",
+"path": "res://src/game/PlayedCard.gd"
+}, {
+"base": "Node",
+"class": &"Player",
+"language": &"GDScript",
+"path": "res://src/Player.gd"
+}, {
+"base": "Node",
+"class": &"PlayerGameData",
+"language": &"GDScript",
+"path": "res://src/game/PlayerGameData.gd"
+}]
+_global_script_class_icons={
+"Card": "",
+"GameLocation": "",
+"GameState": "",
+"HandCard": "",
+"Location": "",
+"Modifier": "",
+"PlayedCard": "",
+"Player": "",
+"PlayerGameData": ""
+}
+
 [application]
 
 config/name="fluffy-monsters"
