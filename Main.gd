@@ -1,6 +1,9 @@
 extends Node2D
 
+@onready var gui_events = get_node("/root/GuiEvents")
+
 var game_size
+var dragging_card = null
 
 func _ready():
 	game_size = Vector2(ProjectSettings.get_setting("display/window/size/viewport_width"), ProjectSettings.get_setting("display/window/size/viewport_height"))
@@ -8,6 +11,8 @@ func _ready():
 	#DisplayServer.window_set_rect_changed_callback(Callable(self, "resize_viewport"))
 	resize_viewport()
 	get_tree().root.connect("size_changed", Callable(self, "resize_viewport"))
+	gui_events.connect("start_drag_card", _on_start_drag_card)
+	gui_events.connect("stop_drag_card", _on_stop_drag_card)
 
 func resize_viewport():
 	var new_size = DisplayServer.window_get_size()
@@ -24,9 +29,22 @@ func resize_viewport():
 			
 	$Camera2D.zoom.x = scale_factor
 	$Camera2D.zoom.y = scale_factor
-	print ("resizing..." + str(new_size) + " " + str(game_size)+ " " + str(scale_factor))
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	
+func _on_start_drag_card(card):
+	if dragging_card != null:
+		remove_child(dragging_card)
+		
+	dragging_card = card.duplicate()
+	add_child(dragging_card)
+	
+func _on_stop_drag_card():
+	if dragging_card != null:
+		remove_child(dragging_card)
+	dragging_card = null
+	
+func _process(delta):	
+	if dragging_card != null:
+		var mousepos = get_global_mouse_position()
+		dragging_card.position = Vector2(mousepos.x + 15, mousepos.y + 15)
 

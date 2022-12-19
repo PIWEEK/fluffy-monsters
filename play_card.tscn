@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddtxl63o8somk"]
+
+[ext_resource type="Script" path="res://play_card.gd" id="1_4tw3x"]
+[ext_resource type="Texture2D" uid="uid://3pxjaeah5j7x" path="res://resources/images/cards/chaos_hamster.png" id="1_jdhub"]
+[ext_resource type="Texture2D" uid="uid://o2hsdfplvqsv" path="res://resources/images/icons/power.png" id="2_t1rth"]
+[ext_resource type="Texture2D" uid="uid://cpm0lucvcqip1" path="res://resources/images/icons/energy.png" id="3_xs7fq"]
+[ext_resource type="Texture2D" uid="uid://e0che0egrpkn" path="res://resources/images/backs/back01.png" id="4_t5haw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uo7pj"]
+font_size = 28
+
+[node name="PlayCard" type="Node2D"]
+script = ExtResource("1_4tw3x")
+
+[node name="Selected" type="ColorRect" parent="."]
+visible = false
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 210.0
+offset_bottom = 310.0
+color = Color(1, 1, 0.2, 1)
+
+[node name="Front" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_jdhub")
+
+[node name="Power" type="TextureRect" parent="Front"]
+offset_left = 152.0
+offset_top = 3.0
+offset_right = 197.0
+offset_bottom = 56.0
+texture = ExtResource("2_t1rth")
+
+[node name="PowerLabel" type="Label" parent="Front/Power"]
+offset_right = 44.0
+offset_bottom = 52.0
+text = "6"
+label_settings = SubResource("LabelSettings_uo7pj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Energy" type="TextureRect" parent="Front"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 51.0
+offset_bottom = 59.0
+texture = ExtResource("3_xs7fq")
+
+[node name="EnergyLabel2" type="Label" parent="Front/Energy"]
+offset_right = 45.0
+offset_bottom = 46.0
+text = "6"
+label_settings = SubResource("LabelSettings_uo7pj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_t5haw")
+
+[connection signal="gui_input" from="Front" to="." method="_on_front_gui_input"]
