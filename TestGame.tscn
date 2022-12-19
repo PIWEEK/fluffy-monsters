@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3tpd0b4plsp2"]
+
+[ext_resource type="Script" path="res://LoggingOutput.gd" id="2_i7twu"]
+[ext_resource type="Script" path="res://GameLogic.gd" id="2_pv6xq"]
+[ext_resource type="Script" path="res://DummyPlayerAI.gd" id="2_vn0dd"]
+[ext_resource type="Script" path="res://HumanPlayer.gd" id="3_lfwrd"]
+
+[node name="TestGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HumanPlayer" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_lfwrd")
+
+[node name="TxtOutput" type="RichTextLabel" parent="HumanPlayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 20.0
+offset_right = -24.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+script = ExtResource("2_i7twu")
+
+[node name="BtnNext" type="Button" parent="HumanPlayer"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "NEXT"
+
+[node name="DummyPlayerAI" type="Node" parent="."]
+script = ExtResource("2_vn0dd")
+
+[node name="GameLogic" type="Node" parent="."]
+script = ExtResource("2_pv6xq")
