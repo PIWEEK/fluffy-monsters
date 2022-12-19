@@ -1,3 +1,53 @@
-[gd_scene format=3 uid="uid://bqg8s18o30kyj"]
+[gd_scene load_steps=4 format=3 uid="uid://bqg8s18o30kyj"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://Main.gd" id="1_pyw5d"]
+[ext_resource type="Texture2D" uid="uid://bbxo64uissvlj" path="res://resources/images/Background_1_A.jpg" id="2_h47nq"]
+[ext_resource type="Texture2D" uid="uid://dl7llbh77aahj" path="res://resources/images/cards/Image Pasted at 2022-12-15 12-22.png" id="3_h1gol"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_pyw5d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+current = true
+zoom = Vector2(0.5, 0.5)
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -2880.0
+offset_top = -1620.0
+offset_right = 4800.0
+offset_bottom = 2700.0
+texture = ExtResource("2_h47nq")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.588235)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 426.0
+offset_right = 1186.0
+offset_bottom = 1450.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_h1gol")
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+offset_left = 714.0
+offset_top = 450.0
+offset_right = 1738.0
+offset_bottom = 1474.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_h1gol")
+
+[node name="TextureRect3" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+offset_left = 1398.0
+offset_top = 462.0
+offset_right = 2422.0
+offset_bottom = 1486.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_h1gol")
