@@ -6,6 +6,25 @@ extends Panel
 @export var player_name: String
 @export var player_avatar: Texture
 
+### TEMPORARY UNTIL INTEGRATED INTO UI. SAME SELECTION AS AI
+func play_turn() -> Array[PlayerAction]:
+	var player_turn: Array[PlayerAction] = []
+	
+	var state: GameState = $"../GameLogic".state
+	var player_data: PlayerGameData = state.get_player_data(current_player)
+	var locations: Array[GameLocation] = state.get_locations()
+	
+	var current_energy = player_data.energy
+	for card in player_data.hand:
+		if card.current_cost <= current_energy:
+			for loc in locations:
+				if 	(current_player == 1 and loc.cards_p1.size() < 4) or \
+					(current_player == 2 and loc.cards_p2.size() < 4):
+					player_turn.push_back(PlayerAction.new(card.card_id, loc.location_id))
+					current_energy -= card.current_cost
+					break
+	return player_turn
+	
 # Store the current phase to send it to the main bus with a single button
 var current_phase: String
 var current_player: int
@@ -27,8 +46,7 @@ func _on_btn_next_pressed():
 			events.emit_signal("draw_end", current_player)
 			
 		"play_start":
-			var player_turn: Array[PlayerAction] = []
-			events.emit_signal("play_end", current_player, player_turn)
+			events.emit_signal("play_end", current_player, play_turn())
 
 		"begin_turn_start":
 			events.emit_signal("begin_turn_end", current_player)

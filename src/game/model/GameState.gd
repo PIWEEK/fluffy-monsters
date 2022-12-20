@@ -16,12 +16,21 @@ enum Phase {
 var turn: int
 var phase: Phase
 
-var left: GameLocation
-var center: GameLocation
-var right: GameLocation
+var loc1: GameLocation
+var loc2: GameLocation
+var loc3: GameLocation
 
 var player1: Player
 var player2: Player
 
 var player1_data: PlayerGameData
 var player2_data: PlayerGameData
+
+func get_player_data(player_num: int) -> PlayerGameData:
+	if player_num == 1:
+		return player1_data
+	else:
+		return player2_data
+
+func get_locations() -> Array[GameLocation]:
+	return [loc1, loc2, loc3]

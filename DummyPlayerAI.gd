@@ -3,12 +3,33 @@ extends Node
 @onready var events = get_node("/root/Events")
 
 # Delay before the AI emits its signals
-var delay = 1
+var delay = 0
 
 @export var player_name: String
 @export var player_avatar: Texture
 
 var current_player
+
+### MAIN LOGIC FOR THE BOT
+###  - Selects all the cards that can play in a greedy fashion
+###  - Plays them in the first location with available slots
+func play_turn() -> Array[PlayerAction]:
+	var player_turn: Array[PlayerAction] = []
+	
+	var state: GameState = $"../GameLogic".state
+	var player_data: PlayerGameData = state.get_player_data(current_player)
+	var locations: Array[GameLocation] = state.get_locations()
+	
+	var current_energy = player_data.energy
+	for card in player_data.hand:
+		if card.current_cost <= current_energy:
+			for loc in locations:
+				if 	(current_player == 1 and loc.cards_p1.size() < 4) or \
+					(current_player == 2 and loc.cards_p2.size() < 4):
+					player_turn.push_back(PlayerAction.new(card.card_id, loc.location_id))
+					current_energy -= card.current_cost
+					break
+	return player_turn
 
 func _on_game_start():
 	await get_tree().create_timer(delay).timeout
@@ -35,8 +56,7 @@ func _on_draw_start():
 	
 func _on_play_start():
 	await get_tree().create_timer(delay).timeout
-	var player_turn: Array[PlayerAction] = []
-	events.emit_signal("play_end", current_player, player_turn)
+	events.emit_signal("play_end", current_player, play_turn())
 	
 func _on_finish_turn_start():
 	await get_tree().create_timer(delay).timeout

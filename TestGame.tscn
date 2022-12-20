@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c212vrbsl3oy0"]
+[gd_scene load_steps=11 format=3 uid="uid://c212vrbsl3oy0"]
 
 [ext_resource type="Script" path="res://LoggingOutput.gd" id="2_i7twu"]
 [ext_resource type="Script" path="res://GameLogic.gd" id="2_pv6xq"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://src/game/services/DeckService.gd" id="7_6os74"]
 [ext_resource type="Script" path="res://src/game/services/GameStateService.gd" id="8_5rou8"]
 [ext_resource type="Script" path="res://src/game/services/HandService.gd" id="9_v7ty3"]
+[ext_resource type="Script" path="res://src/game/services/LocationService.gd" id="10_idw4f"]
 
 [node name="TestGame" type="Control"]
 layout_mode = 3
@@ -19,15 +20,18 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HumanPlayer" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_lfwrd")
+player_name = "Player"
 player_avatar = ExtResource("4_lx8w5")
 
 [node name="TxtOutput" type="RichTextLabel" parent="HumanPlayer"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,6 +45,7 @@ bbcode_enabled = true
 script = ExtResource("2_i7twu")
 
 [node name="BtnNext" type="Button" parent="HumanPlayer"]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -52,6 +57,8 @@ text = "NEXT"
 
 [node name="DummyPlayerAI" type="Node" parent="."]
 script = ExtResource("2_vn0dd")
+player_name = "Dummy"
+player_avatar = ExtResource("4_lx8w5")
 
 [node name="GameLogic" type="Node" parent="."]
 script = ExtResource("2_pv6xq")
@@ -67,3 +74,6 @@ script = ExtResource("8_5rou8")
 
 [node name="HandService" type="Node" parent="GameLogic"]
 script = ExtResource("9_v7ty3")
+
+[node name="LocationService" type="Node" parent="GameLogic"]
+script = ExtResource("10_idw4f")

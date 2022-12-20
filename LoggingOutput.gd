@@ -1,6 +1,7 @@
 extends RichTextLabel
 
-@onready var events = get_node("/root/Events")
+@onready var events: Events = $"/root/Events"
+@onready var db: DataBase = $"/root/DB"
 
 func add_entry(player, msg):
 	var color = ""
@@ -49,7 +50,12 @@ func _on_play_start():
 	add_entry(0, "Play")
 
 func _on_play_end(player: int, actions: Array[PlayerAction]):
-	add_entry(player, "PLAY END %s" % [actions.size()])
+	var play_string = ""
+	for action in actions:
+		var card = db.get_card(action.card_id)
+		var location = db.get_location(action.target_location_id)
+		play_string += "(%s in %s), " % [card.card_name, location.location_name]
+	add_entry(player, "PLAY END %s" % play_string)
 
 func _on_finish_turn_start():
 	add_entry(0, "Finish Turn")

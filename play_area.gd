@@ -58,12 +58,11 @@ func draw_card():
 func _on_stop_drag_card(card):	
 	if gui_state.dragging_location != null:
 		play_card(card, gui_state.dragging_location)
-		
-		
+
 func play_card(card, location):	
 	print ("add card to location " + str(location.location_num))
 	$Hand.remove_card(card)
 	location.add_card(card)
 	card.draggable = false
-	
+
 
