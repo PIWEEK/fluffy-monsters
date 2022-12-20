@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://30rlqls2jcb7"]
+[gd_scene load_steps=4 format=3 uid="uid://30rlqls2jcb7"]
 
 [ext_resource type="Script" path="res://play_area.gd" id="1_by8b4"]
+[ext_resource type="PackedScene" uid="uid://bbbhacwcc4yr8" path="res://play_area_hand.tscn" id="2_nfgq3"]
+[ext_resource type="PackedScene" uid="uid://dim0lew6t2nyh" path="res://play_area_location.tscn" id="3_l05bd"]
 
 [node name="PlayArea" type="Node2D"]
 script = ExtResource("1_by8b4")
@@ -22,63 +24,22 @@ layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 165.0
 
-[node name="Hand" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 480.0
-offset_top = 915.0
-offset_right = 2400.0
-offset_bottom = 1215.0
-scale = Vector2(0.5, 0.5)
+[node name="Hand" parent="." instance=ExtResource("2_nfgq3")]
 
-[node name="Area1" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Location1" parent="." instance=ExtResource("3_l05bd")]
 offset_left = 15.0
 offset_top = 615.0
 offset_right = 635.0
 offset_bottom = 915.0
 
-[node name="Highlight" type="ColorRect" parent="Area1"]
-visible = false
-layout_mode = 0
-offset_right = 620.0
-offset_bottom = 300.0
-color = Color(1, 1, 1, 0.196078)
-
-[node name="Area2" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Location2" parent="." instance=ExtResource("3_l05bd")]
 offset_left = 650.0
 offset_top = 615.0
 offset_right = 1270.0
 offset_bottom = 915.0
 
-[node name="Highlight" type="ColorRect" parent="Area2"]
-visible = false
-layout_mode = 0
-offset_right = 620.0
-offset_bottom = 300.0
-color = Color(1, 1, 1, 0.196078)
-
-[node name="Area3" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Location3" parent="." instance=ExtResource("3_l05bd")]
 offset_left = 1285.0
 offset_top = 615.0
 offset_right = 1905.0
 offset_bottom = 915.0
-
-[node name="Highlight" type="ColorRect" parent="Area3"]
-visible = false
-layout_mode = 0
-offset_right = 620.0
-offset_bottom = 300.0
-color = Color(1, 1, 1, 0.196078)
-
-[connection signal="mouse_entered" from="Area1" to="." method="_on_area_1_mouse_entered"]
-[connection signal="mouse_exited" from="Area1/Highlight" to="." method="_on_highlight_mouse_exited"]
-[connection signal="mouse_entered" from="Area2" to="." method="_on_area_2_mouse_entered"]
-[connection signal="mouse_exited" from="Area2/Highlight" to="." method="_on_highlight_mouse_exited"]
-[connection signal="mouse_entered" from="Area3" to="." method="_on_area_3_mouse_entered"]
-[connection signal="mouse_exited" from="Area3/Highlight" to="." method="_on_highlight_mouse_exited"]

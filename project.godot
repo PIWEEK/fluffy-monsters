@@ -89,6 +89,7 @@ config/icon="res://icon.svg"
 
 Events="*res://Events.gd"
 GuiEvents="*res://gui_events.gd"
+GuiState="*res://gui_state.gd"
 
 [display]
 

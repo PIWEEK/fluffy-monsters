@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cpm0lucvcqip1" path="res://resources/images/icons/energy.png" id="3_xs7fq"]
 [ext_resource type="Texture2D" uid="uid://e0che0egrpkn" path="res://resources/images/backs/back01.png" id="4_t5haw"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_uo7pj"]
+[sub_resource type="LabelSettings" id="LabelSettings_avoei"]
 font_size = 28
 
 [node name="PlayCard" type="Node2D"]
@@ -36,7 +36,7 @@ texture = ExtResource("2_t1rth")
 offset_right = 44.0
 offset_bottom = 52.0
 text = "6"
-label_settings = SubResource("LabelSettings_uo7pj")
+label_settings = SubResource("LabelSettings_avoei")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -51,7 +51,7 @@ texture = ExtResource("3_xs7fq")
 offset_right = 45.0
 offset_bottom = 46.0
 text = "6"
-label_settings = SubResource("LabelSettings_uo7pj")
+label_settings = SubResource("LabelSettings_avoei")
 horizontal_alignment = 1
 vertical_alignment = 1
 

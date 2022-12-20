@@ -1,9 +1,10 @@
 extends Node2D
 
 @onready var gui_events = get_node("/root/GuiEvents")
+@onready var gui_state = get_node("/root/GuiState")
 
 var game_size
-var dragging_card = null
+var cursor_card = null
 
 func _ready():
 	game_size = Vector2(ProjectSettings.get_setting("display/window/size/viewport_width"), ProjectSettings.get_setting("display/window/size/viewport_height"))
@@ -32,19 +33,18 @@ func resize_viewport():
 	
 	
 func _on_start_drag_card(card):
-	if dragging_card != null:
-		remove_child(dragging_card)
+	if cursor_card != null:
+		remove_child(cursor_card)
 		
-	dragging_card = card.duplicate()
-	add_child(dragging_card)
+	cursor_card = card.duplicate()
+	add_child(cursor_card)
 	
-func _on_stop_drag_card():
-	if dragging_card != null:
-		remove_child(dragging_card)
-	dragging_card = null
+func _on_stop_drag_card(card):
+	if cursor_card != null:
+		remove_child(cursor_card)
 	
 func _process(delta):	
-	if dragging_card != null:
+	if cursor_card != null:
 		var mousepos = get_global_mouse_position()
-		dragging_card.position = Vector2(mousepos.x + 15, mousepos.y + 15)
+		cursor_card.position = Vector2(mousepos.x + 15, mousepos.y + 15)
 
