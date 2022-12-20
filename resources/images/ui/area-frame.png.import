@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyoydo5yiw47t"
-path="res://.godot/imported/rio.jpg-4f1746826b02db0618f5efabf7d329c0.ctex"
+uid="uid://cr001skgrcope"
+path="res://.godot/imported/area-frame.png-d06705b507807129e869d44b0fb01585.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/locations/rio.jpg"
-dest_files=["res://.godot/imported/rio.jpg-4f1746826b02db0618f5efabf7d329c0.ctex"]
+source_file="res://resources/images/ui/area-frame.png"
+dest_files=["res://.godot/imported/area-frame.png-d06705b507807129e869d44b0fb01585.ctex"]
 
 [params]
 

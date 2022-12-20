@@ -1,5 +1,5 @@
 extends Control
-const AREA_GAP = 10
+const AREA_GAP = 33
 
 @onready var gui_events = get_node("/root/GuiEvents")
 @onready var gui_state = get_node("/root/GuiState")
@@ -14,7 +14,7 @@ func _ready():
 func init(location_num, slug):
 	self.location_num = location_num
 	self.slug = slug
-	$Image.texture = load("res://resources/images/locations/crop/" + slug + ".jpg")
+	$Image.texture = load("res://resources/images/locations/" + slug + ".png")
 	
 
 func _process(delta):
@@ -35,10 +35,10 @@ func redraw_location():
 		cards += " " + card.slug
 	print ("redrawing " + str(location_num) + " cards " + str(len(gui_state.cards_location[location_num])) + " " + cards)
 	
-	var x = 5	
+	var x = 46
 	for card in gui_state.cards_location[location_num]:
 		card.position.x = x
-		card.position.y = 0
+		card.position.y = 35
 		x += gui_state.CARD_WIDTH + AREA_GAP
 
 func add_card(card):	

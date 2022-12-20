@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w34cbi64rh86"
-path="res://.godot/imported/tokyo.jpg-0fd0ba053465aaedf9cdba576af5d4e4.ctex"
+uid="uid://vu6wf4jugqvn"
+path="res://.godot/imported/city-ny.png-8ac40b7941f31c97bb4d8165a43feb31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/locations/crop/tokyo.jpg"
-dest_files=["res://.godot/imported/tokyo.jpg-0fd0ba053465aaedf9cdba576af5d4e4.ctex"]
+source_file="res://resources/images/locations/city-ny.png"
+dest_files=["res://.godot/imported/city-ny.png-8ac40b7941f31c97bb4d8165a43feb31.ctex"]
 
 [params]
 

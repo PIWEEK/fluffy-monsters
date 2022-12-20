@@ -1,24 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://dim0lew6t2nyh"]
+[gd_scene load_steps=6 format=3 uid="uid://dim0lew6t2nyh"]
 
 [ext_resource type="Script" path="res://components/play_area_location.gd" id="1_0u7xl"]
+[ext_resource type="Texture2D" uid="uid://cr001skgrcope" path="res://resources/images/ui/area-frame.png" id="2_7m8p7"]
+[ext_resource type="Texture2D" uid="uid://vu6wf4jugqvn" path="res://resources/images/locations/city-ny.png" id="3_e42mu"]
+[ext_resource type="Texture2D" uid="uid://bnxo6e0k8ju6q" path="res://resources/images/ui/loc-frame-win.png" id="4_vp8cp"]
+[ext_resource type="Texture2D" uid="uid://cj5dlw1n3e5nb" path="res://resources/images/ui/loc-frame-lose.png" id="5_60w02"]
 
 [node name="Location" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 620.0
-offset_bottom = 300.0
+offset_right = 990.0
+offset_bottom = 320.0
 script = ExtResource("1_0u7xl")
 
+[node name="Frame" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_7m8p7")
+
 [node name="Image" type="TextureRect" parent="."]
-offset_left = 212.0
-offset_top = -151.0
-offset_right = 412.0
-offset_bottom = -0.999969
+offset_left = 295.0
+offset_top = -525.0
+offset_right = 695.0
+offset_bottom = -125.0
+texture = ExtResource("3_e42mu")
+
+[node name="RibonWinDown" type="TextureRect" parent="."]
+offset_left = 295.0
+offset_top = -188.0
+offset_right = 695.0
+texture = ExtResource("4_vp8cp")
+
+[node name="RibonWinUp" type="TextureRect" parent="."]
+offset_left = 295.0
+offset_top = -713.0
+offset_right = 695.0
+offset_bottom = -525.0
+texture = ExtResource("4_vp8cp")
+flip_v = true
+
+[node name="RibonLoseUp" type="TextureRect" parent="."]
+offset_left = 295.0
+offset_top = -713.0
+offset_right = 695.0
+offset_bottom = -525.0
+texture = ExtResource("5_60w02")
+flip_v = true
+
+[node name="RibonLoseDown" type="TextureRect" parent="."]
+offset_left = 295.0
+offset_top = -188.0
+offset_right = 695.0
+texture = ExtResource("5_60w02")
 
 [node name="Highlight" type="ColorRect" parent="."]
 visible = false
-offset_right = 620.0
-offset_bottom = 300.0
+offset_right = 990.0
+offset_bottom = 320.0
 color = Color(1, 1, 1, 0.196078)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

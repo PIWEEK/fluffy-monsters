@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btfhdxitjvrv"
-path="res://.godot/imported/rio.jpg-864d7e4d0cfa2db4ecf0a389306e8ebe.ctex"
+uid="uid://lmeq1o34l4v3"
+path="res://.godot/imported/city-paris.png-8ad3c560d44654bd8d4e17b80f65f194.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/locations/crop/rio.jpg"
-dest_files=["res://.godot/imported/rio.jpg-864d7e4d0cfa2db4ecf0a389306e8ebe.ctex"]
+source_file="res://resources/images/locations/city-paris.png"
+dest_files=["res://.godot/imported/city-paris.png-8ad3c560d44654bd8d4e17b80f65f194.ctex"]
 
 [params]
 

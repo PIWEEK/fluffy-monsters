@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dct64qx1lmmo3"
-path="res://.godot/imported/barcelona.jpg-91c36bed6886fdf7753dc789d21f4ee4.ctex"
+uid="uid://bnxo6e0k8ju6q"
+path="res://.godot/imported/loc-frame-win.png-ec16b6afc33d1610843181b024241602.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/locations/crop/barcelona.jpg"
-dest_files=["res://.godot/imported/barcelona.jpg-91c36bed6886fdf7753dc789d21f4ee4.ctex"]
+source_file="res://resources/images/ui/loc-frame-win.png"
+dest_files=["res://.godot/imported/loc-frame-win.png-ec16b6afc33d1610843181b024241602.ctex"]
 
 [params]
 

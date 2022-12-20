@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2vl16jfss4bt"
-path="res://.godot/imported/madrid.jpg-5a82bd729027d1100f7246cb3683517f.ctex"
+uid="uid://dhjk28lytavvr"
+path="res://.godot/imported/city-rome.png-822a0505c47c41e37f12c9b3abf4a42e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/locations/crop/madrid.jpg"
-dest_files=["res://.godot/imported/madrid.jpg-5a82bd729027d1100f7246cb3683517f.ctex"]
+source_file="res://resources/images/locations/city-rome.png"
+dest_files=["res://.godot/imported/city-rome.png-822a0505c47c41e37f12c9b3abf4a42e.ctex"]
 
 [params]
 

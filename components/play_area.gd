@@ -27,9 +27,9 @@ var slug_num = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Location1.init (0, "tokyo")
-	$Location2.init (1, "madrid")
-	$Location3.init (2, "rio")
+	$Location1.init (0, "city-ny")
+	$Location2.init (1, "city-paris")
+	$Location3.init (2, "city-rome")
 	
 	#draw_card()
 	#draw_card()

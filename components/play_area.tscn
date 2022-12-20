@@ -38,24 +38,32 @@ offset_right = 1920.0
 offset_bottom = 165.0
 
 [node name="Hand" parent="." instance=ExtResource("2_nfgq3")]
+offset_left = 240.0
+offset_top = 870.0
+offset_right = 2160.0
+offset_bottom = 1170.0
+scale = Vector2(0.75, 0.75)
 
 [node name="Location1" parent="." instance=ExtResource("3_l05bd")]
-offset_left = 15.0
-offset_top = 615.0
-offset_right = 635.0
-offset_bottom = 915.0
+offset_left = 175.0
+offset_top = 660.0
+offset_right = 1165.0
+offset_bottom = 980.0
+scale = Vector2(0.5, 0.5)
 
 [node name="Location2" parent="." instance=ExtResource("3_l05bd")]
-offset_left = 650.0
-offset_top = 615.0
-offset_right = 1270.0
-offset_bottom = 915.0
+offset_left = 717.0
+offset_top = 660.0
+offset_right = 1707.0
+offset_bottom = 980.0
+scale = Vector2(0.5, 0.5)
 
 [node name="Location3" parent="." instance=ExtResource("3_l05bd")]
-offset_left = 1285.0
-offset_top = 615.0
-offset_right = 1905.0
-offset_bottom = 915.0
+offset_left = 1254.0
+offset_top = 660.0
+offset_right = 2244.0
+offset_bottom = 980.0
+scale = Vector2(0.5, 0.5)
 
 [node name="NextTurnButton" type="Button" parent="."]
 offset_left = 1752.0
