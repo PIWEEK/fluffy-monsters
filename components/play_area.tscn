@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://wbc1nsfma30e"]
+[gd_scene load_steps=16 format=3 uid="uid://wbc1nsfma30e"]
 
 [ext_resource type="Script" path="res://components/play_area.gd" id="1_by8b4"]
 [ext_resource type="Texture2D" uid="uid://1xlwogbg6v04" path="res://resources/images/ui/table-bg-eyes.jpg" id="2_iqh1c"]
 [ext_resource type="PackedScene" uid="uid://bbbhacwcc4yr8" path="res://components/play_area_hand.tscn" id="2_nfgq3"]
 [ext_resource type="PackedScene" uid="uid://dim0lew6t2nyh" path="res://components/play_area_location.tscn" id="3_l05bd"]
+[ext_resource type="Script" path="res://components/actions_logger.gd" id="5_6gyca"]
+[ext_resource type="Script" path="res://components/PlayerController.gd" id="6_d4rga"]
+[ext_resource type="Script" path="res://src/DummyPlayerAI.gd" id="6_hjkqc"]
+[ext_resource type="Texture2D" uid="uid://7bdu148lucdt" path="res://resources/images/avatar.png" id="7_c0w0u"]
+[ext_resource type="Script" path="res://src/GameLogic.gd" id="8_bu3mp"]
+[ext_resource type="Script" path="res://src/game/services/CardExecutorService.gd" id="9_w0r8w"]
+[ext_resource type="Script" path="res://src/game/services/DeckService.gd" id="10_8mxr3"]
+[ext_resource type="Script" path="res://src/game/services/GameStateService.gd" id="11_o8a10"]
+[ext_resource type="Script" path="res://src/game/services/HandService.gd" id="12_prqrw"]
+[ext_resource type="Script" path="res://src/game/services/LocationService.gd" id="13_keehl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkihv"]
 
 [node name="PlayArea" type="Node2D"]
 script = ExtResource("1_by8b4")
@@ -44,3 +56,49 @@ offset_left = 1285.0
 offset_top = 615.0
 offset_right = 1905.0
 offset_bottom = 915.0
+
+[node name="NextTurnButton" type="Button" parent="."]
+offset_left = 1752.0
+offset_top = 971.0
+offset_right = 1876.0
+offset_bottom = 1051.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_gkihv")
+disabled = true
+text = "NEXT TURN"
+
+[node name="ActionsLog" type="RichTextLabel" parent="."]
+offset_left = 1650.0
+offset_top = 2.0
+offset_right = 1917.0
+offset_bottom = 325.0
+scroll_following = true
+script = ExtResource("5_6gyca")
+
+[node name="PlayerController" type="Node" parent="."]
+script = ExtResource("6_d4rga")
+
+[node name="DummyPlayerAI" type="Node" parent="."]
+script = ExtResource("6_hjkqc")
+player_name = "Dummy"
+player_avatar = ExtResource("7_c0w0u")
+
+[node name="GameLogic" type="Node" parent="."]
+script = ExtResource("8_bu3mp")
+
+[node name="CardExecutorService" type="Node" parent="GameLogic"]
+script = ExtResource("9_w0r8w")
+
+[node name="DeckService" type="Node" parent="GameLogic"]
+script = ExtResource("10_8mxr3")
+
+[node name="GameStateService" type="Node" parent="GameLogic"]
+script = ExtResource("11_o8a10")
+
+[node name="HandService" type="Node" parent="GameLogic"]
+script = ExtResource("12_prqrw")
+
+[node name="LocationService" type="Node" parent="GameLogic"]
+script = ExtResource("13_keehl")
+
+[connection signal="pressed" from="NextTurnButton" to="PlayerController" method="play_turn"]

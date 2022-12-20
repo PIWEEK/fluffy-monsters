@@ -10,6 +10,13 @@ var card_name = ""
 var energy = 0
 var power = 0
 
+func init2(card: Card):
+	self.name = card.card_name
+	self.slug = card.name
+	self.energy = card.cost
+	self.power = card.power
+	redraw()
+	
 func init(slug, name, energy, power):
 	self.name = name
 	self.slug = slug

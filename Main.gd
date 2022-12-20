@@ -7,7 +7,8 @@ var game_size
 var cursor_card = null
 
 func _ready():
-	game_size = Vector2(ProjectSettings.get_setting("display/window/size/viewport_width"), ProjectSettings.get_setting("display/window/size/viewport_height"))
+	game_size = Vector2(ProjectSettings.get_setting("display/window/size/viewport_width"), 
+						ProjectSettings.get_setting("display/window/size/viewport_height"))
 	#viewport.connect("size_changed", self, "resize_viewport")
 	#DisplayServer.window_set_rect_changed_callback(Callable(self, "resize_viewport"))
 	resize_viewport()

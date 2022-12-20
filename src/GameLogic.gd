@@ -7,7 +7,7 @@ extends Node
 @onready var hand_service: HandService = $HandService
 @onready var card_executor_service: CardExecutorService = $CardExecutorService
 
-var delay = 1
+@export var delay = 0
 
 var player1_ready = false
 var player2_ready = false

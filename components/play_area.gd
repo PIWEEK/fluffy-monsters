@@ -1,4 +1,5 @@
 extends Node2D
+
 var play_card_scene = preload("res://components/play_card.tscn")
 var locations
 
@@ -19,6 +20,9 @@ var slug_num = 0
 
 @onready var gui_events = get_node("/root/GuiEvents")
 @onready var gui_state = get_node("/root/GuiState")
+
+@onready var events = $"/root/Events"
+@onready var next_turn_button = $NextTurnButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,6 +47,19 @@ func _ready():
 	
 	gui_events.connect("stop_drag_card", _on_stop_drag_card)
 	locations = [$Location1, $Location2, $Location3]
+	
+	events.connect("play_start", _on_play_start)
+	events.connect("finish_turn_start", _on_finish_turn_start)
+
+func _on_play_start():
+	# Allow the user to move cards
+	next_turn_button.disabled = false
+	pass
+	
+func _on_finish_turn_start():
+	# Disallow the user to move cards
+	next_turn_button.disabled = true
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
