@@ -3,16 +3,19 @@ extends RichTextLabel
 @onready var events: Events = $"/root/Events"
 @onready var db: DataBase = $"/root/DB"
 
+@export_color_no_alpha var color_p1: Color
+@export_color_no_alpha var color_p2: Color
+
 func add_entry(player, msg):
 	var color = ""
 	var player_name = ""
 	
 	if player == 1: 
-		color = "blue"
-		player_name = "Player 1"
+		color = color_p1.to_html()
+		player_name = $"../GameLogic".state.player1.player_name
 	elif player == 2: 
-		color = "red"
-		player_name = "Player 2"
+		color = color_p2.to_html()
+		player_name = $"../GameLogic".state.player2.player_name
 	else:
 		color = "white"
 		player_name = "GAME"

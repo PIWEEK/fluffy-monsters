@@ -11,7 +11,7 @@ var type: Type
 var card_id: String
 var target_location_id: String
 
-func _init(card_id: String, target_location_id: String):
+func _init(cid: String, locid: String):
 	self.type = Type.PLAY_CARD
-	self.card_id = card_id
-	self.target_location_id = target_location_id
+	self.card_id = cid
+	self.target_location_id = locid

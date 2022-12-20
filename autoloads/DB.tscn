@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cenh7jkiaba15"]
+[gd_scene load_steps=23 format=3 uid="uid://cenh7jkiaba15"]
 
 [ext_resource type="Script" path="res://src/db/Card.gd" id="1_7pqrb"]
 [ext_resource type="Script" path="res://autoloads/DB.gd" id="1_i6w5y"]
@@ -6,16 +6,10 @@
 [ext_resource type="Script" path="res://src/db/Location.gd" id="3_qdwtv"]
 [ext_resource type="Script" path="res://src/db/CustomDeck.gd" id="3_qj7j8"]
 [ext_resource type="Texture2D" uid="uid://umj4al7xkce4" path="res://resources/images/monsters/astrounaut-mouse.png" id="4_2dedb"]
-[ext_resource type="Texture2D" uid="uid://ol2pxjnpsr0h" path="res://resources/images/locations/madrid.jpg" id="4_7vlbj"]
-[ext_resource type="Texture2D" uid="uid://w6f163qpbpo8" path="res://resources/images/locations/new-york.jpg" id="4_ydx5r"]
 [ext_resource type="Texture2D" uid="uid://b3mu1qlgqmxc1" path="res://resources/images/monsters/baby-hydra.png" id="5_v323v"]
-[ext_resource type="Texture2D" uid="uid://clj67eycgm4b1" path="res://resources/images/locations/barcelona.jpg" id="6_o74b8"]
 [ext_resource type="Texture2D" uid="uid://dceoxlqrvw7uk" path="res://resources/images/monsters/baby-kaiju.png" id="6_w8n1h"]
-[ext_resource type="Texture2D" uid="uid://bttbekdv7pj8v" path="res://resources/images/locations/tokyo.jpg" id="7_4mh3e"]
 [ext_resource type="Texture2D" uid="uid://cwqm618uosopo" path="res://resources/images/monsters/broccoli-monster.png" id="7_nc67n"]
 [ext_resource type="Texture2D" uid="uid://d1ibvup3jis15" path="res://resources/images/monsters/chaos-hamster.png" id="8_1cic4"]
-[ext_resource type="Texture2D" uid="uid://dyoydo5yiw47t" path="res://resources/images/locations/rio.jpg" id="8_p7js3"]
-[ext_resource type="Texture2D" uid="uid://bfl6hminj5e12" path="res://resources/images/locations/los-angeles.jpg" id="9_4hd2b"]
 [ext_resource type="Texture2D" uid="uid://d4en2s4ty1jvm" path="res://resources/images/monsters/cyber-deer.png" id="9_ubeou"]
 [ext_resource type="Texture2D" uid="uid://b27feen576jmo" path="res://resources/images/monsters/eye-cloud.png" id="10_af6cn"]
 [ext_resource type="Texture2D" uid="uid://v2cvvy1elhhy" path="res://resources/images/monsters/fire-dragon.png" id="11_2hn5t"]
@@ -26,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://m1y5h4nu3l51" path="res://resources/images/monsters/pirate-kraken.png" id="16_8f4dr"]
 [ext_resource type="Texture2D" uid="uid://d3rg0rleumv01" path="res://resources/images/monsters/plant-dragon.png" id="17_rwgb6"]
 [ext_resource type="Texture2D" uid="uid://v4yb16dych68" path="res://resources/images/monsters/raging-bigfoot.png" id="18_5lubo"]
+[ext_resource type="Texture2D" uid="uid://vu6wf4jugqvn" path="res://resources/images/locations/city-ny.png" id="20_l8m1e"]
+[ext_resource type="Texture2D" uid="uid://dhjk28lytavvr" path="res://resources/images/locations/city-rome.png" id="21_snc8k"]
 
 [node name="DB" type="Node"]
 script = ExtResource("1_i6w5y")
@@ -162,41 +158,20 @@ text = ""
 
 [node name="Locations" type="Node" parent="."]
 
-[node name="madrid" type="Node" parent="Locations"]
-script = ExtResource("3_qdwtv")
-location_name = "Madrid"
-text = ""
-image = ExtResource("4_7vlbj")
-
-[node name="new-york" type="Node" parent="Locations"]
+[node name="city-ny" type="Node" parent="Locations"]
 script = ExtResource("3_qdwtv")
 location_name = "New York"
-text = ""
-image = ExtResource("4_ydx5r")
+image = ExtResource("20_l8m1e")
 
-[node name="barcelona" type="Node" parent="Locations"]
+[node name="city-paris" type="Node" parent="Locations"]
 script = ExtResource("3_qdwtv")
-location_name = "Barcelona"
-text = ""
-image = ExtResource("6_o74b8")
+location_name = "New York"
+image = ExtResource("20_l8m1e")
 
-[node name="tokyo" type="Node" parent="Locations"]
+[node name="city-rome" type="Node" parent="Locations"]
 script = ExtResource("3_qdwtv")
-location_name = "tokyo"
-text = ""
-image = ExtResource("7_4mh3e")
-
-[node name="rio" type="Node" parent="Locations"]
-script = ExtResource("3_qdwtv")
-location_name = "Rio de Janeiro"
-text = ""
-image = ExtResource("8_p7js3")
-
-[node name="los-angeles" type="Node" parent="Locations"]
-script = ExtResource("3_qdwtv")
-location_name = "Los Angeles"
-text = ""
-image = ExtResource("9_4hd2b")
+location_name = "Rome"
+image = ExtResource("21_snc8k")
 
 [node name="Decks" type="Node" parent="."]
 

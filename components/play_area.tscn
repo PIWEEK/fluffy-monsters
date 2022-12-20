@@ -76,12 +76,14 @@ disabled = true
 text = "NEXT TURN"
 
 [node name="ActionsLog" type="RichTextLabel" parent="."]
-offset_left = 1650.0
+offset_left = 1555.0
 offset_top = 2.0
 offset_right = 1917.0
 offset_bottom = 325.0
 scroll_following = true
 script = ExtResource("5_6gyca")
+color_p1 = Color(1, 0.294118, 0.443137, 1)
+color_p2 = Color(0.27451, 0.490196, 1, 1)
 
 [node name="PlayerController" type="Node" parent="."]
 script = ExtResource("6_d4rga")
