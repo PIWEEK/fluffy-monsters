@@ -6,6 +6,7 @@ extends Node
 @export var delay = 0
 @export var player_name: String
 @export var player_avatar: Texture
+@export var player_deck: String
 
 var current_player
 
@@ -35,7 +36,7 @@ func _on_game_start():
 	var player = Player.new()
 	player.player_name = player_name
 	player.avatar = player_avatar
-	events.emit_signal("player_join_start", player, "test-deck")
+	events.emit_signal("player_join_start", player, player_deck)
 
 func _on_player_join_end(player_name: String, player: int):
 	if self.player_name == player_name:

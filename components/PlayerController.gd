@@ -4,6 +4,7 @@ extends Node
 
 @export var player_name: String
 @export var player_avatar: Texture
+@export var player_deck: String
 
 ### TEMPORARY UNTIL INTEGRATED INTO UI. SAME SELECTION AS AI
 func play_turn():
@@ -33,7 +34,7 @@ func _on_game_start():
 	var player = Player.new()
 	player.player_name = player_name
 	player.avatar = player_avatar
-	events.emit_signal("player_join_start", player, "test-deck")
+	events.emit_signal("player_join_start", player, player_deck)
 	
 func _on_player_join_end(player_name: String, player: int):
 	if self.player_name == player_name:
@@ -42,7 +43,7 @@ func _on_player_join_end(player_name: String, player: int):
 func _on_begin_game_start():
 	events.emit_signal("begin_game_end", current_player)
 
-func _on_draw_start():
+func draw_finished():
 	events.emit_signal("draw_end", current_player)
 
 func _on_begin_turn_start():
@@ -59,7 +60,14 @@ func _ready():
 	events.connect("player_join_end", _on_player_join_end)
 	events.connect("begin_game_start", _on_begin_game_start)
 	events.connect("begin_turn_start", _on_begin_turn_start)
-	events.connect("draw_start", _on_draw_start)
+	#events.connect("draw_start", _on_draw_start)
 	#events.connect("play_start", _on_play_start)
 	events.connect("finish_turn_start", _on_finish_turn_start)
 	events.connect("finish_game_start", _on_finish_game_start)
+
+func get_hand_cards() -> Array[HandCard]:
+	var state: GameState = $"../GameLogic".state
+	if current_player == 1:
+		return state.player1_data.hand
+	else:
+		return state.player2_data.hand

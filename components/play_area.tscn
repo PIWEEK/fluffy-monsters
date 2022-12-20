@@ -77,11 +77,15 @@ script = ExtResource("5_6gyca")
 
 [node name="PlayerController" type="Node" parent="."]
 script = ExtResource("6_d4rga")
+player_name = "Player"
+player_avatar = ExtResource("7_c0w0u")
+player_deck = "deck-1"
 
 [node name="DummyPlayerAI" type="Node" parent="."]
 script = ExtResource("6_hjkqc")
-player_name = "Dummy"
+player_name = "BOT"
 player_avatar = ExtResource("7_c0w0u")
+player_deck = "deck-2"
 
 [node name="GameLogic" type="Node" parent="."]
 script = ExtResource("8_bu3mp")

@@ -5,16 +5,19 @@ extends Node2D
 
 var revealed = true
 var draggable = true
-var slug = ""
-var card_name = ""
-var energy = 0
-var power = 0
+var slug: String = ""
+var card_name: String = ""
+var energy: int = 0
+var power: int = 0
+
+var card_image: Texture
 
 func init2(card: Card):
 	self.name = card.card_name
 	self.slug = card.name
 	self.energy = card.cost
 	self.power = card.power
+	self.card_image = card.image
 	redraw()
 	
 func init(slug, name, energy, power):
@@ -27,7 +30,8 @@ func init(slug, name, energy, power):
 func redraw():
 	$Front/Energy/EnergyLabel.text = str(energy)
 	$Front/Power/PowerLabel.text = str(power)
-	$Front/Hole/Image.texture = load("res://resources/images/monsters/" + slug + ".png")
+	# $Front/Hole/Image.texture = load("res://resources/images/monsters/" + slug + ".png")
+	$Front/Hole/Image.texture = card_image
 
 func _ready():
 	reveal()
