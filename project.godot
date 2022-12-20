@@ -118,6 +118,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*res://Events.gd"
+DB="*res://DB.tscn"
 GuiEvents="*res://gui_events.gd"
 GuiState="*res://gui_state.gd"
 
