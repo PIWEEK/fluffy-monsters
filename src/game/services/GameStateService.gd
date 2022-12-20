@@ -43,8 +43,36 @@ func draw(state: GameState):
 	if state.player2_data.hand.size() <= 7:
 		hand_service.draw(state.player2_data.deck, state.player2_data.hand)
 
-func play(state: GameState, player: int, actions: Array[PlayerAction]):
-	pass
+func save_play(state: GameState, player: int, actions: Array[PlayerAction]):
+	var cur_turn = state.turn
+	if cur_turn not in state.turns:
+		state.turns[cur_turn] = {}
+	state.turns[cur_turn][player] = actions
+
+func resolve_action(state: GameState, player: int, action: PlayerAction):
+	var location = location_service.get_location(state, action.target_location_id)
+	var hand: Array[HandCard] = state.player1_data.hand if player == 1 else state.player2_data.hand
+	var card: HandCard = hand_service.remove_card(hand, action.card_id)
+
+	if player == 1:
+		location.cards_p1.append(PlayedCard.new(card))
+		location.total_power_p1 += card.current_power
+	else:
+		location.cards_p2.append(PlayedCard.new(card))
+		location.total_power_p2 += card.current_power
+	
+	
+func resolve_play(state: GameState):
+	# TODO Resolve who goes first better
+	var first_player = 1
+	var second_player = 2
+	var cur_turn = state.turn
+
+	for action in state.turns[cur_turn][first_player]:
+		resolve_action(state, first_player, action)
+
+	for action in state.turns[cur_turn][second_player]:
+		resolve_action(state, second_player, action)
 
 func end_turn(state: GameState):
 	pass

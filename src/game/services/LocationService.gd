@@ -17,3 +17,11 @@ func select_random_locations() -> Array[String]:
 		result.append(loc_id)
 		nodes.remove_at(idx)
 	return result
+
+func get_location(state: GameState, location_id: String) -> GameLocation:
+	if location_id == state.loc1.location_id: 
+		return state.loc1
+	elif location_id == state.loc2.location_id:
+		return state.loc2
+	else:
+		return state.loc3

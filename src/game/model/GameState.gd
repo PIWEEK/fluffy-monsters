@@ -26,6 +26,12 @@ var player2: Player
 var player1_data: PlayerGameData
 var player2_data: PlayerGameData
 
+# Store the turns
+var turns: Dictionary
+
+func _init():
+	self.turns = {}
+
 func get_player_data(player_num: int) -> PlayerGameData:
 	if player_num == 1:
 		return player1_data

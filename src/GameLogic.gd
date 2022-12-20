@@ -86,13 +86,14 @@ func _on_play_end(player: int, actions: Array[PlayerAction]):
 	match player:
 		1: player1_ready = true
 		2: player2_ready = true
+	game_state_service.save_play(state, player, actions)
 	
 	if player1_ready and player2_ready:
 		player1_ready = false
 		player2_ready = false
 
 		state.phase = GameState.Phase.END_TURN
-		game_state_service.play(state, player, actions)
+		game_state_service.resolve_play(state)
 		events.emit_signal("finish_turn_start")
 		
 func _on_finish_turn_end(player: int):
