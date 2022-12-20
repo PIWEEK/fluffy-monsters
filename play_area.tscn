@@ -1,16 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://wbc1nsfma30e"]
+[gd_scene load_steps=5 format=3 uid="uid://wbc1nsfma30e"]
 
 [ext_resource type="Script" path="res://play_area.gd" id="1_by8b4"]
-[ext_resource type="PackedScene" path="res://play_area_hand.tscn" id="2_nfgq3"]
-[ext_resource type="PackedScene" path="res://play_area_location.tscn" id="3_l05bd"]
+[ext_resource type="Texture2D" uid="uid://1xlwogbg6v04" path="res://resources/images/ui/table-bg-eyes.jpg" id="2_iqh1c"]
+[ext_resource type="PackedScene" uid="uid://bbbhacwcc4yr8" path="res://play_area_hand.tscn" id="2_nfgq3"]
+[ext_resource type="PackedScene" uid="uid://dim0lew6t2nyh" path="res://play_area_location.tscn" id="3_l05bd"]
 
 [node name="PlayArea" type="Node2D"]
 script = ExtResource("1_by8b4")
 
-[node name="Background" type="ColorRect" parent="."]
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.588235)
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_iqh1c")
 
 [node name="Header" type="Control" parent="."]
 visible = false
@@ -20,6 +21,7 @@ offset_right = 1920.0
 offset_bottom = 165.0
 
 [node name="ColorRect" type="ColorRect" parent="Header"]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 165.0
 

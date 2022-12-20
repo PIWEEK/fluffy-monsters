@@ -9,6 +9,12 @@ offset_right = 620.0
 offset_bottom = 300.0
 script = ExtResource("1_0u7xl")
 
+[node name="Image" type="TextureRect" parent="."]
+offset_left = 212.0
+offset_top = -151.0
+offset_right = 412.0
+offset_bottom = -0.999969
+
 [node name="Highlight" type="ColorRect" parent="."]
 visible = false
 offset_right = 620.0

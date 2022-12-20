@@ -5,8 +5,23 @@ extends Node2D
 
 var revealed = true
 var draggable = true
+var slug = ""
+var card_name = ""
+var energy = 0
+var power = 0
 
-# Called when the node enters the scene tree for the first time.
+func init(slug, name, energy, power):
+	self.name = name
+	self.slug = slug
+	self.energy = energy
+	self.power = power
+	redraw()
+	
+func redraw():
+	$Front/Energy/EnergyLabel.text = str(energy)
+	$Front/Power/PowerLabel.text = str(power)
+	$Front/Hole/Image.texture = load("res://resources/images/monsters/" + slug + ".png")
+
 func _ready():
 	reveal()
 

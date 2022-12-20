@@ -15,6 +15,7 @@ func _process(delta):
 	pass
 	
 func redraw():
+	print ("redrawing hand with cards: " + str(len(gui_state.cards_hand)))
 	var x = (size.x / 2 - gui_state.CARD_WIDTH / 2) - ((len(gui_state.cards_hand) - 1) / 2) * (gui_state.CARD_WIDTH + HAND_GAP)
 	
 	for card in gui_state.cards_hand:

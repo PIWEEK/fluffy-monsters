@@ -5,10 +5,17 @@ const AREA_GAP = 10
 @onready var gui_state = get_node("/root/GuiState")
 
 var location_num
+var slug
 
 
 func _ready():
 	pass
+	
+func init(location_num, slug):
+	self.location_num = location_num
+	self.slug = slug
+	$Image.texture = load("res://resources/images/locations/crop/" + slug + ".jpg")
+	
 
 func _process(delta):
 	pass
@@ -23,6 +30,11 @@ func _on_mouse_entered():
 		$Highlight.visible = true
 
 func redraw_location():
+	var cards = ""
+	for card in gui_state.cards_location[location_num]:
+		cards += " " + card.slug
+	print ("redrawing " + str(location_num) + " cards " + str(len(gui_state.cards_location[location_num])) + " " + cards)
+	
 	var x = 5	
 	for card in gui_state.cards_location[location_num]:
 		card.position.x = x

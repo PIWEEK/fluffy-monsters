@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqg8s18o30kyj"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_pyw5d"]
-[ext_resource type="Texture2D" uid="uid://bbxo64uissvlj" path="res://resources/images/Background_1_A.jpg" id="2_h47nq"]
+[ext_resource type="Texture2D" uid="uid://1xlwogbg6v04" path="res://resources/images/ui/table-bg-eyes.jpg" id="2_v0q3q"]
 [ext_resource type="PackedScene" uid="uid://wbc1nsfma30e" path="res://play_area.tscn" id="3_siphl"]
 
 [node name="Main" type="Node2D"]
@@ -13,11 +13,11 @@ current = true
 zoom = Vector2(0.5, 0.5)
 
 [node name="Background" type="TextureRect" parent="."]
-offset_left = -2880.0
-offset_top = -1620.0
-offset_right = 4800.0
-offset_bottom = 2700.0
-texture = ExtResource("2_h47nq")
+offset_left = -3840.0
+offset_top = -2160.0
+offset_right = 5760.0
+offset_bottom = 3240.0
+texture = ExtResource("2_v0q3q")
 stretch_mode = 1
 
 [node name="PlayArea" parent="." instance=ExtResource("3_siphl")]
