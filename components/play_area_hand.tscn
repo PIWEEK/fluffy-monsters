@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bbbhacwcc4yr8"]
 
-[ext_resource type="Script" path="res://play_area_hand.gd" id="1_qbxds"]
+[ext_resource type="Script" path="res://components/play_area_hand.gd" id="1_qbxds"]
 
 [node name="Hand" type="Control"]
 layout_mode = 3

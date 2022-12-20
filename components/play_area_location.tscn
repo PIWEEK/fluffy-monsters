@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dim0lew6t2nyh"]
 
-[ext_resource type="Script" path="res://play_area_location.gd" id="1_0u7xl"]
+[ext_resource type="Script" path="res://components/play_area_location.gd" id="1_0u7xl"]
 
 [node name="Location" type="Control"]
 layout_mode = 3

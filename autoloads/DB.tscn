@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://byutaow3kyfaj"]
+[gd_scene load_steps=12 format=3 uid="uid://cenh7jkiaba15"]
 
-[ext_resource type="Script" path="res://src/db/DB.gd" id="1_2yixt"]
 [ext_resource type="Script" path="res://src/db/Card.gd" id="1_7pqrb"]
+[ext_resource type="Script" path="res://autoloads/DB.gd" id="1_i6w5y"]
 [ext_resource type="Texture2D" uid="uid://dl7llbh77aahj" path="res://resources/images/cards/Image Pasted at 2022-12-15 12-22.png" id="2_ralv4"]
 [ext_resource type="Script" path="res://src/db/Location.gd" id="3_qdwtv"]
 [ext_resource type="Script" path="res://src/db/CustomDeck.gd" id="3_qj7j8"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bfl6hminj5e12" path="res://resources/images/locations/los-angeles.jpg" id="9_4hd2b"]
 
 [node name="DB" type="Node"]
-script = ExtResource("1_2yixt")
+script = ExtResource("1_i6w5y")
 
 [node name="Cards" type="Node" parent="."]
 

@@ -27,7 +27,7 @@ _global_script_classes=[{
 "base": "Node",
 "class": &"DataBase",
 "language": &"GDScript",
-"path": "res://src/db/DB.gd"
+"path": "res://autoloads/DB.gd"
 }, {
 "base": "Node",
 "class": &"DeckService",
@@ -123,10 +123,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Events="*res://Events.gd"
-DB="*res://DB.tscn"
-GuiEvents="*res://gui_events.gd"
-GuiState="*res://gui_state.gd"
+Events="*res://autoloads/Events.gd"
+DB="*res://autoloads/DB.tscn"
+GuiEvents="*res://autoloads/gui_events.gd"
+GuiState="*res://autoloads/gui_state.gd"
 
 [display]
 

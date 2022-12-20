@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ddtxl63o8somk"]
 
-[ext_resource type="Script" path="res://play_card.gd" id="1_4tw3x"]
+[ext_resource type="Script" path="res://components/play_card.gd" id="1_4tw3x"]
 [ext_resource type="Texture2D" uid="uid://dc3vn8tkt16ue" path="res://resources/images/monsters/armed-monkey.png" id="4_lh645"]
 [ext_resource type="Texture2D" uid="uid://e0che0egrpkn" path="res://resources/images/backs/back01.png" id="4_t5haw"]
 [ext_resource type="Texture2D" uid="uid://dho45g0se277b" path="res://resources/images/ui/card-frame.png" id="5_jq1mo"]

@@ -1,5 +1,5 @@
 extends Node2D
-var play_card_scene = preload("res://play_card.tscn")
+var play_card_scene = preload("res://components/play_card.tscn")
 var locations
 
 var slugs = ["armed-monkey",

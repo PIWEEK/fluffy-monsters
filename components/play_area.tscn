@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://wbc1nsfma30e"]
 
-[ext_resource type="Script" path="res://play_area.gd" id="1_by8b4"]
+[ext_resource type="Script" path="res://components/play_area.gd" id="1_by8b4"]
 [ext_resource type="Texture2D" uid="uid://1xlwogbg6v04" path="res://resources/images/ui/table-bg-eyes.jpg" id="2_iqh1c"]
-[ext_resource type="PackedScene" uid="uid://bbbhacwcc4yr8" path="res://play_area_hand.tscn" id="2_nfgq3"]
-[ext_resource type="PackedScene" uid="uid://dim0lew6t2nyh" path="res://play_area_location.tscn" id="3_l05bd"]
+[ext_resource type="PackedScene" uid="uid://bbbhacwcc4yr8" path="res://components/play_area_hand.tscn" id="2_nfgq3"]
+[ext_resource type="PackedScene" uid="uid://dim0lew6t2nyh" path="res://components/play_area_location.tscn" id="3_l05bd"]
 
 [node name="PlayArea" type="Node2D"]
 script = ExtResource("1_by8b4")
