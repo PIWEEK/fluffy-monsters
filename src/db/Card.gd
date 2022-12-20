@@ -2,7 +2,6 @@ extends Node
 
 class_name Card
 
-@export var id: String
 @export var card_name: String
 @export var cost: int
 @export var power: int

@@ -21,8 +21,8 @@ func add_entry(player, msg):
 func _on_game_start():
 	add_entry(0, "Start")
 
-func _on_player_join_start(player: Player):
-	add_entry(0, "Join %s" % [player.player_name])
+func _on_player_join_start(player: Player, deck_id: String):
+	add_entry(0, "Join %s, deck %s" % [player.player_name, deck_id])
 
 func _on_player_join_end(player: int):
 	add_entry(player, "Joined")

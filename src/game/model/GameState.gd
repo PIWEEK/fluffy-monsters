@@ -1,15 +1,15 @@
-extends Node
+extends Object
 
 class_name GameState
 
 enum Phase {
-	INIT,
+	JOINING,
+	START_GAME,
+	START_TURN,
 	DRAW,
-	INIT_TURN,
 	PLAY,
 	END_TURN,
-	RESOLVE_TURN,
-	RESOLVE_GAME,
+	END_GAME,
 	END
 }
 
@@ -25,12 +25,3 @@ var player2: Player
 
 var player1_data: PlayerGameData
 var player2_data: PlayerGameData
-
-func set_player(player_num: int, player: Player):
-	pass
-
-func set_phase(phase: Phase):
-	pass
-
-func execute_actions(player: int, actions: Array[PlayerAction]):
-	pass

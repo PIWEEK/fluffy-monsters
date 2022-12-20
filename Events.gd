@@ -2,7 +2,7 @@ extends Node
 
 signal game_start()
 
-signal player_join_start(player: Player)
+signal player_join_start(player: Player, deck_id: String)
 signal player_join_end(player_name: String, player: int)
 
 signal begin_game_start()

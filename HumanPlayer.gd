@@ -18,7 +18,7 @@ func _on_btn_next_pressed():
 			var player = Player.new()
 			player.player_name = player_name
 			player.avatar = player_avatar
-			events.emit_signal("player_join_start", player)
+			events.emit_signal("player_join_start", player, "test-deck")
 		
 		"begin_game_start":
 			events.emit_signal("begin_game_end", current_player)

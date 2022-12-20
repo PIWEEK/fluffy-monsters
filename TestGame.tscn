@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://tnwnjipu7di4"]
+[gd_scene load_steps=10 format=3 uid="uid://c212vrbsl3oy0"]
 
 [ext_resource type="Script" path="res://LoggingOutput.gd" id="2_i7twu"]
 [ext_resource type="Script" path="res://GameLogic.gd" id="2_pv6xq"]
 [ext_resource type="Script" path="res://DummyPlayerAI.gd" id="2_vn0dd"]
 [ext_resource type="Script" path="res://HumanPlayer.gd" id="3_lfwrd"]
 [ext_resource type="Texture2D" uid="uid://7bdu148lucdt" path="res://resources/images/avatar.png" id="4_lx8w5"]
+[ext_resource type="Script" path="res://src/game/services/CardExecutorService.gd" id="6_g268b"]
+[ext_resource type="Script" path="res://src/game/services/DeckService.gd" id="7_6os74"]
+[ext_resource type="Script" path="res://src/game/services/GameStateService.gd" id="8_5rou8"]
+[ext_resource type="Script" path="res://src/game/services/HandService.gd" id="9_v7ty3"]
 
 [node name="TestGame" type="Control"]
 layout_mode = 3
@@ -21,7 +25,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_lfwrd")
-player_name = "Player"
 player_avatar = ExtResource("4_lx8w5")
 
 [node name="TxtOutput" type="RichTextLabel" parent="HumanPlayer"]
@@ -52,3 +55,15 @@ script = ExtResource("2_vn0dd")
 
 [node name="GameLogic" type="Node" parent="."]
 script = ExtResource("2_pv6xq")
+
+[node name="CardExecutorService" type="Node" parent="GameLogic"]
+script = ExtResource("6_g268b")
+
+[node name="DeckService" type="Node" parent="GameLogic"]
+script = ExtResource("7_6os74")
+
+[node name="GameStateService" type="Node" parent="GameLogic"]
+script = ExtResource("8_5rou8")
+
+[node name="HandService" type="Node" parent="GameLogic"]
+script = ExtResource("9_v7ty3")
