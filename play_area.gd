@@ -34,7 +34,7 @@ func _on_stop_drag_card(card):
 		
 		
 func play_card(card, location):	
-	$Hand.remove_card()
+	$Hand.remove_card(card)
 	location.add_card(card)
 	card.draggable = false
 	
