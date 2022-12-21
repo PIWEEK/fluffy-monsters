@@ -5,8 +5,10 @@ extends Node2D
 
 var game_size
 var cursor_card = null
+var cursor_card_pos
 
 func _ready():
+	cursor_card_pos = Vector2(gui_state.CARD_WIDTH/2, gui_state.CARD_HEIGHT/2)
 	game_size = Vector2(ProjectSettings.get_setting("display/window/size/viewport_width"), 
 						ProjectSettings.get_setting("display/window/size/viewport_height"))
 	#viewport.connect("size_changed", self, "resize_viewport")
@@ -47,5 +49,5 @@ func _on_stop_drag_card(card):
 func _process(delta):	
 	if cursor_card != null:
 		var mousepos = get_global_mouse_position()
-		cursor_card.position = Vector2(mousepos.x + 15, mousepos.y + 15)
+		cursor_card.position = Vector2(mousepos.x - cursor_card_pos.x, mousepos.y - cursor_card_pos.y)
 

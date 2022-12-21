@@ -11,10 +11,13 @@ var text
 
 var power_up = 0
 var power_down = 0
+var drop_rect
 
 
 func _ready():
-	pass
+	drop_rect = Rect2($Player1/Frame.global_position, Vector2($Player1/Frame.size.x / 2, $Player1/Frame.size.y / 2))
+	draw_rect(drop_rect, Color(1,0,0))
+	
 	
 func init2(location_num, location_id, game_location):
 	self.location_id = location_id
@@ -23,9 +26,15 @@ func init2(location_num, location_id, game_location):
 	self.text = game_location.text
 	$Place/Image.texture = game_location.image
 	
-
 func _process(delta):
-	pass
+	var mouse_pos = get_global_mouse_position()
+	
+	var mouse_inside = drop_rect.has_point(mouse_pos)
+	if mouse_inside and gui_state.dragging_location != self:
+		mouse_entered()
+	elif not mouse_inside and gui_state.dragging_location == self:
+		mouse_exited()
+		
 
 func redraw_location():	
 	var x = 46
@@ -62,12 +71,12 @@ func add_enemy_card(card):
 	redraw_location()
 
 
-func _on_player_1_mouse_entered():
+func mouse_entered():
 	if gui_state.dragging:
 		gui_state.dragging_location = self
 		$Player1/Highlight.visible = true
 
 
-func _on_player_1_highlight_mouse_exited():
+func mouse_exited():
 	$Player1/Highlight.visible = false
 	gui_state.dragging_location = null
