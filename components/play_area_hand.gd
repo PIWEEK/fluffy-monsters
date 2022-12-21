@@ -6,7 +6,6 @@ extends Control
 const HAND_GAP = 50
 
 func redraw():
-	print ("redrawing hand with cards: " + str(len(gui_state.cards_hand)))
 	var x = (size.x / 2 - gui_state.CARD_WIDTH / 2) - ((len(gui_state.cards_hand) - 1) / 2) * (gui_state.CARD_WIDTH + HAND_GAP)
 	
 	for card in gui_state.cards_hand:
@@ -22,3 +21,8 @@ func remove_card(card):
 	gui_state.cards_hand.erase(card)
 	remove_child(card)
 	redraw()
+	
+func remove_all_cards():
+	for card in get_children():
+		gui_state.cards_hand.erase(card)
+		remove_child(card)

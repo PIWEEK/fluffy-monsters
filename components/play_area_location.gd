@@ -4,17 +4,21 @@ const AREA_GAP = 33
 @onready var gui_events = get_node("/root/GuiEvents")
 @onready var gui_state = get_node("/root/GuiState")
 
+var location_id
 var location_num
-var slug
+var location_name
+var text
 
 
 func _ready():
 	pass
 	
-func init(location_num, slug):
+func init2(location_num, location_id, game_location):
+	self.location_id = location_id
 	self.location_num = location_num
-	self.slug = slug
-	$Image.texture = load("res://resources/images/locations/" + slug + ".png")
+	self.location_name = game_location.location_name
+	self.text = game_location.text
+	$Image.texture = game_location.image
 	
 
 func _process(delta):

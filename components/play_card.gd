@@ -11,20 +11,15 @@ var energy: int = 0
 var power: int = 0
 
 var card_image: Texture
+var card_id
 
-func init2(card: Card):
+func init(card_id, card: Card):
+	self.card_id = card_id
 	self.name = card.card_name
 	self.slug = card.name
 	self.energy = card.cost
 	self.power = card.power
 	self.card_image = card.image
-	redraw()
-	
-func init(slug, name, energy, power):
-	self.name = name
-	self.slug = slug
-	self.energy = energy
-	self.power = power
 	redraw()
 	
 func redraw():

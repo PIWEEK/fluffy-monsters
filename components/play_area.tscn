@@ -33,6 +33,7 @@ offset_right = 1920.0
 offset_bottom = 165.0
 
 [node name="ColorRect" type="ColorRect" parent="Header"]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 165.0
 
@@ -114,4 +115,4 @@ script = ExtResource("12_prqrw")
 [node name="LocationService" type="Node" parent="GameLogic"]
 script = ExtResource("13_keehl")
 
-[connection signal="pressed" from="NextTurnButton" to="PlayerController" method="play_turn"]
+[connection signal="pressed" from="NextTurnButton" to="." method="_on_next_turn_button_pressed"]
