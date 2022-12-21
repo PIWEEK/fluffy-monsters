@@ -2,6 +2,7 @@ extends Node2D
 
 var play_card_scene = preload("res://components/play_card.tscn")
 var card_zoom_scene = preload("res://components/card_zoom.tscn")
+var end_game_scene = preload("res://components/end_game.tscn")
 
 var state: GameState
 var player_turn: Array[PlayerAction] = []
@@ -30,6 +31,7 @@ func _ready():
 	events.connect("play_start", _on_play_start)
 	events.connect("draw_start", _on_draw_start)
 	events.connect("finish_turn_start", _on_finish_turn_start)
+	events.connect("finish_game_start", _on_finish_game_start)
 
 func _on_begin_game_start():
 	$Header/Player1/Label.text = $GameLogic.state.player1.player_name
@@ -151,3 +153,9 @@ func _on_show_zoom_card(card):
 
 func _on_end_turn_button_pressed():
 	events.emit_signal("play_end", current_player, player_turn)
+	
+func _on_finish_game_start():
+	var scene = end_game_scene.instantiate()
+	var winner = $GameLogic/GameStateService.get_winner(state)
+	scene.set_player_victory(winner == current_player)
+	add_child(scene)
