@@ -4,7 +4,7 @@ extends Node2D
 @onready var gui_state = get_node("/root/GuiState")
 
 var revealed = true
-var draggable = true
+var draggable = false
 var slug: String = ""
 var card_name: String = ""
 var energy: int = 0

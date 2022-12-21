@@ -6,7 +6,8 @@ extends Control
 const HAND_GAP = 50
 
 func redraw():
-	var x = (size.x / 2 - gui_state.CARD_WIDTH / 2) - ((len(gui_state.cards_hand) - 1) / 2) * (gui_state.CARD_WIDTH + HAND_GAP)
+	var width = len(gui_state.cards_hand) * (gui_state.CARD_WIDTH + HAND_GAP) - HAND_GAP	
+	var x = size.x / 2 - width / 2
 	
 	for card in gui_state.cards_hand:
 		card.position.x = x

@@ -122,6 +122,7 @@ func _on_draw_start():
 		card_scene.init(card.card_id, db.get_card(card.card_id))
 		card_scene.energy = card.current_cost
 		card_scene.power = card.current_power
+		card_scene.draggable = true
 		$Hand.add_card(card_scene)
 		
 	$PlayerController.draw_finished()
