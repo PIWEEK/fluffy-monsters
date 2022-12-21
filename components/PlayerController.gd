@@ -6,6 +6,8 @@ extends Node
 @export var player_avatar: Texture
 @export var player_deck: String
 
+var current_player: int
+
 ### TEMPORARY UNTIL INTEGRATED INTO UI. SAME SELECTION AS AI
 func play_turn():
 	var player_turn: Array[PlayerAction] = []
@@ -24,10 +26,6 @@ func play_turn():
 					current_energy -= card.current_cost
 					break
 	events.emit_signal("play_end", current_player, player_turn)
-	
-# Store the current phase to send it to the main bus with a single button
-var current_phase: String
-var current_player: int
 
 func _on_game_start():
 	# TODO This info should come from the player configuration

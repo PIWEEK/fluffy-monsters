@@ -2,8 +2,6 @@ extends Object
 
 class_name PlayerGameData
 
-var deck_service: DeckService
-
 var player_number: int
 var energy: int
 var hand: Array[HandCard]
