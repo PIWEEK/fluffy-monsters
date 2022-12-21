@@ -1,7 +1,7 @@
-extends Panel
+extends Node
 
 @onready var events = get_node("/root/Events")
-@onready var btn_next = get_node("BtnNext")
+@onready var btn_next = get_node("../BtnNext")
 
 @export var player_name: String
 @export var player_avatar: Texture
@@ -28,6 +28,7 @@ func play_turn() -> Array[PlayerAction]:
 # Store the current phase to send it to the main bus with a single button
 var current_phase: String
 var current_player: int
+@export var deck: String
 
 func _on_btn_next_pressed():
 	btn_next.disabled = true
@@ -37,7 +38,7 @@ func _on_btn_next_pressed():
 			var player = Player.new()
 			player.player_name = player_name
 			player.avatar = player_avatar
-			events.emit_signal("player_join_start", player, "test-deck")
+			events.emit_signal("player_join_start", player, deck)
 		
 		"begin_game_start":
 			events.emit_signal("begin_game_end", current_player)

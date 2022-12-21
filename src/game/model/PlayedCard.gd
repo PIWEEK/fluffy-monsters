@@ -18,3 +18,6 @@ func _init(card):
 		self.modifiers = []
 		self.current_power = card.power
 		self.current_cost = card.cost
+
+func get_data(db: DataBase) -> Card:
+	return db.get_card(card_id)

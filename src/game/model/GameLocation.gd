@@ -14,4 +14,6 @@ func _init(location_id: String):
 	self.cards_p2 = []
 	self.total_power_p1 = 0
 	self.total_power_p2 = 0
-
+	
+func get_data(db: DataBase) -> Location:
+	return db.get_location(location_id)

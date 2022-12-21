@@ -33,7 +33,6 @@ offset_right = 1920.0
 offset_bottom = 165.0
 
 [node name="ColorRect" type="ColorRect" parent="Header"]
-layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 165.0
 

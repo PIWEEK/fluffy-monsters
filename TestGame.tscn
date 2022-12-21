@@ -19,32 +19,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HumanPlayer" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_lfwrd")
-player_name = "Player"
-player_avatar = ExtResource("4_lx8w5")
 
-[node name="ActionsLogger" parent="HumanPlayer" instance=ExtResource("3_qyrcf")]
-
-[node name="BtnNext" type="Button" parent="HumanPlayer"]
+[node name="BtnNext" type="Button" parent="."]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -8.0
+offset_top = -31.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "NEXT"
+
+[node name="ActionsLogger" parent="." instance=ExtResource("3_qyrcf")]
+layout_mode = 1
+color_p1 = Color(1, 0.27451, 0.211765, 1)
+color_p2 = Color(0.129412, 0.364706, 1, 1)
+
+[node name="PlayerController" type="Node" parent="."]
+script = ExtResource("3_lfwrd")
+player_name = "HUMAN"
+player_avatar = ExtResource("4_lx8w5")
+deck = "deck-1"
 
 [node name="DummyPlayerAI" type="Node" parent="."]
 script = ExtResource("2_vn0dd")
 player_name = "Dummy"
 player_avatar = ExtResource("4_lx8w5")
+player_deck = "deck-2"
 
 [node name="GameLogic" type="Node" parent="."]
 script = ExtResource("2_pv6xq")
