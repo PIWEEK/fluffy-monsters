@@ -18,20 +18,11 @@ func init2(location_num, location_id, game_location):
 	self.location_num = location_num
 	self.location_name = game_location.location_name
 	self.text = game_location.text
-	$Image.texture = game_location.image
+	$Place/Image.texture = game_location.image
 	
 
 func _process(delta):
 	pass
-
-func _on_highlight_mouse_exited():
-	$Highlight.visible = false
-	gui_state.dragging_location = null
-	
-func _on_mouse_entered():
-	if gui_state.dragging:
-		gui_state.dragging_location = self
-		$Highlight.visible = true
 
 func redraw_location():
 	var cards = ""
@@ -42,10 +33,21 @@ func redraw_location():
 	var x = 46
 	for card in gui_state.cards_location[location_num]:
 		card.position.x = x
-		card.position.y = 35
+		card.position.y = 1055
 		x += gui_state.CARD_WIDTH + AREA_GAP
 
 func add_card(card):	
 	gui_state.cards_location[location_num].append(card)
 	add_child(card)
 	redraw_location()
+
+
+func _on_player_1_mouse_entered():
+	if gui_state.dragging:
+		gui_state.dragging_location = self
+		$Player1/Highlight.visible = true
+
+
+func _on_player_1_highlight_mouse_exited():
+	$Player1/Highlight.visible = false
+	gui_state.dragging_location = null

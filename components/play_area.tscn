@@ -33,7 +33,6 @@ offset_right = 1920.0
 offset_bottom = 165.0
 
 [node name="ColorRect" type="ColorRect" parent="Header"]
-layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 165.0
 
@@ -46,23 +45,23 @@ scale = Vector2(0.75, 0.75)
 
 [node name="Location1" parent="." instance=ExtResource("3_l05bd")]
 offset_left = 175.0
-offset_top = 660.0
+offset_top = 170.0
 offset_right = 1165.0
-offset_bottom = 980.0
+offset_bottom = 1510.0
 scale = Vector2(0.5, 0.5)
 
 [node name="Location2" parent="." instance=ExtResource("3_l05bd")]
 offset_left = 717.0
-offset_top = 660.0
+offset_top = 170.0
 offset_right = 1707.0
-offset_bottom = 980.0
+offset_bottom = 1510.0
 scale = Vector2(0.5, 0.5)
 
 [node name="Location3" parent="." instance=ExtResource("3_l05bd")]
 offset_left = 1254.0
-offset_top = 660.0
+offset_top = 170.0
 offset_right = 2244.0
-offset_bottom = 980.0
+offset_bottom = 1510.0
 scale = Vector2(0.5, 0.5)
 
 [node name="NextTurnButton" type="Button" parent="."]

@@ -10,54 +10,87 @@
 layout_mode = 3
 anchors_preset = 0
 offset_right = 990.0
-offset_bottom = 320.0
+offset_bottom = 1340.0
 script = ExtResource("1_0u7xl")
 
-[node name="Frame" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Player2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 990.0
+offset_bottom = 320.0
+mouse_filter = 1
+
+[node name="Frame" type="TextureRect" parent="Player2"]
+layout_mode = 1
+offset_right = 990.0
+offset_bottom = 317.0
 texture = ExtResource("2_7m8p7")
 
-[node name="Image" type="TextureRect" parent="."]
+[node name="Place" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 320.0
+offset_right = 40.0
+offset_bottom = 360.0
+
+[node name="Image" type="TextureRect" parent="Place"]
+layout_mode = 0
 offset_left = 295.0
-offset_top = -525.0
+offset_top = 188.0
 offset_right = 695.0
-offset_bottom = -125.0
+offset_bottom = 588.0
 texture = ExtResource("3_e42mu")
 
-[node name="RibonWinDown" type="TextureRect" parent="."]
+[node name="RibonWinDown" type="TextureRect" parent="Place"]
+layout_mode = 0
 offset_left = 295.0
-offset_top = -188.0
+offset_top = 525.0
 offset_right = 695.0
+offset_bottom = 713.0
 texture = ExtResource("4_vp8cp")
 
-[node name="RibonWinUp" type="TextureRect" parent="."]
+[node name="RibonWinUp" type="TextureRect" parent="Place"]
+layout_mode = 0
 offset_left = 295.0
-offset_top = -713.0
 offset_right = 695.0
-offset_bottom = -525.0
+offset_bottom = 188.0
 texture = ExtResource("4_vp8cp")
 flip_v = true
 
-[node name="RibonLoseUp" type="TextureRect" parent="."]
+[node name="RibonLoseUp" type="TextureRect" parent="Place"]
+layout_mode = 0
 offset_left = 295.0
-offset_top = -713.0
 offset_right = 695.0
-offset_bottom = -525.0
+offset_bottom = 188.0
 texture = ExtResource("5_60w02")
 flip_v = true
 
-[node name="RibonLoseDown" type="TextureRect" parent="."]
+[node name="RibonLoseDown" type="TextureRect" parent="Place"]
+layout_mode = 0
 offset_left = 295.0
-offset_top = -188.0
+offset_top = 525.0
 offset_right = 695.0
+offset_bottom = 713.0
 texture = ExtResource("5_60w02")
 
-[node name="Highlight" type="ColorRect" parent="."]
+[node name="Player1" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 1020.0
+offset_right = 990.0
+offset_bottom = 1340.0
+mouse_filter = 1
+
+[node name="Frame" type="TextureRect" parent="Player1"]
+layout_mode = 0
+offset_right = 990.0
+offset_bottom = 317.0
+texture = ExtResource("2_7m8p7")
+
+[node name="Highlight" type="ColorRect" parent="Player1"]
 visible = false
+layout_mode = 0
 offset_right = 990.0
 offset_bottom = 320.0
 color = Color(1, 1, 1, 0.196078)
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Highlight" to="." method="_on_highlight_mouse_exited"]
+[connection signal="mouse_entered" from="Player1" to="." method="_on_player_1_mouse_entered"]
+[connection signal="mouse_exited" from="Player1/Highlight" to="." method="_on_player_1_highlight_mouse_exited"]

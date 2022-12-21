@@ -29,8 +29,8 @@ func _on_begin_game_start():
 	var locations: Array[GameLocation] = state.get_locations()
 	
 	$Location1.init2 (0, locations[0].location_id, locations[0].get_data(db))
-	$Location2.init2 (1, locations[0].location_id, locations[1].get_data(db))
-	$Location3.init2 (2, locations[0].location_id, locations[2].get_data(db))
+	$Location2.init2 (1, locations[1].location_id, locations[1].get_data(db))
+	$Location3.init2 (2, locations[2].location_id, locations[2].get_data(db))
 
 func _on_play_start():
 	# Allow the user to move cards
