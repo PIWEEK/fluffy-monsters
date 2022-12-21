@@ -74,6 +74,35 @@ func resolve_play(state: GameState):
 	for action in state.turns[cur_turn][second_player]:
 		resolve_action(state, second_player, action)
 
+func get_winner(state: GameState) -> int:
+	var p1_wins = 0
+	var p2_wins = 0
+	var total_power_p1 = state.loc1.total_power_p1 + state.loc2.total_power_p1 + state.loc3.total_power_p1
+	var total_power_p2 = state.loc1.total_power_p2 + state.loc2.total_power_p2 + state.loc3.total_power_p2
+	
+	if state.loc1.total_power_p1 > state.loc1.total_power_p2:
+		p1_wins += 1
+		
+	if state.loc1.total_power_p2 > state.loc1.total_power_p1:
+		p2_wins += 1
+		
+	if state.loc2.total_power_p1 > state.loc2.total_power_p2:
+		p1_wins += 1
+		
+	if state.loc2.total_power_p2 > state.loc2.total_power_p1:
+		p2_wins += 1
+		
+	if state.loc3.total_power_p1 > state.loc3.total_power_p2:
+		p1_wins += 1
+		
+	if state.loc3.total_power_p2 > state.loc3.total_power_p1:
+		p2_wins += 1
+	
+	var p1_won = p1_wins > p2_wins or (p1_wins == p2_wins and total_power_p1 > total_power_p2)
+	var p2_won = p2_wins > p1_wins or (p1_wins == p2_wins and total_power_p2 > total_power_p1)
+	
+	return 1 if p1_won else 2 if p2_won else 0
+	
 func end_turn(state: GameState):
 	pass
 

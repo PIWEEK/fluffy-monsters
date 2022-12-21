@@ -2,6 +2,7 @@ extends RichTextLabel
 
 @onready var events: Events = $"/root/Events"
 @onready var db: DataBase = $"/root/DB"
+@onready var game_state_service: GameStateService = $"../GameLogic/GameStateService"
 
 @export_color_no_alpha var color_p1: Color
 @export_color_no_alpha var color_p2: Color
@@ -70,8 +71,6 @@ func _on_draw_end(player: int):
 	add_entry(2, "HAND P2:" + ",".join(hand_p2))
 	add_entry(1, "DECK P2:" + ",".join(deck_p2))
 
-
-
 func _on_play_start():
 	add_entry(0, "Play")
 
@@ -118,6 +117,13 @@ func _on_finish_turn_end(player: int):
 
 func _on_finish_game_start():
 	add_entry(0, "Finish Game")
+	var winner = game_state_service.get_winner($"../GameLogic".state)
+	if winner == 0:
+		add_entry(0, "TIE!!")
+	elif winner == 1:
+		add_entry(0, "WINNER:" + $"../GameLogic".state.player1.player_name)
+	else:
+		add_entry(0, "WINNER:" + $"../GameLogic".state.player2.player_name)
 
 func _on_finish_game_end(player: int):
 	add_entry(player, "Finish Game End")

@@ -33,7 +33,6 @@ offset_right = 1920.0
 offset_bottom = 165.0
 
 [node name="ColorRect" type="ColorRect" parent="Header"]
-layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 165.0
 
@@ -86,7 +85,6 @@ color_p1 = Color(1, 0.294118, 0.443137, 1)
 color_p2 = Color(0.27451, 0.490196, 1, 1)
 
 [node name="ClearLogBtn" type="Button" parent="ActionsLog"]
-layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0

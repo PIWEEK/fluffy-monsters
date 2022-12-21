@@ -20,12 +20,17 @@ func play_turn() -> Array[PlayerAction]:
 	var player_data: PlayerGameData = state.get_player_data(current_player)
 	var locations: Array[GameLocation] = state.get_locations()
 	
+	var played_cards = Dictionary()
 	var current_energy = player_data.energy
 	for card in player_data.hand:
 		if card.current_cost <= current_energy:
 			for loc in locations:
-				if 	(current_player == 1 and loc.cards_p1.size() < 4) or \
-					(current_player == 2 and loc.cards_p2.size() < 4):
+				if loc.location_id not in played_cards:
+					played_cards[loc.location_id] = 0
+				if 	(current_player == 1 and (loc.cards_p1.size() + played_cards[loc.location_id]) < 4) or \
+					(current_player == 2 and (loc.cards_p2.size() + played_cards[loc.location_id]) < 4):
+					
+					played_cards[loc.location_id] += 1
 					player_turn.push_back(PlayerAction.new(card.card_id, loc.location_id))
 					current_energy -= card.current_cost
 					break
