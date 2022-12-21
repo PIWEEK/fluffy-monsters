@@ -48,12 +48,11 @@ func _on_finish_turn_start():
 	# Disallow the user to move cards
 	next_turn_button.disabled = true
 	var actions = state.turns[state.turn][enemy_player]
+	var played_cards = []
 	for action in actions:
-		play_enemy_action(action)
+		played_cards.append(play_enemy_action(action))
 		
-	reveal_enemy_cards(0)
-	reveal_enemy_cards(1)
-	reveal_enemy_cards(2)
+	reveal_enemy_cards(played_cards)
 	events.emit_signal("finish_turn_end", current_player)
 	
 func play_enemy_action(action):
@@ -62,10 +61,10 @@ func play_enemy_action(action):
 	card_scene.init(action.card_id, card)
 	card_scene.show_back()
 	locations[action.target_location_id].add_enemy_card(card_scene)
+	return card_scene
 	
-func reveal_enemy_cards(location_num):
-	for card in gui_state.cards_location_enemy[location_num]:
-		if not card.revealed:			
+func reveal_enemy_cards(cards):
+	for card in cards:
 			await get_tree().create_timer(1).timeout
 			card.reveal()
 			await get_tree().create_timer(1).timeout
