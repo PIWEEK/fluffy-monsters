@@ -24,16 +24,17 @@ func init2(location_num, location_id, game_location):
 func _process(delta):
 	pass
 
-func redraw_location():
-	var cards = ""
-	for card in gui_state.cards_location[location_num]:
-		cards += " " + card.slug
-	print ("redrawing " + str(location_num) + " cards " + str(len(gui_state.cards_location[location_num])) + " " + cards)
-	
+func redraw_location():	
 	var x = 46
 	for card in gui_state.cards_location[location_num]:
 		card.position.x = x
 		card.position.y = 1055
+		x += gui_state.CARD_WIDTH + AREA_GAP
+		
+	x = 46
+	for card in gui_state.cards_location_enemy[location_num]:
+		card.position.x = x
+		card.position.y = 35
 		x += gui_state.CARD_WIDTH + AREA_GAP
 
 func add_card(card):	
@@ -41,6 +42,10 @@ func add_card(card):
 	add_child(card)
 	redraw_location()
 
+func add_enemy_card(card):	
+	gui_state.cards_location_enemy[location_num].append(card)	
+	add_child(card)
+	redraw_location()
 
 func _on_player_1_mouse_entered():
 	if gui_state.dragging:

@@ -23,8 +23,8 @@ color = Color(1, 1, 0.2, 1)
 
 [node name="Back" type="TextureRect" parent="."]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 200.0
+offset_bottom = 241.0
 texture = ExtResource("4_t5haw")
 
 [node name="Front" type="Control" parent="."]

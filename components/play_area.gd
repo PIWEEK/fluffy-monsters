@@ -2,9 +2,12 @@ extends Node2D
 
 var play_card_scene = preload("res://components/play_card.tscn")
 
-var locations: Array[GameLocation]
+var state: GameState
 var player_turn: Array[PlayerAction] = []
 var current_player: int
+var enemy_player: int
+
+var locations
 
 @onready var gui_events = get_node("/root/GuiEvents")
 @onready var gui_state = get_node("/root/GuiState")
@@ -25,12 +28,16 @@ func _ready():
 	events.connect("finish_turn_start", _on_finish_turn_start)
 	
 func _on_begin_game_start():	
-	var state: GameState = $GameLogic.state
-	var locations: Array[GameLocation] = state.get_locations()
+	current_player = $PlayerController.current_player
+	enemy_player = 2 if current_player == 1 else 1
+			
+	state = $GameLogic.state
+	var state_locations: Array[GameLocation] = state.get_locations()
 	
-	$Location1.init2 (0, locations[0].location_id, locations[0].get_data(db))
-	$Location2.init2 (1, locations[1].location_id, locations[1].get_data(db))
-	$Location3.init2 (2, locations[2].location_id, locations[2].get_data(db))
+	$Location1.init2 (0, state_locations[0].location_id, state_locations[0].get_data(db))
+	$Location2.init2 (1, state_locations[1].location_id, state_locations[1].get_data(db))
+	$Location3.init2 (2, state_locations[2].location_id, state_locations[2].get_data(db))
+	locations = {state_locations[0].location_id: $Location1, state_locations[1].location_id: $Location2, state_locations[2].location_id: $Location3}
 
 func _on_play_start():
 	# Allow the user to move cards
@@ -40,7 +47,29 @@ func _on_play_start():
 func _on_finish_turn_start():
 	# Disallow the user to move cards
 	next_turn_button.disabled = true
-	pass
+	var actions = state.turns[state.turn][enemy_player]
+	for action in actions:
+		play_enemy_action(action)
+		
+	reveal_enemy_cards(0)
+	reveal_enemy_cards(1)
+	reveal_enemy_cards(2)
+	events.emit_signal("finish_turn_end", current_player)
+	
+func play_enemy_action(action):
+	var card = db.get_card(action.card_id)	
+	var card_scene = play_card_scene.instantiate()
+	card_scene.init(action.card_id, card)
+	card_scene.show_back()
+	locations[action.target_location_id].add_enemy_card(card_scene)
+	
+func reveal_enemy_cards(location_num):
+	for card in gui_state.cards_location_enemy[location_num]:
+		if not card.revealed:
+			card.reveal()
+			await get_tree().create_timer(1).timeout
+			
+	
 	
 func _on_draw_start():
 	# Now it's deleting the whole hand and redrawing
@@ -66,11 +95,10 @@ func _on_stop_drag_card(card):
 		play_card(card, gui_state.dragging_location)
 
 func play_card(card, location):	
-	print ("add card to location " + str(location.location_num))
 	$Hand.remove_card(card)
 	location.add_card(card)
 	card.draggable = false
 	player_turn.push_back(PlayerAction.new(card.card_id, location.location_id))
 
 func _on_next_turn_button_pressed():
-	events.emit_signal("play_end", $PlayerController.current_player, player_turn)
+	events.emit_signal("play_end", current_player, player_turn)

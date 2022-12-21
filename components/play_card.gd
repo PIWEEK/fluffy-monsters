@@ -13,7 +13,9 @@ var power: int = 0
 var card_image: Texture
 var card_id
 
-func init(card_id, card: Card):
+var tween
+
+func init(card_id, card: Card):	
 	self.card_id = card_id
 	self.name = card.card_name
 	self.slug = card.name
@@ -29,12 +31,25 @@ func redraw():
 	$Front/Hole/Image.texture = card_image
 
 func _ready():
-	reveal()
-
+	pass
+	
+func show_back():
+	revealed = false
+	$Front.visible = false
+	$Back.visible = true
 	
 func reveal():
-	$Front.visible = revealed
-	$Back.visible = not revealed	
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate:a", 0, 0.5)
+	tween.tween_callback(end_reveal)
+
+func end_reveal():
+	revealed = true
+	$Front.visible = true
+	$Back.visible = false
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate:a", 1, 0.5)
+	tween.tween_callback(end_reveal)
 
 
 func _on_front_gui_input(event):
