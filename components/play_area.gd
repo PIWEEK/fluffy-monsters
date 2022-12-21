@@ -9,6 +9,7 @@ var current_player: int
 var enemy_player: int
 
 var locations
+var player_played_cards = []
 
 @onready var gui_events = get_node("/root/GuiEvents")
 @onready var gui_state = get_node("/root/GuiState")
@@ -42,40 +43,59 @@ func _on_begin_game_start():
 	$Location2.init2 (1, state_locations[1].location_id, state_locations[1].get_data(db))
 	$Location3.init2 (2, state_locations[2].location_id, state_locations[2].get_data(db))
 	locations = {state_locations[0].location_id: $Location1, state_locations[1].location_id: $Location2, state_locations[2].location_id: $Location3}
+	$Location1.redraw_location()
+	$Location2.redraw_location()
+	$Location3.redraw_location()
 
 func _on_play_start():
 	# Allow the user to move cards
 	player_turn = []
+	player_played_cards = []
 	next_turn_button.disabled = false
 	
 func _on_finish_turn_start():
 	# Disallow the user to move cards
 	next_turn_button.disabled = true
+	end_turn_show_cards()
+	
+func end_turn_show_cards():
+	for card in player_played_cards:
+		card.show_back()
+		
+	var played_cards = played_enemy_cards()
+	await reveal_cards(played_cards)
+	reveal_cards(player_played_cards)
+	events.emit_signal("finish_turn_end", current_player)
+	
+func played_enemy_cards():	
 	var actions = state.turns[state.turn][enemy_player]
 	var played_cards = []
 	for action in actions:
-		played_cards.append(play_enemy_action(action))
-		
-	reveal_enemy_cards(played_cards)
-	events.emit_signal("finish_turn_end", current_player)
+		played_cards.append(create_enemy_card_from_action(action))
+	return played_cards
 	
-func play_enemy_action(action):
+	
+func create_enemy_card_from_action(action):
 	var card = db.get_card(action.card_id)	
 	var card_scene = play_card_scene.instantiate()
 	card_scene.init(action.card_id, card)
 	card_scene.show_back()
+	card_scene.belongs_to_player = false
+	card_scene.played_location = action.target_location_id
 	locations[action.target_location_id].add_enemy_card(card_scene)
 	return card_scene
 	
-func reveal_enemy_cards(cards):
+func reveal_cards(cards):
 	for card in cards:
 			await get_tree().create_timer(1).timeout
-			card.reveal()
+			card.reveal()			
 			await get_tree().create_timer(1).timeout
+			if card.belongs_to_player:
+				locations[card.played_location].power_down += card.power
+			else:
+				locations[card.played_location].power_up += card.power
+			locations[card.played_location].redraw_location()
 			
-			
-	
-	
 func _on_draw_start():
 	# Now it's deleting the whole hand and redrawing
 	$Hand.remove_all_cards()
@@ -103,6 +123,9 @@ func play_card(card, location):
 	$Hand.remove_card(card)
 	location.add_card(card)
 	card.draggable = false
+	card.belongs_to_player = true
+	card.played_location = location.location_id
+	player_played_cards.append(card)
 	player_turn.push_back(PlayerAction.new(card.card_id, location.location_id))
 
 func _on_next_turn_button_pressed():

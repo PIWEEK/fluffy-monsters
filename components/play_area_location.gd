@@ -9,6 +9,9 @@ var location_num
 var location_name
 var text
 
+var power_up = 0
+var power_down = 0
+
 
 func _ready():
 	pass
@@ -36,6 +39,17 @@ func redraw_location():
 		card.position.x = x
 		card.position.y = 35
 		x += gui_state.CARD_WIDTH + AREA_GAP
+		
+	$Place/PowerUp.text = str(power_up)
+	$Place/PowerDown.text = str(power_down)
+		
+	$Place/RibonWinDown.visible = false
+	$Place/RibonWinUp.visible = false
+	
+	if power_up > power_down:
+		$Place/RibonWinUp.visible = true
+	if power_up < power_down:
+		$Place/RibonWinDown.visible = true
 
 func add_card(card):	
 	gui_state.cards_location[location_num].append(card)
@@ -46,6 +60,7 @@ func add_enemy_card(card):
 	gui_state.cards_location_enemy[location_num].append(card)	
 	add_child(card)
 	redraw_location()
+
 
 func _on_player_1_mouse_entered():
 	if gui_state.dragging:

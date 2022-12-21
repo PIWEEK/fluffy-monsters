@@ -12,6 +12,8 @@ var power: int = 0
 
 var card_image: Texture
 var card_id
+var belongs_to_player = false
+var played_location = -1
 
 var tween
 
