@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://daa8h83c1m1yy" path="res://resources/images/ui/bg-circle.png" id="6_1l3c0"]
 [ext_resource type="Texture2D" uid="uid://8hpuf67pktry" path="res://resources/images/ui/bg-square.png" id="7_j1pp4"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_lgsl4"]
+[sub_resource type="LabelSettings" id="LabelSettings_rmkha"]
 font_size = 28
 outline_size = 1
 outline_color = Color(0.0901961, 0.545098, 0.392157, 1)
@@ -68,7 +68,7 @@ offset_top = 6.0
 offset_right = 67.0
 offset_bottom = 62.0
 text = "6"
-label_settings = SubResource("LabelSettings_lgsl4")
+label_settings = SubResource("LabelSettings_rmkha")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -85,7 +85,7 @@ offset_top = 11.0
 offset_right = 58.0
 offset_bottom = 55.0
 text = "6"
-label_settings = SubResource("LabelSettings_lgsl4")
+label_settings = SubResource("LabelSettings_rmkha")
 horizontal_alignment = 1
 vertical_alignment = 1
 

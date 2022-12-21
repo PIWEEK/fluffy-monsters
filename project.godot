@@ -117,7 +117,7 @@ _global_script_class_icons={
 [application]
 
 config/name="fluffy-monsters"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://MainMenu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 

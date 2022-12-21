@@ -157,5 +157,11 @@ func _on_end_turn_button_pressed():
 func _on_finish_game_start():
 	var scene = end_game_scene.instantiate()
 	var winner = $GameLogic/GameStateService.get_winner(state)
-	scene.set_player_victory(winner == current_player)
+	scene.init(winner == current_player, current_player)
 	add_child(scene)
+	
+
+
+
+func _on_retreat_button_pressed():
+	get_tree().change_scene_to_file("res://MainMenu.tscn")
