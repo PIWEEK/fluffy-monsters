@@ -40,7 +40,7 @@ func show_back():
 	
 func reveal():
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate:a", 0, 0.5)
+	tween.tween_property(self, "modulate:a", 0, 1)
 	tween.tween_callback(end_reveal)
 
 func end_reveal():
@@ -48,7 +48,7 @@ func end_reveal():
 	$Front.visible = true
 	$Back.visible = false
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate:a", 1, 0.5)
+	tween.tween_property(self, "modulate:a", 1, 1)
 	tween.tween_callback(end_reveal)
 
 

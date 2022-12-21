@@ -65,9 +65,11 @@ func play_enemy_action(action):
 	
 func reveal_enemy_cards(location_num):
 	for card in gui_state.cards_location_enemy[location_num]:
-		if not card.revealed:
+		if not card.revealed:			
+			await get_tree().create_timer(1).timeout
 			card.reveal()
 			await get_tree().create_timer(1).timeout
+			
 			
 	
 	
