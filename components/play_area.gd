@@ -17,17 +17,19 @@ var locations
 @onready var next_turn_button = $NextTurnButton
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	
+func _ready():	
 	gui_events.connect("stop_drag_card", _on_stop_drag_card)
-	
-	
 	events.connect("begin_game_start", _on_begin_game_start)
 	events.connect("play_start", _on_play_start)
 	events.connect("draw_start", _on_draw_start)
 	events.connect("finish_turn_start", _on_finish_turn_start)
-	
-func _on_begin_game_start():	
+
+func _on_begin_game_start():
+	$Header/Player1/Label.text = $GameLogic.state.player1.player_name
+	$Header/Player1/Avatar.texture = $GameLogic.state.player1.avatar
+	$Header/Player2/Label.text = $GameLogic.state.player2.player_name
+	$Header/Player2/Avatar.texture = $GameLogic.state.player2.avatar
+
 	current_player = $PlayerController.current_player
 	enemy_player = 2 if current_player == 1 else 1
 			

@@ -4,23 +4,9 @@
 [ext_resource type="Script" path="res://src/DummyPlayerAI.gd" id="2_vn0dd"]
 [ext_resource type="Script" path="res://src/HumanPlayer.gd" id="3_lfwrd"]
 [ext_resource type="PackedScene" uid="uid://biqr48tjon6uf" path="res://components/actions_logger.tscn" id="3_qyrcf"]
-[ext_resource type="Texture2D" uid="uid://7bdu148lucdt" path="res://resources/images/chaos-hamster.png" id="4_lx8w5"]
+[ext_resource type="Texture2D" uid="uid://7bdu148lucdt" path="res://resources/images/avatars/chaos-hamster.png" id="4_lx8w5"]
 [ext_resource type="Script" path="res://src/game/services/CardExecutorService.gd" id="6_g268b"]
 [ext_resource type="Script" path="res://src/game/services/DeckService.gd" id="7_6os74"]
 [ext_resource type="Script" path="res://src/game/services/GameStateService.gd" id="8_5rou8"]
 [ext_resource type="Script" path="res://src/game/services/HandService.gd" id="9_v7ty3"]
 [ext_resource type="Script" path="res://src/game/services/LocationService.gd" id="10_idw4f"]
-dExecutorService" type="Node" parent="GameLogic"]
-script = ExtResource("6_g268b")
-
-[node name="DeckService" type="Node" parent="GameLogic"]
-script = ExtResource("7_6os74")
-
-[node name="GameStateService" type="Node" parent="GameLogic"]
-script = ExtResource("8_5rou8")
-
-[node name="HandService" type="Node" parent="GameLogic"]
-script = ExtResource("9_v7ty3")
-
-[node name="LocationService" type="Node" parent="GameLogic"]
-script = ExtResource("10_idw4f")

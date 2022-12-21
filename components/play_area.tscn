@@ -1,19 +1,24 @@
-[gd_scene load_steps=16 format=3 uid="uid://wbc1nsfma30e"]
+[gd_scene load_steps=21 format=3 uid="uid://bqgwwjbtpbxua"]
 
 [ext_resource type="Script" path="res://components/play_area.gd" id="1_by8b4"]
 [ext_resource type="Texture2D" uid="uid://1xlwogbg6v04" path="res://resources/images/ui/table-bg-eyes.jpg" id="2_iqh1c"]
 [ext_resource type="PackedScene" uid="uid://bbbhacwcc4yr8" path="res://components/play_area_hand.tscn" id="2_nfgq3"]
+[ext_resource type="Texture2D" uid="uid://bqoc4am56spcl" path="res://resources/images/ui/user1-frame.png" id="3_db27m"]
 [ext_resource type="PackedScene" uid="uid://dim0lew6t2nyh" path="res://components/play_area_location.tscn" id="3_l05bd"]
+[ext_resource type="Texture2D" uid="uid://7bdu148lucdt" path="res://resources/images/avatars/chaos-hamster.png" id="3_w8x2w"]
+[ext_resource type="Theme" uid="uid://ckah2watyqrkm" path="res://resources/monster_theme.tres" id="4_eka2w"]
+[ext_resource type="Texture2D" uid="uid://djerbchrokccb" path="res://resources/images/ui/user2-frame.png" id="4_optvh"]
 [ext_resource type="Script" path="res://components/actions_logger.gd" id="5_6gyca"]
 [ext_resource type="Script" path="res://components/PlayerController.gd" id="6_d4rga"]
 [ext_resource type="Script" path="res://src/DummyPlayerAI.gd" id="6_hjkqc"]
-[ext_resource type="Texture2D" uid="uid://7bdu148lucdt" path="res://resources/images/avatar.png" id="7_c0w0u"]
 [ext_resource type="Script" path="res://src/GameLogic.gd" id="8_bu3mp"]
 [ext_resource type="Script" path="res://src/game/services/CardExecutorService.gd" id="9_w0r8w"]
 [ext_resource type="Script" path="res://src/game/services/DeckService.gd" id="10_8mxr3"]
+[ext_resource type="Texture2D" uid="uid://boel53y0aaghm" path="res://resources/images/avatars/cat-wizard.png" id="11_b0pjs"]
 [ext_resource type="Script" path="res://src/game/services/GameStateService.gd" id="11_o8a10"]
 [ext_resource type="Script" path="res://src/game/services/HandService.gd" id="12_prqrw"]
 [ext_resource type="Script" path="res://src/game/services/LocationService.gd" id="13_keehl"]
+[ext_resource type="Texture2D" uid="uid://bamg0uolmktpu" path="res://resources/images/avatars/cyber-deer.png" id="13_lyh0i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkihv"]
 
@@ -26,15 +31,112 @@ offset_bottom = 40.0
 texture = ExtResource("2_iqh1c")
 
 [node name="Header" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 165.0
 
-[node name="ColorRect" type="ColorRect" parent="Header"]
-offset_right = 1920.0
-offset_bottom = 165.0
+[node name="Player1" type="Control" parent="Header"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="Avatar" type="TextureRect" parent="Header/Player1"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = -65.5
+offset_right = 154.0
+offset_bottom = 65.5
+grow_vertical = 2
+texture = ExtResource("3_w8x2w")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="Frame" type="TextureRect" parent="Header/Player1"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -70.5
+offset_right = 528.0
+offset_bottom = 70.5
+grow_vertical = 2
+texture = ExtResource("3_db27m")
+
+[node name="Label" type="Label" parent="Header/Player1"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 189.0
+offset_top = -28.5
+offset_right = 356.0
+offset_bottom = 28.5
+grow_vertical = 2
+theme = ExtResource("4_eka2w")
+text = "PLAYER1"
+
+[node name="Player2" type="Control" parent="Header"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Avatar" type="TextureRect" parent="Header/Player2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -153.0
+offset_top = -65.5
+offset_right = -29.0
+offset_bottom = 65.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_w8x2w")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="Frame" type="TextureRect" parent="Header/Player2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -525.0
+offset_top = -70.5
+offset_right = -24.0
+offset_bottom = 70.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_optvh")
+
+[node name="Label" type="Label" parent="Header/Player2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -351.0
+offset_top = -28.5
+offset_right = -184.0
+offset_bottom = 28.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("4_eka2w")
+text = "PLAYER2"
 
 [node name="Hand" parent="." instance=ExtResource("2_nfgq3")]
 offset_left = 240.0
@@ -75,6 +177,7 @@ disabled = true
 text = "NEXT TURN"
 
 [node name="ActionsLog" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 1284.0
 offset_top = 2.0
 offset_right = 1917.0
@@ -85,6 +188,7 @@ color_p1 = Color(1, 0.294118, 0.443137, 1)
 color_p2 = Color(0.27451, 0.490196, 1, 1)
 
 [node name="ClearLogBtn" type="Button" parent="ActionsLog"]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -95,14 +199,14 @@ text = "CLEAR"
 
 [node name="PlayerController" type="Node" parent="."]
 script = ExtResource("6_d4rga")
-player_name = "Player"
-player_avatar = ExtResource("7_c0w0u")
+player_name = "Fluffymons"
+player_avatar = ExtResource("11_b0pjs")
 player_deck = "deck-1"
 
 [node name="DummyPlayerAI" type="Node" parent="."]
 script = ExtResource("6_hjkqc")
-player_name = "BOT"
-player_avatar = ExtResource("7_c0w0u")
+player_name = "Dummy BOT"
+player_avatar = ExtResource("13_lyh0i")
 player_deck = "deck-2"
 
 [node name="GameLogic" type="Node" parent="."]
@@ -122,6 +226,66 @@ script = ExtResource("12_prqrw")
 
 [node name="LocationService" type="Node" parent="GameLogic"]
 script = ExtResource("13_keehl")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 950.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="RetreatButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -38.5
+offset_right = 239.0
+offset_bottom = 38.5
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/RetreatButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -28.5
+offset_right = 216.0
+offset_bottom = 28.5
+grow_vertical = 2
+theme = ExtResource("4_eka2w")
+text = "RUN AWAY"
+
+[node name="EndTurnButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -38.5
+offset_right = -42.0
+offset_bottom = 38.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/EndTurnButton"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -28.5
+offset_bottom = 28.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("4_eka2w")
+text = "END TURN"
 
 [connection signal="pressed" from="NextTurnButton" to="." method="_on_next_turn_button_pressed"]
 [connection signal="pressed" from="ActionsLog/ClearLogBtn" to="ActionsLog" method="_on_clear_log_btn_pressed"]
