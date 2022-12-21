@@ -61,6 +61,43 @@ func _on_play_end(player: int, actions: Array[PlayerAction]):
 	add_entry(player, "PLAY END %s" % play_string)
 
 func _on_finish_turn_start():
+	var state: GameState = $"../GameLogic".state
+	var locations: Array[GameLocation] = state.get_locations()
+	var location_str = ""
+	
+	for location in locations:
+		var cards_p1 = PackedStringArray()
+		for card in location.cards_p1:
+			cards_p1.append(card.card_id)
+		var p1_info = "%s [%s]" % [location.total_power_p1, ",".join(cards_p1)]
+		
+		var cards_p2 = PackedStringArray()
+		for card in location.cards_p2:
+			cards_p2.append(card.card_id)
+		var p2_info = "%s [%s]" % [location.total_power_p2, ",".join(cards_p2)]
+		location_str += "%s{P1:%s,P2:%s}, " % [ location.get_data(db).name, p1_info, p2_info]
+	
+	var hand_p1 = PackedStringArray()
+	for card in state.player1_data.hand:
+		hand_p1.append(card.card_id)
+		
+	var hand_p2 = PackedStringArray()
+	for card in state.player2_data.hand:
+		hand_p2.append(card.card_id)
+		
+	var deck_p1 = PackedStringArray()
+	for card in state.player1_data.deck:
+		deck_p1.append(card.name)
+		
+	var deck_p2 = PackedStringArray()
+	for card in state.player2_data.deck:
+		deck_p2.append(card.name)
+	
+	add_entry(0, "LOCATIONS:" + location_str)
+	add_entry(1, "HAND P1:" + ",".join(hand_p1))
+	add_entry(1, "DECK P1:" + ",".join(deck_p1))
+	add_entry(2, "HAND P2:" + ",".join(hand_p2))
+	add_entry(1, "DECK P2:" + ",".join(deck_p2))
 	add_entry(0, "Finish Turn")
 
 func _on_finish_turn_end(player: int):
