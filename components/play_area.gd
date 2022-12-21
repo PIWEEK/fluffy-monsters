@@ -16,12 +16,16 @@ var player_played_cards = []
 
 @onready var events = $"/root/Events"
 @onready var db: DataBase = $"/root/DB"
-@onready var next_turn_button = $NextTurnButton
+@onready var next_turn_button = $Actions/EndTurnButton
+
+@onready var rounds_label = $Actions/EndTurnButton/Rounds
+@onready var energy_label = $Actions/EndTurnButton/Energy/Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	gui_events.connect("stop_drag_card", _on_stop_drag_card)
 	gui_events.connect("show_zoom_card", _on_show_zoom_card)
+	events.connect("begin_turn_start", _on_begin_turn_start)
 	events.connect("begin_game_start", _on_begin_game_start)
 	events.connect("play_start", _on_play_start)
 	events.connect("draw_start", _on_draw_start)
@@ -46,7 +50,16 @@ func _on_begin_game_start():
 	$Location1.redraw_location()
 	$Location2.redraw_location()
 	$Location3.redraw_location()
+	
+	energy_label.text = str(1)
+	rounds_label.text = "Round 1/6"
 
+func _on_begin_turn_start():
+	var state: GameState = $GameLogic.state
+	var player: PlayerGameData = state.player1_data if current_player == 1 else state.player2_data
+	energy_label.text = str(state.player1_data.energy)
+	rounds_label.text = "Round %s/6" % [state.turn]
+	
 func _on_play_start():
 	# Allow the user to move cards
 	player_turn = []
@@ -130,12 +143,10 @@ func play_card(card, location):
 	player_played_cards.append(card)
 	player_turn.push_back(PlayerAction.new(card.card_id, location.location_id))
 
-func _on_next_turn_button_pressed():
-	events.emit_signal("play_end", current_player, player_turn)
-
 func _on_show_zoom_card(card):
 	var card_scene = card_zoom_scene.instantiate()
 	card_scene.init(card)
 	add_child(card_scene)
 
-
+func _on_end_turn_button_pressed():
+	events.emit_signal("play_end", current_player, player_turn)

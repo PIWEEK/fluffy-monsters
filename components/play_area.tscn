@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b733hc0h3768l"]
+[gd_scene load_steps=29 format=3 uid="uid://b733hc0h3768l"]
 
 [ext_resource type="Script" path="res://components/play_area.gd" id="1_by8b4"]
 [ext_resource type="Texture2D" uid="uid://1xlwogbg6v04" path="res://resources/images/ui/table-bg-eyes.jpg" id="2_iqh1c"]
@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://7bdu148lucdt" path="res://resources/images/avatars/chaos-hamster.png" id="3_w8x2w"]
 [ext_resource type="Texture2D" uid="uid://djerbchrokccb" path="res://resources/images/ui/user2-frame.png" id="4_optvh"]
 [ext_resource type="Script" path="res://components/actions_logger.gd" id="5_6gyca"]
-[ext_resource type="LabelSettings" path="res://resources/label_p1.tres" id="5_7fqpa"]
+[ext_resource type="LabelSettings" uid="uid://dlqber6j1ehw0" path="res://resources/label_p1.tres" id="5_7fqpa"]
 [ext_resource type="Script" path="res://components/PlayerController.gd" id="6_d4rga"]
 [ext_resource type="Script" path="res://src/DummyPlayerAI.gd" id="6_hjkqc"]
-[ext_resource type="LabelSettings" path="res://resources/label_p2.tres" id="7_xet36"]
+[ext_resource type="LabelSettings" uid="uid://uu43nkx1v4p2" path="res://resources/label_p2.tres" id="7_xet36"]
 [ext_resource type="Script" path="res://src/GameLogic.gd" id="8_bu3mp"]
 [ext_resource type="Script" path="res://src/game/services/CardExecutorService.gd" id="9_w0r8w"]
 [ext_resource type="Script" path="res://src/game/services/DeckService.gd" id="10_8mxr3"]
@@ -21,15 +21,37 @@
 [ext_resource type="Script" path="res://src/game/services/LocationService.gd" id="13_keehl"]
 [ext_resource type="Texture2D" uid="uid://bamg0uolmktpu" path="res://resources/images/avatars/cyber-deer.png" id="13_lyh0i"]
 [ext_resource type="FontFile" uid="uid://dtd3tst48g77p" path="res://resources/fonts/mrsmonster.ttf" id="20_qujc1"]
+[ext_resource type="Texture2D" uid="uid://cekb4ioimffpb" path="res://resources/images/ui/button-runaway-bg.png" id="21_l3nov"]
+[ext_resource type="Texture2D" uid="uid://cf76yyye6at8u" path="res://resources/images/ui/button-turn-bg.png" id="23_dmo0n"]
+[ext_resource type="Texture2D" uid="uid://tixqr6que8vc" path="res://resources/images/ui/cost.png" id="24_ff2xd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkihv"]
+[sub_resource type="LabelSettings" id="LabelSettings_nvghn"]
+font = ExtResource("20_qujc1")
+font_size = 50
+shadow_size = 12
+shadow_color = Color(0.509804, 0.0588235, 0.180392, 1)
+shadow_offset = Vector2(1, 3)
 
-[sub_resource type="Theme" id="Theme_2krps"]
-default_font = ExtResource("20_qujc1")
-default_font_size = 50
+[sub_resource type="LabelSettings" id="LabelSettings_r806y"]
+font = ExtResource("20_qujc1")
+font_size = 50
+shadow_size = 12
+shadow_color = Color(0.0352941, 0.392157, 0.32549, 1)
+shadow_offset = Vector2(1, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_naqao"]
+font = ExtResource("20_qujc1")
+font_size = 31
+font_color = Color(0.12549, 0.929412, 0.780392, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qcjg0"]
+font_size = 64
+outline_size = 9
+outline_color = Color(0.745098, 0.447059, 0.00784314, 1)
 
 [node name="PlayArea" type="Node2D"]
 script = ExtResource("1_by8b4")
+metadata/_edit_vertical_guides_ = [1893.0, 27.0]
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -43,12 +65,13 @@ offset_right = 1920.0
 offset_bottom = 165.0
 
 [node name="Player1" type="Control" parent="Header"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
 
 [node name="Avatar" type="TextureRect" parent="Header/Player1"]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -62,6 +85,7 @@ ignore_texture_size = true
 stretch_mode = 6
 
 [node name="Frame" type="TextureRect" parent="Header/Player1"]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -73,6 +97,7 @@ grow_vertical = 2
 texture = ExtResource("3_db27m")
 
 [node name="Label" type="Label" parent="Header/Player1"]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -85,7 +110,7 @@ text = "PLAYER1"
 label_settings = ExtResource("5_7fqpa")
 
 [node name="Player2" type="Control" parent="Header"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -94,6 +119,7 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Avatar" type="TextureRect" parent="Header/Player2"]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -110,6 +136,7 @@ ignore_texture_size = true
 stretch_mode = 6
 
 [node name="Frame" type="TextureRect" parent="Header/Player2"]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -124,6 +151,7 @@ grow_vertical = 2
 texture = ExtResource("4_optvh")
 
 [node name="Label" type="Label" parent="Header/Player2"]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -137,6 +165,114 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "PLAYER2"
 label_settings = ExtResource("7_xet36")
+
+[node name="Actions" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 937.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="RetreatButton" type="TextureButton" parent="Actions"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -90.0
+offset_right = 474.0
+offset_bottom = 36.0
+grow_vertical = 2
+texture_normal = ExtResource("21_l3nov")
+
+[node name="Label" type="Label" parent="Actions/RetreatButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 54.0
+offset_top = -28.5
+offset_right = 270.0
+offset_bottom = 28.5
+grow_vertical = 2
+text = "RUN AWAY"
+label_settings = SubResource("LabelSettings_nvghn")
+
+[node name="EndTurnButton" type="TextureButton" parent="Actions"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -477.0
+offset_top = -100.0
+offset_right = -30.0
+offset_bottom = 26.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("23_dmo0n")
+
+[node name="Label" type="Label" parent="Actions/EndTurnButton"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -28.5
+offset_right = -48.0
+offset_bottom = 28.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "END TURN"
+label_settings = SubResource("LabelSettings_r806y")
+
+[node name="Rounds" type="Label" parent="Actions/EndTurnButton"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = 45.0
+offset_right = -61.0
+offset_bottom = 82.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Round 4/6"
+label_settings = SubResource("LabelSettings_naqao")
+
+[node name="Energy" type="TextureRect" parent="Actions/EndTurnButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -69.5
+offset_right = 158.0
+offset_bottom = 107.5
+grow_vertical = 2
+scale = Vector2(0.816164, 0.816164)
+texture = ExtResource("24_ff2xd")
+
+[node name="Label" type="Label" parent="Actions/EndTurnButton/Energy"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0496
+offset_top = -46.7252
+offset_right = 26.9504
+offset_bottom = 44.2748
+grow_horizontal = 2
+grow_vertical = 2
+text = "4"
+label_settings = SubResource("LabelSettings_qcjg0")
 
 [node name="Hand" parent="." instance=ExtResource("2_nfgq3")]
 offset_left = 240.0
@@ -166,16 +302,6 @@ offset_right = 2244.0
 offset_bottom = 1510.0
 scale = Vector2(0.5, 0.5)
 
-[node name="NextTurnButton" type="Button" parent="."]
-offset_left = 1752.0
-offset_top = 971.0
-offset_right = 1876.0
-offset_bottom = 1051.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_gkihv")
-disabled = true
-text = "NEXT TURN"
-
 [node name="ActionsLog" type="RichTextLabel" parent="."]
 visible = false
 offset_left = 1284.0
@@ -188,6 +314,7 @@ color_p1 = Color(1, 0.294118, 0.443137, 1)
 color_p2 = Color(0.27451, 0.490196, 1, 1)
 
 [node name="ClearLogBtn" type="Button" parent="ActionsLog"]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -226,61 +353,5 @@ script = ExtResource("12_prqrw")
 [node name="LocationService" type="Node" parent="GameLogic"]
 script = ExtResource("13_keehl")
 
-[node name="Control" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_top = 950.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-
-[node name="RetreatButton" type="TextureButton" parent="Control"]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 27.0
-offset_top = -38.5
-offset_right = 239.0
-offset_bottom = 38.5
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Control/RetreatButton"]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -28.5
-offset_right = 216.0
-offset_bottom = 28.5
-grow_vertical = 2
-theme = SubResource("Theme_2krps")
-text = "RUN AWAY"
-
-[node name="EndTurnButton" type="TextureButton" parent="Control"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -254.0
-offset_top = -38.5
-offset_right = -42.0
-offset_bottom = 38.5
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Control/EndTurnButton"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -216.0
-offset_top = -28.5
-offset_bottom = 28.5
-grow_horizontal = 0
-grow_vertical = 2
-theme = SubResource("Theme_2krps")
-text = "END TURN"
-
-[connection signal="pressed" from="NextTurnButton" to="." method="_on_next_turn_button_pressed"]
+[connection signal="pressed" from="Actions/EndTurnButton" to="." method="_on_end_turn_button_pressed"]
 [connection signal="pressed" from="ActionsLog/ClearLogBtn" to="ActionsLog" method="_on_clear_log_btn_pressed"]

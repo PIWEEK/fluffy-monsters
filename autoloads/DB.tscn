@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cenh7jkiaba15"]
+[gd_scene load_steps=36 format=3 uid="uid://cenh7jkiaba15"]
 
 [ext_resource type="Script" path="res://src/db/Card.gd" id="1_7pqrb"]
 [ext_resource type="Script" path="res://autoloads/DB.gd" id="1_i6w5y"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://ch726ryrfwwib" path="res://resources/images/monsters/monster-ninja.png" id="23_xvo5v"]
 [ext_resource type="Texture2D" uid="uid://jh66jtfy6d63" path="res://resources/images/locations/loc-docks-ok.png" id="24_kdv0b"]
 [ext_resource type="Texture2D" uid="uid://dfc617gbbobl4" path="res://resources/images/monsters/monster-pirate.png" id="24_lmp0d"]
+[ext_resource type="Texture2D" uid="uid://bwsibgq100gde" path="res://resources/images/monsters/robo-electric-mouse.png" id="25_2krg4"]
 [ext_resource type="Texture2D" uid="uid://cdboyisqwkro0" path="res://resources/images/locations/loc-embassy-ok.png" id="25_e4nx4"]
 [ext_resource type="Texture2D" uid="uid://c3v7xfxona5s5" path="res://resources/images/locations/loc-farm-ok.png" id="26_v76g8"]
 [ext_resource type="Texture2D" uid="uid://f8tgdgyamen0" path="res://resources/images/locations/loc-lab-ok.png" id="27_8xquj"]
@@ -210,6 +211,13 @@ cost = 1
 power = 2
 image = ExtResource("24_lmp0d")
 
+[node name="robo-electric-mouse" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Robo Electric Mouse"
+cost = 1
+power = 2
+image = ExtResource("25_2krg4")
+
 [node name="Locations" type="Node" parent="."]
 
 [node name="loc-airport-ok" type="Node" parent="Locations"]
@@ -257,7 +265,7 @@ image = ExtResource("27_8xquj")
 [node name="deck-1" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
 script = ExtResource("3_qj7j8")
 deck_name = "Test Deck"
-card1 = NodePath("../../Cards/armed-monkey")
+card1 = NodePath("../../Cards/robo-electric-mouse")
 card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
