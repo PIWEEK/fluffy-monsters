@@ -1,27 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddtxl63o8somk"]
+[gd_scene load_steps=9 format=3 uid="uid://ddtxl63o8somk"]
 
 [ext_resource type="Script" path="res://components/play_card.gd" id="1_4tw3x"]
 [ext_resource type="Texture2D" uid="uid://bfbowhnjsilk8" path="res://resources/images/monsters/armed-monkey.png" id="4_lh645"]
 [ext_resource type="Texture2D" uid="uid://e0che0egrpkn" path="res://resources/images/backs/back01.png" id="4_t5haw"]
+[ext_resource type="Texture2D" uid="uid://dnisgpqsv78a7" path="res://resources/images/ui/card-frame-red.png" id="5_1d0cn"]
 [ext_resource type="Texture2D" uid="uid://dho45g0se277b" path="res://resources/images/ui/card-frame.png" id="5_jq1mo"]
 [ext_resource type="Texture2D" uid="uid://daa8h83c1m1yy" path="res://resources/images/ui/bg-circle.png" id="6_1l3c0"]
 [ext_resource type="Texture2D" uid="uid://8hpuf67pktry" path="res://resources/images/ui/bg-square.png" id="7_j1pp4"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_tj5vx"]
+[sub_resource type="LabelSettings" id="LabelSettings_ado0y"]
 font_size = 28
 outline_size = 1
 outline_color = Color(0.0901961, 0.545098, 0.392157, 1)
 
 [node name="PlayCard" type="Node2D"]
 script = ExtResource("1_4tw3x")
-
-[node name="Selected" type="ColorRect" parent="."]
-visible = false
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 210.0
-offset_bottom = 310.0
-color = Color(1, 1, 0.2, 1)
 
 [node name="Back" type="TextureRect" parent="."]
 visible = false
@@ -37,7 +30,7 @@ offset_bottom = 241.0
 
 [node name="Hole" type="Control" parent="Front"]
 clip_contents = true
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_left = 10.0
 offset_top = 11.0
@@ -45,6 +38,7 @@ offset_right = 191.0
 offset_bottom = 230.0
 
 [node name="Image" type="TextureRect" parent="Front/Hole"]
+layout_mode = 0
 offset_left = -17.0
 offset_right = 1007.0
 offset_bottom = 1024.0
@@ -52,11 +46,20 @@ scale = Vector2(0.21, 0.21)
 texture = ExtResource("4_lh645")
 
 [node name="Frame" type="TextureRect" parent="Front"]
+layout_mode = 0
 offset_right = 200.0
 offset_bottom = 241.0
 texture = ExtResource("5_jq1mo")
 
+[node name="FrameSelected" type="TextureRect" parent="Front"]
+visible = false
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 241.0
+texture = ExtResource("5_1d0cn")
+
 [node name="Power" type="TextureRect" parent="Front"]
+layout_mode = 0
 offset_left = 132.0
 offset_top = 178.0
 offset_right = 205.0
@@ -64,16 +67,18 @@ offset_bottom = 251.0
 texture = ExtResource("7_j1pp4")
 
 [node name="PowerLabel" type="Label" parent="Front/Power"]
+layout_mode = 0
 offset_left = 11.0
 offset_top = 6.0
 offset_right = 67.0
 offset_bottom = 62.0
 text = "6"
-label_settings = SubResource("LabelSettings_tj5vx")
+label_settings = SubResource("LabelSettings_ado0y")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Energy" type="TextureRect" parent="Front"]
+layout_mode = 0
 offset_left = -9.0
 offset_top = 180.0
 offset_right = 64.0
@@ -81,13 +86,16 @@ offset_bottom = 253.0
 texture = ExtResource("6_1l3c0")
 
 [node name="EnergyLabel" type="Label" parent="Front/Energy"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 11.0
 offset_right = 58.0
 offset_bottom = 55.0
 text = "6"
-label_settings = SubResource("LabelSettings_tj5vx")
+label_settings = SubResource("LabelSettings_ado0y")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="gui_input" from="Front" to="." method="_on_front_gui_input"]
+[connection signal="mouse_entered" from="Front" to="." method="_on_front_mouse_entered"]
+[connection signal="mouse_exited" from="Front" to="." method="_on_front_mouse_exited"]

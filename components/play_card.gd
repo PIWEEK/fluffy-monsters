@@ -69,12 +69,23 @@ func _on_front_gui_input(event):
 			gui_state.dragging = true
 			gui_state.dragging_card = self
 			gui_events.emit_signal("start_drag_card", self)
-			$Selected.visible = true
+			$Front/FrameSelected.visible = true
 		elif event.button_index == 1 and !event.pressed and draggable:
 			gui_state.dragging = false
 			gui_events.emit_signal("stop_drag_card", self)
-			$Selected.visible = false
+			$Front/FrameSelected.visible = false
 			gui_state.dragging_card = null
 		elif event.button_index == 2 and event.pressed:
 			gui_events.emit_signal("show_zoom_card", self)
 
+
+
+func _on_front_mouse_entered():
+	if draggable and not gui_state.dragging:
+		$Front/FrameSelected.visible = true
+		position.y -= 35
+	
+func _on_front_mouse_exited():	
+	if draggable and not gui_state.dragging:
+		$Front/FrameSelected.visible = false
+		position.y += 35
