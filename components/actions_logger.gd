@@ -48,6 +48,29 @@ func _on_draw_start():
 
 func _on_draw_end(player: int):
 	add_entry(player, "Draw End")
+	var state: GameState = $"../GameLogic".state
+	var hand_p1 = PackedStringArray()
+	for card in state.player1_data.hand:
+		hand_p1.append(card.card_id)
+		
+	var hand_p2 = PackedStringArray()
+	for card in state.player2_data.hand:
+		hand_p2.append(card.card_id)
+		
+	var deck_p1 = PackedStringArray()
+	for card in state.player1_data.deck:
+		deck_p1.append(card.name)
+		
+	var deck_p2 = PackedStringArray()
+	for card in state.player2_data.deck:
+		deck_p2.append(card.name)
+	
+	add_entry(1, "HAND P1:" + ",".join(hand_p1))
+	add_entry(1, "DECK P1:" + ",".join(deck_p1))
+	add_entry(2, "HAND P2:" + ",".join(hand_p2))
+	add_entry(1, "DECK P2:" + ",".join(deck_p2))
+
+
 
 func _on_play_start():
 	add_entry(0, "Play")
@@ -85,19 +108,9 @@ func _on_finish_turn_start():
 	for card in state.player2_data.hand:
 		hand_p2.append(card.card_id)
 		
-	var deck_p1 = PackedStringArray()
-	for card in state.player1_data.deck:
-		deck_p1.append(card.name)
-		
-	var deck_p2 = PackedStringArray()
-	for card in state.player2_data.deck:
-		deck_p2.append(card.name)
-	
 	add_entry(0, "LOCATIONS:" + location_str)
 	add_entry(1, "HAND P1:" + ",".join(hand_p1))
-	add_entry(1, "DECK P1:" + ",".join(deck_p1))
 	add_entry(2, "HAND P2:" + ",".join(hand_p2))
-	add_entry(1, "DECK P2:" + ",".join(deck_p2))
 	add_entry(0, "Finish Turn")
 
 func _on_finish_turn_end(player: int):
@@ -130,3 +143,5 @@ func _ready():
 	events.connect("finish_game_end", _on_finish_game_end)
 	events.connect("game_end", _on_game_end)
 
+func _on_clear_log_btn_pressed():
+	clear()

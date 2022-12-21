@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cenh7jkiaba15"]
+[gd_scene load_steps=24 format=3 uid="uid://cenh7jkiaba15"]
 
 [ext_resource type="Script" path="res://src/db/Card.gd" id="1_7pqrb"]
 [ext_resource type="Script" path="res://autoloads/DB.gd" id="1_i6w5y"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://d3rg0rleumv01" path="res://resources/images/monsters/plant-dragon.png" id="17_rwgb6"]
 [ext_resource type="Texture2D" uid="uid://v4yb16dych68" path="res://resources/images/monsters/raging-bigfoot.png" id="18_5lubo"]
 [ext_resource type="Texture2D" uid="uid://vu6wf4jugqvn" path="res://resources/images/locations/city-ny.png" id="20_l8m1e"]
+[ext_resource type="Texture2D" uid="uid://lmeq1o34l4v3" path="res://resources/images/locations/city-paris.png" id="21_51tfn"]
 [ext_resource type="Texture2D" uid="uid://dhjk28lytavvr" path="res://resources/images/locations/city-rome.png" id="21_snc8k"]
 
 [node name="DB" type="Node"]
@@ -165,8 +166,8 @@ image = ExtResource("20_l8m1e")
 
 [node name="city-paris" type="Node" parent="Locations"]
 script = ExtResource("3_qdwtv")
-location_name = "New York"
-image = ExtResource("20_l8m1e")
+location_name = "Paris"
+image = ExtResource("21_51tfn")
 
 [node name="city-rome" type="Node" parent="Locations"]
 script = ExtResource("3_qdwtv")

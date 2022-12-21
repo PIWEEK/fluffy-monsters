@@ -72,6 +72,5 @@ func play_card(card, location):
 	card.draggable = false
 	player_turn.push_back(PlayerAction.new(card.card_id, location.location_id))
 
-
 func _on_next_turn_button_pressed():
 	events.emit_signal("play_end", $PlayerController.current_player, player_turn)
