@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ba32dj3jxwh8"]
+
+[ext_resource type="FontFile" uid="uid://dtd3tst48g77p" path="res://resources/fonts/mrsmonster.ttf" id="1_j27yi"]
+
+[resource]
+font = ExtResource("1_j27yi")
+font_size = 50
+shadow_size = 12
+shadow_color = Color(0.141176, 0.368627, 0.639216, 1)
+shadow_offset = Vector2(1, 3)

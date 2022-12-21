@@ -1,6 +1,7 @@
 extends Node2D
 
 var play_card_scene = preload("res://components/play_card.tscn")
+var card_zoom_scene = preload("res://components/card_zoom.tscn")
 
 var state: GameState
 var player_turn: Array[PlayerAction] = []
@@ -19,6 +20,7 @@ var locations
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	gui_events.connect("stop_drag_card", _on_stop_drag_card)
+	gui_events.connect("show_zoom_card", _on_show_zoom_card)
 	events.connect("begin_game_start", _on_begin_game_start)
 	events.connect("play_start", _on_play_start)
 	events.connect("draw_start", _on_draw_start)
@@ -105,3 +107,10 @@ func play_card(card, location):
 
 func _on_next_turn_button_pressed():
 	events.emit_signal("play_end", current_player, player_turn)
+
+func _on_show_zoom_card(card):
+	var card_scene = card_zoom_scene.instantiate()
+	card_scene.init(card)
+	add_child(card_scene)
+
+

@@ -1,7 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ckah2watyqrkm"]
-
-[ext_resource type="FontFile" uid="uid://dtd3tst48g77p" path="res://resources/fonts/mrsmonster.ttf" id="1_o0isc"]
-
-[resource]
-default_font = ExtResource("1_o0isc")
-default_font_size = 50

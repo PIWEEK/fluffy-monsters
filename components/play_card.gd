@@ -23,7 +23,16 @@ func init(card_id, card: Card):
 	self.power = card.power
 	self.card_image = card.image
 	redraw()
-	
+
+func copy(card):
+	self.card_id = card.card_id
+	self.name = card.name
+	self.slug = card.slug
+	self.energy = card.energy
+	self.power = card.power
+	self.card_image = card.card_image
+	redraw()
+
 func redraw():
 	$Front/Energy/EnergyLabel.text = str(energy)
 	$Front/Power/PowerLabel.text = str(power)
@@ -64,4 +73,6 @@ func _on_front_gui_input(event):
 			gui_events.emit_signal("stop_drag_card", self)
 			$Selected.visible = false
 			gui_state.dragging_card = null
+		elif event.button_index == 2 and event.pressed:
+			gui_events.emit_signal("show_zoom_card", self)
 
