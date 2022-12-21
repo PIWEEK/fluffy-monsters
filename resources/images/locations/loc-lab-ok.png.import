@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhjk28lytavvr"
-path="res://.godot/imported/city-rome.png-822a0505c47c41e37f12c9b3abf4a42e.ctex"
+uid="uid://f8tgdgyamen0"
+path="res://.godot/imported/loc-lab-ok.png-f5ffc42ebe4bba821f94418e2e87c435.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/locations/city-rome.png"
-dest_files=["res://.godot/imported/city-rome.png-822a0505c47c41e37f12c9b3abf4a42e.ctex"]
+source_file="res://resources/images/locations/loc-lab-ok.png"
+dest_files=["res://.godot/imported/loc-lab-ok.png-f5ffc42ebe4bba821f94418e2e87c435.ctex"]
 
 [params]
 

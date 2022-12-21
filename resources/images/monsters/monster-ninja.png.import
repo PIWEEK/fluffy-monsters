@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lmeq1o34l4v3"
-path="res://.godot/imported/city-paris.png-8ad3c560d44654bd8d4e17b80f65f194.ctex"
+uid="uid://ch726ryrfwwib"
+path="res://.godot/imported/monster-ninja.png-f039b3d6b9f267f5b31ff36fc3fb8dda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/locations/city-paris.png"
-dest_files=["res://.godot/imported/city-paris.png-8ad3c560d44654bd8d4e17b80f65f194.ctex"]
+source_file="res://resources/images/monsters/monster-ninja.png"
+dest_files=["res://.godot/imported/monster-ninja.png-f039b3d6b9f267f5b31ff36fc3fb8dda.ctex"]
 
 [params]
 

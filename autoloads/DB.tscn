@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cenh7jkiaba15"]
+[gd_scene load_steps=35 format=3 uid="uid://cenh7jkiaba15"]
 
 [ext_resource type="Script" path="res://src/db/Card.gd" id="1_7pqrb"]
 [ext_resource type="Script" path="res://autoloads/DB.gd" id="1_i6w5y"]
@@ -20,9 +20,20 @@
 [ext_resource type="Texture2D" uid="uid://m1y5h4nu3l51" path="res://resources/images/monsters/pirate-kraken.png" id="16_8f4dr"]
 [ext_resource type="Texture2D" uid="uid://d3rg0rleumv01" path="res://resources/images/monsters/plant-dragon.png" id="17_rwgb6"]
 [ext_resource type="Texture2D" uid="uid://v4yb16dych68" path="res://resources/images/monsters/raging-bigfoot.png" id="18_5lubo"]
-[ext_resource type="Texture2D" uid="uid://vu6wf4jugqvn" path="res://resources/images/locations/city-ny.png" id="20_l8m1e"]
-[ext_resource type="Texture2D" uid="uid://lmeq1o34l4v3" path="res://resources/images/locations/city-paris.png" id="21_51tfn"]
-[ext_resource type="Texture2D" uid="uid://dhjk28lytavvr" path="res://resources/images/locations/city-rome.png" id="21_snc8k"]
+[ext_resource type="Texture2D" uid="uid://db8sra5qk8xp" path="res://resources/images/monsters/evil-carrot.png" id="19_6nl8i"]
+[ext_resource type="Texture2D" uid="uid://bfpcikgx0huhu" path="res://resources/images/monsters/evil-eggplant.png" id="20_u56hk"]
+[ext_resource type="Texture2D" uid="uid://cchkpyaqd0ady" path="res://resources/images/locations/loc-airport-ok.png" id="20_yc3ek"]
+[ext_resource type="Texture2D" uid="uid://goaosyghiayd" path="res://resources/images/locations/loc-beach-ok.png" id="21_pdbi0"]
+[ext_resource type="Texture2D" uid="uid://cj1aora7eoueq" path="res://resources/images/monsters/evil-pumpkin.png" id="21_potah"]
+[ext_resource type="Texture2D" uid="uid://d2tftqu4felpr" path="res://resources/images/locations/loc-city-ok.png" id="22_iolew"]
+[ext_resource type="Texture2D" uid="uid://c6x2j4n4v2dk7" path="res://resources/images/monsters/wizard-cat.png" id="22_yd4iu"]
+[ext_resource type="Texture2D" uid="uid://dhxb1uxqxoc54" path="res://resources/images/locations/loc-clinic-ok.png" id="23_52vba"]
+[ext_resource type="Texture2D" uid="uid://ch726ryrfwwib" path="res://resources/images/monsters/monster-ninja.png" id="23_xvo5v"]
+[ext_resource type="Texture2D" uid="uid://jh66jtfy6d63" path="res://resources/images/locations/loc-docks-ok.png" id="24_kdv0b"]
+[ext_resource type="Texture2D" uid="uid://dfc617gbbobl4" path="res://resources/images/monsters/monster-pirate.png" id="24_lmp0d"]
+[ext_resource type="Texture2D" uid="uid://cdboyisqwkro0" path="res://resources/images/locations/loc-embassy-ok.png" id="25_e4nx4"]
+[ext_resource type="Texture2D" uid="uid://c3v7xfxona5s5" path="res://resources/images/locations/loc-farm-ok.png" id="26_v76g8"]
+[ext_resource type="Texture2D" uid="uid://f8tgdgyamen0" path="res://resources/images/locations/loc-lab-ok.png" id="27_8xquj"]
 
 [node name="DB" type="Node"]
 script = ExtResource("1_i6w5y")
@@ -157,22 +168,89 @@ power = 2
 image = ExtResource("18_5lubo")
 text = ""
 
+[node name="evil-carrot" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Evil Carrot (1/2)"
+cost = 1
+power = 2
+image = ExtResource("19_6nl8i")
+
+[node name="evil-eggplant" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Evil Eggplant (1/2)"
+cost = 1
+power = 2
+image = ExtResource("20_u56hk")
+
+[node name="evil-pumpkin" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Evil Pumpkin (1/2)"
+cost = 1
+power = 2
+image = ExtResource("21_potah")
+
+[node name="wizard-cat" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Wizard Cat (1/2)"
+cost = 1
+power = 2
+image = ExtResource("22_yd4iu")
+
+[node name="monster-ninja" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Monster Ninja (1/2)"
+cost = 1
+power = 2
+image = ExtResource("23_xvo5v")
+
+[node name="monster-pirate" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Monster Pirate"
+cost = 1
+power = 2
+image = ExtResource("24_lmp0d")
+
 [node name="Locations" type="Node" parent="."]
 
-[node name="city-ny" type="Node" parent="Locations"]
+[node name="loc-airport-ok" type="Node" parent="Locations"]
 script = ExtResource("3_qdwtv")
-location_name = "New York"
-image = ExtResource("20_l8m1e")
+location_name = "Airport"
+image = ExtResource("20_yc3ek")
 
-[node name="city-paris" type="Node" parent="Locations"]
+[node name="loc-beach-ok" type="Node" parent="Locations"]
 script = ExtResource("3_qdwtv")
-location_name = "Paris"
-image = ExtResource("21_51tfn")
+location_name = "Beach"
+image = ExtResource("21_pdbi0")
 
-[node name="city-rome" type="Node" parent="Locations"]
+[node name="loc-city-ok" type="Node" parent="Locations"]
 script = ExtResource("3_qdwtv")
-location_name = "Rome"
-image = ExtResource("21_snc8k")
+location_name = "City"
+image = ExtResource("22_iolew")
+
+[node name="loc-clinic-ok" type="Node" parent="Locations"]
+script = ExtResource("3_qdwtv")
+location_name = "Clinic"
+image = ExtResource("23_52vba")
+
+[node name="loc-docks-ok" type="Node" parent="Locations"]
+script = ExtResource("3_qdwtv")
+location_name = "Docks"
+image = ExtResource("24_kdv0b")
+
+[node name="loc-embassy-ok" type="Node" parent="Locations"]
+script = ExtResource("3_qdwtv")
+location_name = "Embassy"
+image = ExtResource("25_e4nx4")
+
+[node name="loc-farm-ok" type="Node" parent="Locations"]
+script = ExtResource("3_qdwtv")
+location_name = "Farm"
+image = ExtResource("26_v76g8")
+
+[node name="loc-lab-ok" type="Node" parent="Locations"]
+script = ExtResource("3_qdwtv")
+location_name = "Lab"
+image = ExtResource("27_8xquj")
 
 [node name="Decks" type="Node" parent="."]
 
@@ -195,15 +273,15 @@ card12 = NodePath("../../Cards/monster-knight")
 [node name="deck-2" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
 script = ExtResource("3_qj7j8")
 deck_name = "Test Deck"
-card1 = NodePath("../../Cards/raging-bigfoot")
-card2 = NodePath("../../Cards/plant-dragon")
-card3 = NodePath("../../Cards/pirate-kraken")
-card4 = NodePath("../../Cards/monster-samurai")
-card5 = NodePath("../../Cards/monster-knight")
-card6 = NodePath("../../Cards/genius-mouse")
-card7 = NodePath("../../Cards/fire-tardigrade")
-card8 = NodePath("../../Cards/fire-dragon")
-card9 = NodePath("../../Cards/eye-cloud")
-card10 = NodePath("../../Cards/cyber-deer")
-card11 = NodePath("../../Cards/chaos-hamster")
-card12 = NodePath("../../Cards/broccoli-monster")
+card1 = NodePath("../../Cards/monster-pirate")
+card2 = NodePath("../../Cards/monster-ninja")
+card3 = NodePath("../../Cards/wizard-cat")
+card4 = NodePath("../../Cards/evil-pumpkin")
+card5 = NodePath("../../Cards/evil-eggplant")
+card6 = NodePath("../../Cards/evil-carrot")
+card7 = NodePath("../../Cards/raging-bigfoot")
+card8 = NodePath("../../Cards/plant-dragon")
+card9 = NodePath("../../Cards/pirate-kraken")
+card10 = NodePath("../../Cards/monster-samurai")
+card11 = NodePath("../../Cards/monster-knight")
+card12 = NodePath("../../Cards/genius-mouse")
