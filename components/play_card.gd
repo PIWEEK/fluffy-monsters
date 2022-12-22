@@ -73,11 +73,12 @@ func _on_front_gui_input(event):
 		if event.button_index == 1 and event.pressed and draggable:
 			gui_state.dragging = true
 			gui_state.dragging_card = self
-			gui_events.emit_signal("start_drag_card", self)
+			gui_events.emit_signal("start_drag_card", self)			
 			$Front/FrameSelected.visible = true
 		elif event.button_index == 1 and !event.pressed and draggable:
 			gui_state.dragging = false
 			gui_events.emit_signal("stop_drag_card", self)
+			position.y += 35
 			$Front/FrameSelected.visible = false
 			gui_state.dragging_card = null
 		elif event.button_index == 2 and event.pressed:
@@ -88,9 +89,11 @@ func _on_front_gui_input(event):
 func _on_front_mouse_entered():
 	if draggable and not gui_state.dragging:
 		$Front/FrameSelected.visible = true
+		gui_events.emit_signal("cursor_hover_card_start")
 		position.y -= 35
 	
 func _on_front_mouse_exited():	
 	if draggable and not gui_state.dragging:
 		$Front/FrameSelected.visible = false
+		gui_events.emit_signal("cursor_hover_card_end")
 		position.y += 35

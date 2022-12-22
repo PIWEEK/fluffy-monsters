@@ -132,6 +132,7 @@ GuiState="*res://autoloads/gui_state.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+mouse_cursor/custom_image="res://resources/images/ui/cursor-normal.png"
 window/stretch/aspect="ignore"
 
 [rendering]
