@@ -7,6 +7,8 @@ var dragging = false
 var dragging_card = null
 var dragging_location = null
 
+var current_energy = 0
+
 var cards_hand = []
 var cards_location = [[], [], []]
 var cards_location_enemy = [[], [], []]

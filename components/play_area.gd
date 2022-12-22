@@ -70,6 +70,7 @@ func _on_begin_turn_start():
 	var player: PlayerGameData = state.player1_data if current_player == 1 else state.player2_data
 	energy_label.text = str(state.player1_data.energy)
 	rounds_label.text = "Round %s/6" % [state.turn]
+	gui_state.current_energy = state.player1_data.energy
 	
 func _on_play_start():
 	# Allow the user to move cards
@@ -204,6 +205,8 @@ func play_card(card, location):
 	card.played_location = location.location_id
 	player_played_cards.append(card)
 	player_turn.push_back(PlayerAction.new(card.card_id, location.location_id))
+	gui_state.current_energy -= card.energy
+	energy_label.text = str(gui_state.current_energy)
 
 func _on_show_zoom_card(card):
 	var card_scene = card_zoom_scene.instantiate()

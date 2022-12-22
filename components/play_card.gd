@@ -86,12 +86,12 @@ func reveal():
 
 func _on_front_gui_input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == 1 and event.pressed and draggable:
+		if event.button_index == 1 and event.pressed and draggable and gui_state.current_energy >= energy:
 			gui_state.dragging = true
 			gui_state.dragging_card = self
 			gui_events.emit_signal("start_drag_card", self)			
 			$Front/FrameSelected.visible = true
-		elif event.button_index == 1 and !event.pressed and draggable:
+		elif event.button_index == 1 and !event.pressed and draggable and gui_state.current_energy >= energy:
 			gui_state.dragging = false
 			gui_events.emit_signal("stop_drag_card", self)
 			if draggable:
@@ -104,13 +104,13 @@ func _on_front_gui_input(event):
 
 
 func _on_front_mouse_entered():
-	if draggable and not gui_state.dragging:
+	if draggable and not gui_state.dragging and gui_state.current_energy >= energy:
 		$Front/FrameSelected.visible = true
 		gui_events.emit_signal("cursor_hover_card_start")
 		position.y -= 35
 	
 func _on_front_mouse_exited():	
-	if draggable and not gui_state.dragging:
+	if draggable and not gui_state.dragging and gui_state.current_energy >= energy:
 		$Front/FrameSelected.visible = false
 		gui_events.emit_signal("cursor_hover_card_end")
 		position.y += 35

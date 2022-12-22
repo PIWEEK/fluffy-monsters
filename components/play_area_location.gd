@@ -85,7 +85,7 @@ func add_enemy_card(card):
 
 
 func mouse_entered():
-	if gui_state.dragging:
+	if gui_state.dragging and len(gui_state.cards_location[location_num]) <4:
 		gui_state.dragging_location = self
 		$Player1/Highlight.visible = true
 

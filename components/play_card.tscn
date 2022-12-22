@@ -1,18 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddtxl63o8somk"]
+[gd_scene load_steps=10 format=3 uid="uid://ddtxl63o8somk"]
 
 [ext_resource type="Script" path="res://components/play_card.gd" id="1_4tw3x"]
 [ext_resource type="Texture2D" uid="uid://co47ol66wip8y" path="res://resources/images/ui/card-reverse.png" id="2_il07s"]
 [ext_resource type="Texture2D" uid="uid://16swggsj7rb4" path="res://resources/images/ui/card-frame-small-2x.png" id="6_bf3jk"]
-[ext_resource type="FontFile" uid="uid://dtd3tst48g77p" path="res://resources/fonts/mrsmonster.ttf" id="7_bqcxb"]
 [ext_resource type="Texture2D" uid="uid://umj4al7xkce4" path="res://resources/images/monsters/astrounaut-mouse.png" id="8_3o5b7"]
 [ext_resource type="Texture2D" uid="uid://b6odiva21sn1a" path="res://resources/images/ui/card-frame-2x.png" id="9_5822b"]
 [ext_resource type="Texture2D" uid="uid://dl4h3qd4yena2" path="res://resources/images/ui/card-frame-red-2x.png" id="10_wdace"]
 [ext_resource type="Texture2D" uid="uid://o87mggkkk13e" path="res://resources/images/ui/bg-square-2x.png" id="11_ojw1b"]
 [ext_resource type="Texture2D" uid="uid://17yuxvsa30js" path="res://resources/images/ui/bg-circle-2x.png" id="12_1fnwi"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_7o6i2"]
-font = ExtResource("7_bqcxb")
-font_size = 196
+[sub_resource type="LabelSettings" id="LabelSettings_vdgn4"]
+font_size = 164
 shadow_size = 12
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(1, 3)
@@ -122,7 +120,7 @@ offset_top = 31.0
 offset_right = 414.0
 offset_bottom = 382.0
 text = "99"
-label_settings = SubResource("LabelSettings_7o6i2")
+label_settings = SubResource("LabelSettings_vdgn4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -139,7 +137,7 @@ offset_top = 30.0
 offset_right = 361.0
 offset_bottom = 339.0
 text = "99"
-label_settings = SubResource("LabelSettings_7o6i2")
+label_settings = SubResource("LabelSettings_vdgn4")
 horizontal_alignment = 1
 vertical_alignment = 1
 

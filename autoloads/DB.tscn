@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://06tx7d8o4ake"]
+[gd_scene load_steps=55 format=3 uid="uid://06tx7d8o4ake"]
 
 [ext_resource type="Script" path="res://src/db/Card.gd" id="1_7pqrb"]
 [ext_resource type="Script" path="res://autoloads/DB.gd" id="1_i6w5y"]
