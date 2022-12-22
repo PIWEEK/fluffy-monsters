@@ -63,6 +63,14 @@ grow_vertical = 2
 scale = Vector2(1.08, 1.08)
 texture = ExtResource("8_3o5b7")
 
+[node name="Veil" type="ColorRect" parent="Front/Hole"]
+visible = false
+offset_left = -44.0
+offset_top = -44.9999
+offset_right = 944.0
+offset_bottom = 1145.0
+color = Color(1, 1, 1, 0.588235)
+
 [node name="Frame" type="TextureRect" parent="Front"]
 anchors_preset = 8
 anchor_left = 0.5

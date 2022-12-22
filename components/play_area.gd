@@ -196,6 +196,7 @@ func _on_stop_drag_card(card):
 		play_card(card, gui_state.dragging_location)
 
 func play_card(card, location):	
+	gui_state.current_energy -= card.energy
 	$Hand.remove_card(card)
 	location.add_card(card)
 	card.set_played_mode(true)
@@ -204,8 +205,7 @@ func play_card(card, location):
 	card.belongs_to_player = true
 	card.played_location = location.location_id
 	player_played_cards.append(card)
-	player_turn.push_back(PlayerAction.new(card.card_id, location.location_id))
-	gui_state.current_energy -= card.energy
+	player_turn.push_back(PlayerAction.new(card.card_id, location.location_id))	
 	energy_label.text = str(gui_state.current_energy)
 
 func _on_show_zoom_card(card):

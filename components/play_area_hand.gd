@@ -10,11 +10,12 @@ func redraw():
 	var x = size.x / 2 - width / 2 + gui_state.CARD_WIDTH / 2
 	
 	for card in gui_state.cards_hand:
+		card.show_disabled()
 		card.position.x = x
 		card.position.y = gui_state.CARD_HEIGHT / 2
 		x += (gui_state.CARD_WIDTH + HAND_GAP)
 		
-func add_card(card):
+func add_card(card):	
 	gui_state.cards_hand.append(card)
 	add_child(card)
 	redraw()

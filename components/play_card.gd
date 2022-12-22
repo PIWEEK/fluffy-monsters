@@ -117,3 +117,7 @@ func _on_front_mouse_exited():
 
 func set_power(value: int):
 	$Front/Power/PowerLabel.text = str(value)
+	
+func show_disabled():
+	$Front/Hole/Veil.visible = gui_state.current_energy < energy
+	
