@@ -82,6 +82,12 @@ func _on_play_end(player: int, actions: Array[PlayerAction]):
 		play_string += "(%s in %s), " % [card.card_name, location.location_name]
 	add_entry(player, "PLAY END %s" % play_string)
 
+func _on_resolve_turn_start():
+	add_entry(0, "Resolve")
+
+func _on_resolve_turn_end(player: int):
+	add_entry(player, "Resolve end")
+
 func _on_finish_turn_start():
 	var state: GameState = $"../GameLogic".state
 	var locations: Array[GameLocation] = state.get_locations()
@@ -143,6 +149,8 @@ func _ready():
 	events.connect("draw_end", _on_draw_end)
 	events.connect("play_start", _on_play_start)
 	events.connect("play_end", _on_play_end)
+	events.connect("resolve_turn_start", _on_resolve_turn_start)
+	events.connect("resolve_turn_end", _on_resolve_turn_end)
 	events.connect("finish_turn_start", _on_finish_turn_start)
 	events.connect("finish_turn_end", _on_finish_turn_end)
 	events.connect("finish_game_start", _on_finish_game_start)

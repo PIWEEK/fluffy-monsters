@@ -17,6 +17,9 @@ signal draw_end(player: int)
 signal play_start()
 signal play_end(player: int, actions: Array[PlayerAction])
 
+signal resolve_turn_start()
+signal resolve_turn_end(player: int)
+
 signal finish_turn_start()
 signal finish_turn_end(player: int)
 

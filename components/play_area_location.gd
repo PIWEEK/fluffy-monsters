@@ -92,3 +92,5 @@ func mouse_exited():
 func _on_place_gui_input(event):	
 	if event is InputEventMouseButton and event.button_index == 2 and event.pressed:
 		gui_events.emit_signal("show_zoom_location", self)
+
+	

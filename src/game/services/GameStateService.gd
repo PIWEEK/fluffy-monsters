@@ -5,6 +5,7 @@ class_name GameStateService
 @onready var deck_service: DeckService = $"../DeckService"
 @onready var hand_service: HandService = $"../HandService"
 @onready var location_service: LocationService = $"../LocationService"
+@onready var card_executor_service: CardExecutorService = $"../CardExecutorService"
 
 func init_player(state: GameState, player_num: int, player: Player, deck_id: String):
 	var deck = deck_service.retrieve_deck(deck_id)
@@ -51,21 +52,22 @@ func save_play(state: GameState, player: int, actions: Array[PlayerAction]):
 
 func resolve_action(state: GameState, player: int, action: PlayerAction):
 	var location = location_service.get_location(state, action.target_location_id)
-	var hand: Array[HandCard] = state.player1_data.hand if player == 1 else state.player2_data.hand
+	var hand: Array[HandCard] = state.get_player_data(player).hand
 	var card: HandCard = hand_service.remove_card(hand, action.card_id)
 
+	var played_card = PlayedCard.new(card)
+	card_executor_service.play_card(state, played_card, player, location)
 	if player == 1:
-		location.cards_p1.append(PlayedCard.new(card))
-		location.total_power_p1 += card.current_power
+		location.cards_p1.append(played_card)
+		location.total_power_p1 += played_card.current_power
 	else:
-		location.cards_p2.append(PlayedCard.new(card))
-		location.total_power_p2 += card.current_power
-	
-	
+		location.cards_p2.append(played_card)
+		location.total_power_p2 += played_card.current_power
+
 func resolve_play(state: GameState):
-	# TODO Resolve who goes first better
-	var first_player = 1
-	var second_player = 2
+	var winner = get_winner(state)
+	var first_player = 1 if winner == 1 or winner == 0 else 2
+	var second_player = 2 if winner == 1 or winner == 0 else 1
 	var cur_turn = state.turn
 
 	for action in state.turns[cur_turn][first_player]:

@@ -4,9 +4,6 @@ class_name LocationService
 
 @onready var locations: Node = $"/root/DB/Locations"
 
-func _ready():
-	randomize()
-
 func select_random_locations() -> Array[String]:
 	var nodes = locations.get_children()
 	var result: Array[String] = []

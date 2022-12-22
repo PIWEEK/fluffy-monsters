@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://7bdu148lucdt" path="res://resources/images/avatars/chaos-hamster.png" id="3_w8x2w"]
 [ext_resource type="Texture2D" uid="uid://djerbchrokccb" path="res://resources/images/ui/user2-frame.png" id="4_optvh"]
 [ext_resource type="Script" path="res://components/actions_logger.gd" id="5_6gyca"]
-[ext_resource type="LabelSettings" path="res://resources/label_p1.tres" id="5_7fqpa"]
+[ext_resource type="LabelSettings" uid="uid://dlqber6j1ehw0" path="res://resources/label_p1.tres" id="5_7fqpa"]
 [ext_resource type="Script" path="res://components/PlayerController.gd" id="6_d4rga"]
 [ext_resource type="Script" path="res://src/DummyPlayerAI.gd" id="6_hjkqc"]
-[ext_resource type="LabelSettings" path="res://resources/label_p2.tres" id="7_xet36"]
+[ext_resource type="LabelSettings" uid="uid://uu43nkx1v4p2" path="res://resources/label_p2.tres" id="7_xet36"]
 [ext_resource type="Script" path="res://src/GameLogic.gd" id="8_bu3mp"]
 [ext_resource type="Texture2D" uid="uid://cdivp6mafh1sw" path="res://resources/images/ui/FM-logo-color.png" id="8_f7qw0"]
 [ext_resource type="Script" path="res://src/game/services/CardExecutorService.gd" id="9_w0r8w"]
@@ -341,7 +341,7 @@ text = "CLEAR"
 script = ExtResource("6_d4rga")
 player_name = "Fluffymons"
 player_avatar = ExtResource("11_b0pjs")
-player_deck = "deck-1"
+player_deck = "deck-3"
 
 [node name="DummyPlayerAI" type="Node" parent="."]
 script = ExtResource("6_hjkqc")

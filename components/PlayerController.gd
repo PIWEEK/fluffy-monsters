@@ -25,6 +25,9 @@ func _on_begin_game_start():
 func draw_finished():
 	events.emit_signal("draw_end", current_player)
 
+func _on_finish_turn_start():
+	events.emit_signal("finish_turn_end", current_player)
+
 func _on_begin_turn_start():
 	events.emit_signal("begin_turn_end", current_player)
 
@@ -38,7 +41,7 @@ func _ready():
 	events.connect("begin_turn_start", _on_begin_turn_start)
 	#events.connect("draw_start", _on_draw_start)
 	#events.connect("play_start", _on_play_start)
-	#events.connect("finish_turn_start", _on_finish_turn_start)
+	events.connect("finish_turn_start", _on_finish_turn_start)
 	events.connect("finish_game_start", _on_finish_game_start)
 
 func get_hand_cards() -> Array[HandCard]:

@@ -62,7 +62,11 @@ func _on_draw_start():
 func _on_play_start():
 	await get_tree().create_timer(delay).timeout
 	events.emit_signal("play_end", current_player, play_turn())
-	
+
+func _on_resolve_turn_start():
+	await get_tree().create_timer(delay).timeout
+	events.emit_signal("resolve_turn_end", current_player)
+
 func _on_finish_turn_start():
 	await get_tree().create_timer(delay).timeout
 	events.emit_signal("finish_turn_end", current_player)
@@ -78,5 +82,6 @@ func _ready():
 	events.connect("begin_turn_start", _on_begin_turn_start)
 	events.connect("draw_start", _on_draw_start)
 	events.connect("play_start", _on_play_start)
+	events.connect("resolve_turn_start", _on_resolve_turn_start)
 	events.connect("finish_turn_start", _on_finish_turn_start)
 	events.connect("finish_game_start", _on_finish_game_start)

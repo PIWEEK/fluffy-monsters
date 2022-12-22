@@ -14,12 +14,15 @@ var card_image: Texture
 var card_id
 var belongs_to_player = false
 var played_location = -1
+var player = 0
 
 var tween
 
-func init(card_id, card: Card):	
+func init(player: int, card_id, card: Card):	
 	self.card_id = card_id
-	self.name = card.card_name
+	self.player = player
+	self.name = "%s-%s" % [player, card_id]
+	print("HOLA", player, card_id)
 	self.slug = card.name
 	self.energy = card.cost
 	self.power = card.power
@@ -81,7 +84,6 @@ func reveal():
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(self, "scale:x", 0.2, 0.3)
 	await tween.finished
-	
 
 func _on_front_gui_input(event):
 	if event is InputEventMouseButton:
@@ -113,3 +115,6 @@ func _on_front_mouse_exited():
 		$Front/FrameSelected.visible = false
 		gui_events.emit_signal("cursor_hover_card_end")
 		position.y += 35
+
+func set_power(value: int):
+	$Front/Power/PowerLabel.text = str(value)

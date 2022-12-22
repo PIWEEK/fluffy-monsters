@@ -87,7 +87,18 @@ func _on_play_end(player: int, actions: Array[PlayerAction]):
 		1: player1_ready = true
 		2: player2_ready = true
 	game_state_service.save_play(state, player, actions)
-	
+
+	if player1_ready and player2_ready:
+		player1_ready = false
+		player2_ready = false
+		events.emit_signal("resolve_turn_start")
+
+func _on_resolve_turn_end(player: int):
+	await get_tree().create_timer(delay).timeout
+	match player:
+		1: player1_ready = true
+		2: player2_ready = true
+
 	if player1_ready and player2_ready:
 		player1_ready = false
 		player2_ready = false
@@ -95,7 +106,7 @@ func _on_play_end(player: int, actions: Array[PlayerAction]):
 		state.phase = GameState.Phase.END_TURN
 		game_state_service.resolve_play(state)
 		events.emit_signal("finish_turn_start")
-		
+
 func _on_finish_turn_end(player: int):
 	await get_tree().create_timer(delay).timeout
 	match player:
@@ -135,6 +146,7 @@ func _ready():
 	events.connect("begin_turn_end", _on_begin_turn_end)
 	events.connect("draw_end", _on_draw_end)
 	events.connect("play_end", _on_play_end)
+	events.connect("resolve_turn_end", _on_resolve_turn_end)
 	events.connect("finish_turn_end", _on_finish_turn_end)
 	events.connect("finish_game_end", _on_finish_game_end)
 

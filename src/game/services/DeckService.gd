@@ -4,10 +4,6 @@ class_name DeckService
 
 @onready var db: DataBase = $"/root/DB"
 
-func _ready():
-	# Random seed. use `seed` to set up seed
-	randomize()
-
 func retrieve_deck(id: String) -> Array[Card]:
 	var deck = db.get_deck(id)
 	return [

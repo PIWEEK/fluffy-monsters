@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cenh7jkiaba15"]
+[gd_scene load_steps=45 format=3 uid="uid://cenh7jkiaba15"]
 
 [ext_resource type="Script" path="res://src/db/Card.gd" id="1_7pqrb"]
 [ext_resource type="Script" path="res://autoloads/DB.gd" id="1_i6w5y"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://src/db/Location.gd" id="3_qdwtv"]
 [ext_resource type="Script" path="res://src/db/CustomDeck.gd" id="3_qj7j8"]
 [ext_resource type="Texture2D" uid="uid://umj4al7xkce4" path="res://resources/images/monsters/astrounaut-mouse.png" id="4_2dedb"]
+[ext_resource type="Script" path="res://src/cards/add-power-on-reveal.gd" id="4_prnhv"]
 [ext_resource type="Texture2D" uid="uid://b3mu1qlgqmxc1" path="res://resources/images/monsters/baby-hydra.png" id="5_v323v"]
+[ext_resource type="Script" path="res://autoloads/discard-on-reveal.gd" id="6_bkshq"]
 [ext_resource type="Texture2D" uid="uid://dceoxlqrvw7uk" path="res://resources/images/monsters/baby-kaiju.png" id="6_w8n1h"]
 [ext_resource type="Texture2D" uid="uid://cwqm618uosopo" path="res://resources/images/monsters/broccoli-monster.png" id="7_nc67n"]
 [ext_resource type="Texture2D" uid="uid://d1ibvup3jis15" path="res://resources/images/monsters/chaos-hamster.png" id="8_1cic4"]
@@ -46,15 +48,30 @@
 [node name="DB" type="Node"]
 script = ExtResource("1_i6w5y")
 
+[node name="Hooks" type="Node" parent="."]
+
+[node name="on-self-reveal" type="Node" parent="Hooks"]
+
+[node name="on-card-play" type="Node" parent="Hooks"]
+
+[node name="on-card-reveal" type="Node" parent="Hooks"]
+
+[node name="on-end-turn" type="Node" parent="Hooks"]
+
+[node name="on-begin-turn" type="Node" parent="Hooks"]
+
 [node name="Cards" type="Node" parent="."]
 
 [node name="armed-monkey" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
 card_name = "Armed Monkey (1/2)"
-cost = 1
-power = 2
+cost = 2
+power = 0
 image = ExtResource("3_6xvau")
-text = ""
+text = "+2 Power for every other card you have in this location"
+
+[node name="on-self-reveal" type="Node" parent="Cards/armed-monkey"]
+script = ExtResource("4_prnhv")
 
 [node name="astronaut-mouse" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
@@ -71,6 +88,9 @@ cost = 1
 power = 2
 image = ExtResource("5_v323v")
 text = ""
+
+[node name="on-self-reveal" type="Node" parent="Cards/baby-hydra"]
+script = ExtResource("6_bkshq")
 
 [node name="baby-kaiju" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
@@ -337,15 +357,31 @@ card12 = NodePath("../../Cards/monster-knight")
 [node name="deck-2" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
 script = ExtResource("3_qj7j8")
 deck_name = "Test Deck"
-card1 = NodePath("../../Cards/monster-pirate")
-card2 = NodePath("../../Cards/monster-ninja")
-card3 = NodePath("../../Cards/wizard-cat")
-card4 = NodePath("../../Cards/evil-pumpkin")
-card5 = NodePath("../../Cards/evil-eggplant")
-card6 = NodePath("../../Cards/evil-carrot")
-card7 = NodePath("../../Cards/raging-bigfoot")
-card8 = NodePath("../../Cards/plant-dragon")
-card9 = NodePath("../../Cards/pirate-kraken")
-card10 = NodePath("../../Cards/monster-samurai")
-card11 = NodePath("../../Cards/monster-knight")
-card12 = NodePath("../../Cards/genius-mouse")
+card1 = NodePath("../../Cards/wizard-cat")
+card2 = NodePath("../../Cards/water-dragon")
+card3 = NodePath("../../Cards/snowman-monster")
+card4 = NodePath("../../Cards/santa-monster")
+card5 = NodePath("../../Cards/robo-electric-mouse")
+card6 = NodePath("../../Cards/raging-bigfoot")
+card7 = NodePath("../../Cards/plant-dragon")
+card8 = NodePath("../../Cards/pirate-kraken")
+card9 = NodePath("../../Cards/monster-samurai")
+card10 = NodePath("../../Cards/monster-pirate")
+card11 = NodePath("../../Cards/monster-ninja")
+card12 = NodePath("../../Cards/monster-knight")
+
+[node name="deck-3" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
+script = ExtResource("3_qj7j8")
+deck_name = "Test Deck"
+card1 = NodePath("../../Cards/armed-monkey")
+card2 = NodePath("../../Cards/astronaut-mouse")
+card3 = NodePath("../../Cards/baby-hydra")
+card4 = NodePath("../../Cards/baby-kaiju")
+card5 = NodePath("../../Cards/broccoli-monster")
+card6 = NodePath("../../Cards/chaos-hamster")
+card7 = NodePath("../../Cards/cyber-deer")
+card8 = NodePath("../../Cards/eye-cloud")
+card9 = NodePath("../../Cards/evil-banana")
+card10 = NodePath("../../Cards/evil-carrot")
+card11 = NodePath("../../Cards/evil-eggplant")
+card12 = NodePath("../../Cards/evil-pumpkin")

@@ -23,6 +23,8 @@ var player_played_cards = []
 @onready var rounds_label = $Actions/EndTurnButton/Rounds
 @onready var energy_label = $Actions/EndTurnButton/Energy/Label
 
+@onready var game_state_service: GameStateService = $GameLogic/GameStateService
+
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	gui_events.connect("stop_drag_card", _on_stop_drag_card)
@@ -32,7 +34,7 @@ func _ready():
 	events.connect("begin_game_start", _on_begin_game_start)
 	events.connect("play_start", _on_play_start)
 	events.connect("draw_start", _on_draw_start)
-	events.connect("finish_turn_start", _on_finish_turn_start)
+	events.connect("resolve_turn_start", _on_resolve_turn_start)
 	events.connect("finish_game_start", _on_finish_game_start)
 
 func _on_begin_game_start():
@@ -50,7 +52,10 @@ func _on_begin_game_start():
 	$Location1.init2 (0, state_locations[0].location_id, state_locations[0].get_data(db))
 	$Location2.init2 (1, state_locations[1].location_id, state_locations[1].get_data(db))
 	$Location3.init2 (2, state_locations[2].location_id, state_locations[2].get_data(db))
-	locations = {state_locations[0].location_id: $Location1, state_locations[1].location_id: $Location2, state_locations[2].location_id: $Location3}
+	locations = {\
+		state_locations[0].location_id: $Location1,\
+		state_locations[1].location_id: $Location2,\
+		state_locations[2].location_id: $Location3}
 	$Location1.redraw_location()
 	$Location2.redraw_location()
 	$Location3.redraw_location()
@@ -70,20 +75,18 @@ func _on_play_start():
 	player_played_cards = []
 	next_turn_button.disabled = false
 	
-func _on_finish_turn_start():
+func _on_resolve_turn_start():
 	# Disallow the user to move cards
 	next_turn_button.disabled = true
 	await end_turn_show_cards()
-	events.emit_signal("finish_turn_end", current_player)
+	events.emit_signal("resolve_turn_end", current_player)
 	
 func end_turn_show_cards():
 	for card in player_played_cards:
 		card.show_back()
 		
-	var played_cards = played_enemy_cards()
-	await reveal_cards(played_cards)
-	await reveal_cards(player_played_cards)
-	
+	var enemy_cards = played_enemy_cards()
+	await reveal_cards(player_played_cards, enemy_cards)
 	
 func played_enemy_cards():	
 	var actions = state.turns[state.turn][enemy_player]
@@ -96,7 +99,8 @@ func played_enemy_cards():
 func create_enemy_card_from_action(action):
 	var card = db.get_card(action.card_id)	
 	var card_scene = play_card_scene.instantiate()
-	card_scene.init(action.card_id, card)
+	var player = 2 if current_player == 1 else 1
+	card_scene.init(player, action.card_id, card)
 	card_scene.show_back()
 	card_scene.belongs_to_player = false
 	card_scene.draggable = false
@@ -105,16 +109,35 @@ func create_enemy_card_from_action(action):
 	locations[action.target_location_id].add_enemy_card(card_scene)
 	return card_scene
 	
-func reveal_cards(cards):
+func reveal_cards(player_cards, enemy_cards):
+	var state = $GameLogic.state.copy()
 	await get_tree().create_timer(1).timeout
+	
+	var current_winner = game_state_service.get_winner(state)
+	var cards
+	if current_winner == current_player or (current_winner == 0 and current_player == 1):
+		cards = player_cards + enemy_cards
+	else:
+		cards = enemy_cards + player_cards
+
 	for card in cards:
 		await card.reveal()
-
-		if card.belongs_to_player:
-			locations[card.played_location].power_down += card.power
-		else:
-			locations[card.played_location].power_up += card.power
-		locations[card.played_location].redraw_location()
+		var location = locations[card.played_location]
+		game_state_service.resolve_action(state, card.player, PlayerAction.new(card.card_id, location.location_id))
+		
+		for loc in state.get_locations():
+			for c1 in loc.cards_p1:
+				var card_node = locations[loc.location_id].get_node("1-" + c1.card_id)
+				card_node.set_power(c1.current_power)
+			for c2 in loc.cards_p2:
+				var card_node = locations[loc.location_id].get_node("2-" + c2.card_id)
+				card_node.set_power(c2.current_power)
+			locations[loc.location_id].power_down = loc.total_power_p1 if current_player == 1 else loc.total_power_p2
+			locations[loc.location_id].power_up = loc.total_power_p2 if current_player == 1 else loc.total_power_p1
+			locations[loc.location_id].redraw_location()
+			locations[loc.location_id].redraw_location()
+		
+		await get_tree().create_timer(0.5).timeout
 
 func _on_draw_start():
 	# Now it's deleting the whole hand and redrawing
@@ -124,7 +147,7 @@ func _on_draw_start():
 	
 	for card in cards:
 		var card_scene = play_card_scene.instantiate()
-		card_scene.init(card.card_id, db.get_card(card.card_id))
+		card_scene.init(current_player, card.card_id, db.get_card(card.card_id))
 		card_scene.energy = card.current_cost
 		card_scene.power = card.current_power
 		card_scene.draggable = true
@@ -144,6 +167,7 @@ func play_card(card, location):
 	$Hand.remove_card(card)
 	location.add_card(card)
 	card.set_played_mode(true)
+	card.player = current_player
 	card.draggable = false
 	card.belongs_to_player = true
 	card.played_location = location.location_id
