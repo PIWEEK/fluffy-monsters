@@ -1,113 +1,146 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddtxl63o8somk"]
+[gd_scene load_steps=9 format=3 uid="uid://ddtxl63o8somk"]
 
 [ext_resource type="Script" path="res://components/play_card.gd" id="1_4tw3x"]
-[ext_resource type="Texture2D" uid="uid://bfbowhnjsilk8" path="res://resources/images/monsters/armed-monkey.png" id="4_lh645"]
-[ext_resource type="Texture2D" uid="uid://e0che0egrpkn" path="res://resources/images/backs/back01.png" id="4_t5haw"]
-[ext_resource type="Texture2D" uid="uid://dnisgpqsv78a7" path="res://resources/images/ui/card-frame-red.png" id="5_1d0cn"]
-[ext_resource type="Texture2D" uid="uid://dho45g0se277b" path="res://resources/images/ui/card-frame.png" id="5_jq1mo"]
-[ext_resource type="Texture2D" uid="uid://daa8h83c1m1yy" path="res://resources/images/ui/bg-circle.png" id="6_1l3c0"]
-[ext_resource type="Texture2D" uid="uid://8hpuf67pktry" path="res://resources/images/ui/bg-square.png" id="7_j1pp4"]
+[ext_resource type="Texture2D" uid="uid://co47ol66wip8y" path="res://resources/images/ui/card-reverse.png" id="2_il07s"]
+[ext_resource type="Texture2D" uid="uid://umj4al7xkce4" path="res://resources/images/monsters/astrounaut-mouse.png" id="8_3o5b7"]
+[ext_resource type="Texture2D" uid="uid://b6odiva21sn1a" path="res://resources/images/ui/card-frame-2x.png" id="9_5822b"]
+[ext_resource type="Texture2D" uid="uid://dl4h3qd4yena2" path="res://resources/images/ui/card-frame-red-2x.png" id="10_wdace"]
+[ext_resource type="Texture2D" uid="uid://o87mggkkk13e" path="res://resources/images/ui/bg-square-2x.png" id="11_ojw1b"]
+[ext_resource type="Texture2D" uid="uid://17yuxvsa30js" path="res://resources/images/ui/bg-circle-2x.png" id="12_1fnwi"]
 
-[sub_resource type="FontVariation" id="FontVariation_eo3qs"]
-variation_embolden = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_jgv0g"]
-font = SubResource("FontVariation_eo3qs")
-font_size = 28
-outline_size = 8
-outline_color = Color(0.0901961, 0.545098, 0.392157, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_7jhec"]
-font = SubResource("FontVariation_eo3qs")
-font_size = 28
-outline_size = 8
-outline_color = Color(0.764706, 0.443137, 0, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_wqj4b"]
+font_size = 160
 
 [node name="PlayCard" type="Node2D"]
+scale = Vector2(0.2, 0.2)
 script = ExtResource("1_4tw3x")
 
 [node name="Back" type="TextureRect" parent="."]
 visible = false
-offset_left = -100.0
-offset_top = -121.0
-offset_right = 100.0
-offset_bottom = 120.0
-texture = ExtResource("4_t5haw")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = -595.0
+offset_right = 494.0
+offset_bottom = 595.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_il07s")
 flip_h = true
 
 [node name="Front" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_left = -100.0
-offset_top = -121.0
-offset_right = 100.0
-offset_bottom = 120.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = -595.0
+offset_right = 494.0
+offset_bottom = 595.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Hole" type="Control" parent="Front"]
 clip_contents = true
 layout_mode = 1
-anchors_preset = 0
-offset_left = 10.0
-offset_top = 11.0
-offset_right = 191.0
-offset_bottom = 230.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -439.5
+offset_top = -528.0
+offset_right = 439.5
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Image" type="TextureRect" parent="Front/Hole"]
-layout_mode = 0
-offset_left = -17.0
-offset_right = 1007.0
-offset_bottom = 1024.0
-scale = Vector2(0.21, 0.21)
-texture = ExtResource("4_lh645")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -522.0
+offset_top = -522.0
+offset_right = 502.0
+offset_bottom = 502.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("8_3o5b7")
 
 [node name="Frame" type="TextureRect" parent="Front"]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 241.0
-texture = ExtResource("5_jq1mo")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = -595.0
+offset_right = 494.0
+offset_bottom = 595.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_5822b")
 
 [node name="FrameSelected" type="TextureRect" parent="Front"]
-visible = false
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 241.0
-texture = ExtResource("5_1d0cn")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = -595.0
+offset_right = 494.0
+offset_bottom = 595.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_wdace")
 
 [node name="Power" type="TextureRect" parent="Front"]
 layout_mode = 0
-offset_left = 132.0
-offset_top = 178.0
-offset_right = 205.0
-offset_bottom = 251.0
-texture = ExtResource("7_j1pp4")
+offset_left = 573.0
+offset_top = 807.0
+offset_right = 1020.0
+offset_bottom = 1253.0
+texture = ExtResource("11_ojw1b")
 
 [node name="PowerLabel" type="Label" parent="Front/Power"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 14.0
-offset_right = 66.0
-offset_bottom = 56.0
-text = "6"
-label_settings = SubResource("LabelSettings_jgv0g")
+offset_left = 68.0
+offset_top = 31.0
+offset_right = 414.0
+offset_bottom = 382.0
+text = "99"
+label_settings = SubResource("LabelSettings_wqj4b")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Energy" type="TextureRect" parent="Front"]
 layout_mode = 0
-offset_left = -9.0
-offset_top = 180.0
-offset_right = 64.0
-offset_bottom = 253.0
-texture = ExtResource("6_1l3c0")
+offset_left = -40.0
+offset_top = 842.0
+offset_right = 373.0
+offset_bottom = 1254.0
+texture = ExtResource("12_1fnwi")
 
 [node name="EnergyLabel" type="Label" parent="Front/Energy"]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 13.0
-offset_right = 56.0
-offset_bottom = 56.0
-text = "6"
-label_settings = SubResource("LabelSettings_7jhec")
+layout_mode = 1
+offset_left = 54.0
+offset_top = 30.0
+offset_right = 361.0
+offset_bottom = 339.0
+text = "99"
+label_settings = SubResource("LabelSettings_wqj4b")
 horizontal_alignment = 1
 vertical_alignment = 1
 
