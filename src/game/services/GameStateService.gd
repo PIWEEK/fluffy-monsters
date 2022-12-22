@@ -117,26 +117,24 @@ func end_turn(state: GameState):
 	if len(state.player1_data.hand) > 0:
 		for i in range(len(state.player1_data.hand)-1, -1, -1):
 			if state.player1_data.hand[i].flags.has("discard"):
-				state.player1_data.hand.remove_at(i)
 				card_executor_service.after_discard(state, state.player1_data.hand[i], 1)
-	
+				state.player1_data.hand.remove_at(i)
 	if len(state.player2_data.hand):
 		for i in range(len(state.player2_data.hand)-1, -1, -1):
 			if state.player2_data.hand[i].flags.has("discard"):
-				state.player2_data.hand.remove_at(i)
 				card_executor_service.after_discard(state, state.player2_data.hand[i], 2)
-	
+				state.player2_data.hand.remove_at(i)
+
 	# Remove destroyed cards
 	for loc in state.get_locations():
 		for i in range(len(loc.cards_p1)-1, 0, -1):
 			if loc.cards_p1[i].flags.has("destroy"):
-				loc.cards_p1.remove_at(i)
 				card_executor_service.after_destroy(state, loc.cards_p1[i], 1, loc)
-		
+				loc.cards_p1.remove_at(i)
 		for i in range(len(loc.cards_p2)-1, 0, -1):
 			if loc.cards_p2[i].flags.has("destroy"):
-				loc.cards_p2.remove_at(i)
 				card_executor_service.after_destroy(state, loc.cards_p1[i], 1, loc)
+				loc.cards_p2.remove_at(i)
 
 func check_end_game(state: GameState) -> bool:
 	return state.turn == 6
