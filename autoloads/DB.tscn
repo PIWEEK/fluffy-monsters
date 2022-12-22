@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cxpmnaxj36lek"]
+[gd_scene load_steps=58 format=3 uid="uid://cxpmnaxj36lek"]
 
 [ext_resource type="Script" path="res://src/db/Card.gd" id="1_7pqrb"]
 [ext_resource type="Script" path="res://autoloads/DB.gd" id="1_i6w5y"]
@@ -47,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://dpxcki8tbn7wc" path="res://resources/images/monsters/santa-monster.png" id="29_wd3tp"]
 [ext_resource type="Texture2D" uid="uid://bao5nxx7aheni" path="res://resources/images/monsters/evil-banana.png" id="30_jfcgs"]
 [ext_resource type="Texture2D" uid="uid://bg6oku50s2t4j" path="res://resources/images/monsters/snowman-monster.png" id="31_b2ld3"]
+[ext_resource type="Texture2D" uid="uid://bwaici2nnu4j1" path="res://resources/images/monsters/victory-piweek.png" id="36_4poit"]
 [ext_resource type="Script" path="res://src/db/Avatar.gd" id="45_nvuv5"]
 [ext_resource type="Texture2D" uid="uid://e21iqg12nlew" path="res://resources/images/avatars/astrounaut-mouse.png" id="46_itrou"]
 [ext_resource type="Texture2D" uid="uid://djsnktsc0jvmg" path="res://resources/images/avatars/broccolli.png" id="47_fe5ty"]
@@ -294,6 +295,12 @@ cost = 1
 power = 2
 image = ExtResource("31_b2ld3")
 
+[node name="victory-piweek" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Victory!!!"
+power = 20
+image = ExtResource("36_4poit")
+
 [node name="water-dragon" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
 card_name = "Water Dragon"
@@ -392,10 +399,10 @@ card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/chaos-hamster")
+card6 = NodePath("../../Cards/victory-piweek")
 card7 = NodePath("../../Cards/cyber-deer")
 card8 = NodePath("../../Cards/eye-cloud")
-card9 = NodePath("../../Cards/evil-banana")
+card9 = NodePath("../../Cards/chaos-hamster")
 card10 = NodePath("../../Cards/evil-carrot")
 card11 = NodePath("../../Cards/evil-eggplant")
 card12 = NodePath("../../Cards/evil-pumpkin")
@@ -408,10 +415,10 @@ card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/chaos-hamster")
+card6 = NodePath("../../Cards/victory-piweek")
 card7 = NodePath("../../Cards/cyber-deer")
 card8 = NodePath("../../Cards/eye-cloud")
-card9 = NodePath("../../Cards/evil-banana")
+card9 = NodePath("../../Cards/chaos-hamster")
 card10 = NodePath("../../Cards/evil-carrot")
 card11 = NodePath("../../Cards/evil-eggplant")
 card12 = NodePath("../../Cards/evil-pumpkin")
@@ -424,10 +431,10 @@ card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/chaos-hamster")
+card6 = NodePath("../../Cards/victory-piweek")
 card7 = NodePath("../../Cards/cyber-deer")
 card8 = NodePath("../../Cards/eye-cloud")
-card9 = NodePath("../../Cards/evil-banana")
+card9 = NodePath("../../Cards/chaos-hamster")
 card10 = NodePath("../../Cards/evil-carrot")
 card11 = NodePath("../../Cards/evil-eggplant")
 card12 = NodePath("../../Cards/evil-pumpkin")
@@ -440,10 +447,10 @@ card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/chaos-hamster")
+card6 = NodePath("../../Cards/victory-piweek")
 card7 = NodePath("../../Cards/cyber-deer")
 card8 = NodePath("../../Cards/eye-cloud")
-card9 = NodePath("../../Cards/evil-banana")
+card9 = NodePath("../../Cards/chaos-hamster")
 card10 = NodePath("../../Cards/evil-carrot")
 card11 = NodePath("../../Cards/evil-eggplant")
 card12 = NodePath("../../Cards/evil-pumpkin")
@@ -456,10 +463,10 @@ card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/chaos-hamster")
+card6 = NodePath("../../Cards/victory-piweek")
 card7 = NodePath("../../Cards/cyber-deer")
 card8 = NodePath("../../Cards/eye-cloud")
-card9 = NodePath("../../Cards/evil-banana")
+card9 = NodePath("../../Cards/chaos-hamster")
 card10 = NodePath("../../Cards/evil-carrot")
 card11 = NodePath("../../Cards/evil-eggplant")
 card12 = NodePath("../../Cards/evil-pumpkin")
@@ -472,10 +479,10 @@ card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/chaos-hamster")
+card6 = NodePath("../../Cards/victory-piweek")
 card7 = NodePath("../../Cards/cyber-deer")
 card8 = NodePath("../../Cards/eye-cloud")
-card9 = NodePath("../../Cards/evil-banana")
+card9 = NodePath("../../Cards/chaos-hamster")
 card10 = NodePath("../../Cards/evil-carrot")
 card11 = NodePath("../../Cards/evil-eggplant")
 card12 = NodePath("../../Cards/evil-pumpkin")
