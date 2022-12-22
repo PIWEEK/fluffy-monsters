@@ -59,10 +59,8 @@ func resolve_action(state: GameState, player: int, action: PlayerAction):
 	card_executor_service.play_card(state, played_card, player, location)
 	if player == 1:
 		location.cards_p1.append(played_card)
-		location.total_power_p1 += played_card.current_power
 	else:
 		location.cards_p2.append(played_card)
-		location.total_power_p2 += played_card.current_power
 
 func resolve_play(state: GameState):
 	var winner = get_winner(state)
@@ -79,25 +77,32 @@ func resolve_play(state: GameState):
 func get_winner(state: GameState) -> int:
 	var p1_wins = 0
 	var p2_wins = 0
-	var total_power_p1 = state.loc1.total_power_p1 + state.loc2.total_power_p1 + state.loc3.total_power_p1
-	var total_power_p2 = state.loc1.total_power_p2 + state.loc2.total_power_p2 + state.loc3.total_power_p2
+	var l1_p1_pow = state.loc1.get_total_power(1)
+	var l2_p1_pow = state.loc2.get_total_power(1)
+	var l3_p1_pow = state.loc3.get_total_power(1)
+	var l1_p2_pow = state.loc1.get_total_power(2)
+	var l2_p2_pow = state.loc2.get_total_power(2)
+	var l3_p2_pow = state.loc3.get_total_power(2)
 	
-	if state.loc1.total_power_p1 > state.loc1.total_power_p2:
+	var total_power_p1 = l1_p1_pow + l2_p1_pow + l3_p1_pow
+	var total_power_p2 = l1_p2_pow + l2_p2_pow + l3_p2_pow
+	
+	if l1_p1_pow > l1_p2_pow:
 		p1_wins += 1
 		
-	if state.loc1.total_power_p2 > state.loc1.total_power_p1:
+	if l1_p2_pow > l1_p1_pow:
 		p2_wins += 1
-		
-	if state.loc2.total_power_p1 > state.loc2.total_power_p2:
+	
+	if l2_p1_pow > l2_p2_pow:
 		p1_wins += 1
 		
-	if state.loc2.total_power_p2 > state.loc2.total_power_p1:
+	if l2_p2_pow > l2_p1_pow:
 		p2_wins += 1
-		
-	if state.loc3.total_power_p1 > state.loc3.total_power_p2:
+	
+	if l3_p1_pow > l3_p2_pow:
 		p1_wins += 1
 		
-	if state.loc3.total_power_p2 > state.loc3.total_power_p1:
+	if l3_p2_pow > l3_p1_pow:
 		p2_wins += 1
 	
 	var p1_won = p1_wins > p2_wins or (p1_wins == p2_wins and total_power_p1 > total_power_p2)
@@ -106,7 +111,24 @@ func get_winner(state: GameState) -> int:
 	return 1 if p1_won else 2 if p2_won else 0
 	
 func end_turn(state: GameState):
-	pass
+	# Remove discard from hand
+	for i in range(len(state.player1_data.hand)-1, -1, -1):
+		if state.player1_data.hand[i].flags.has("discard"):
+			state.player1_data.hand.remove_at(i)
+
+	for i in range(len(state.player2_data.hand)-1, -1, -1):
+		if state.player2_data.hand[i].flags.has("discard"):
+			state.player2_data.hand.remove_at(i)
+	
+	# Remove destroyed cards
+	for loc in state.get_locations():
+		for i in range(len(loc.cards_p1)-1, 0, -1):
+			if loc.cards_p1[i].flags.has("destroy"):
+				loc.cards_p1.remove_at(i)
+		
+		for i in range(len(loc.cards_p2)-1, 0, -1):
+			if loc.cards_p2[i].flags.has("destroy"):
+				loc.cards_p2.remove_at(i)
 
 func check_end_game(state: GameState) -> bool:
 	return state.turn == 6

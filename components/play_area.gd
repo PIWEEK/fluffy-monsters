@@ -133,14 +133,43 @@ func reveal_cards(player_cards, enemy_cards):
 		for loc in state.get_locations():
 			for c1 in loc.cards_p1:
 				var card_node = locations[loc.location_id].get_node("1-" + c1.card_id)
-				card_node.set_power(c1.current_power)
+				if card_node:
+					card_node.set_power(c1.current_power)
+					if c1.flags.has("destroy"):
+						var tween: Tween = get_tree().create_tween()
+						tween.set_ease(Tween.EASE_IN_OUT)
+						tween.set_trans(Tween.TRANS_QUAD)
+						tween.tween_property(card_node, "modulate:a", 0, 0.5)
+						await tween.finished
+						locations[loc.location_id].remove_card(card_node)
+
 			for c2 in loc.cards_p2:
 				var card_node = locations[loc.location_id].get_node("2-" + c2.card_id)
-				card_node.set_power(c2.current_power)
-			locations[loc.location_id].power_down = loc.total_power_p1 if current_player == 1 else loc.total_power_p2
-			locations[loc.location_id].power_up = loc.total_power_p2 if current_player == 1 else loc.total_power_p1
+				if card_node:
+					card_node.set_power(c2.current_power)
+					if c2.flags.has("destroy"):
+						var tween: Tween = get_tree().create_tween()
+						tween.set_ease(Tween.EASE_IN_OUT)
+						tween.set_trans(Tween.TRANS_QUAD)
+						tween.tween_property(card_node, "modulate:a", 0, 0.5)
+						await tween.finished
+						locations[loc.location_id].remove_card(card_node)
+
+			locations[loc.location_id].power_down = loc.get_total_power(1) if current_player == 1 else loc.get_total_power(2)
+			locations[loc.location_id].power_up = loc.get_total_power(2) if current_player == 1 else loc.get_total_power(1)
 			locations[loc.location_id].redraw_location()
 			locations[loc.location_id].redraw_location()
+
+		for hand_card in state.get_player_data(current_player).hand:
+			if hand_card.flags.has("discard"):
+				var card_node = $Hand.get_node("%s-%s" % [current_player, hand_card.card_id])
+				if card_node:
+					var tween: Tween = get_tree().create_tween()
+					tween.set_ease(Tween.EASE_IN_OUT)
+					tween.set_trans(Tween.TRANS_QUAD)
+					tween.tween_property(card_node, "modulate:a", 0, 0.5)
+					await tween.finished
+					$Hand.remove_card(card_node)
 		
 		await get_tree().create_timer(0.5).timeout
 

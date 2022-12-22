@@ -6,6 +6,7 @@ var card_id: String
 var modifiers: Array[Modifier]
 var current_power: int
 var current_cost: int
+var flags: Dictionary
 
 func _init(card = null):
 	if card is HandCard:
@@ -13,11 +14,13 @@ func _init(card = null):
 		self.modifiers = card.modifiers
 		self.current_power = card.current_power
 		self.current_cost = card.current_cost
+		self.flags = card.flags
 	elif card:
 		self.card_id = card.name
 		self.modifiers = []
 		self.current_power = card.power
 		self.current_cost = card.cost
+		self.flags = Dictionary()
 
 func get_data(db: DataBase) -> Card:
 	return db.get_card(card_id)
@@ -28,4 +31,5 @@ func copy() -> HandCard:
 	result.modifiers = modifiers.duplicate()
 	result.current_power = current_power
 	result.current_cost = current_cost
+	result.flags = flags.duplicate()
 	return result

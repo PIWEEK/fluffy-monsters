@@ -308,6 +308,7 @@ offset_top = 870.0
 offset_right = 2160.0
 offset_bottom = 1170.0
 scale = Vector2(0.75, 0.75)
+mouse_filter = 2
 
 [node name="Location1" parent="." instance=ExtResource("3_l05bd")]
 offset_left = 175.0

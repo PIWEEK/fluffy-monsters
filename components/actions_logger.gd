@@ -97,12 +97,12 @@ func _on_finish_turn_start():
 		var cards_p1 = PackedStringArray()
 		for card in location.cards_p1:
 			cards_p1.append(card.card_id)
-		var p1_info = "%s [%s]" % [location.total_power_p1, ",".join(cards_p1)]
+		var p1_info = "%s [%s]" % [location.get_total_power(1), ",".join(cards_p1)]
 		
 		var cards_p2 = PackedStringArray()
 		for card in location.cards_p2:
 			cards_p2.append(card.card_id)
-		var p2_info = "%s [%s]" % [location.total_power_p2, ",".join(cards_p2)]
+		var p2_info = "%s [%s]" % [location.get_total_power(2), ",".join(cards_p2)]
 		location_str += "%s{P1:%s,P2:%s}, " % [ location.get_data(db).name, p1_info, p2_info]
 	
 	var hand_p1 = PackedStringArray()

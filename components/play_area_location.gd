@@ -72,6 +72,12 @@ func add_card(card):
 	add_child(card)
 	redraw_location()
 
+func remove_card(card):
+	gui_state.cards_location_enemy[location_num].erase(card)
+	gui_state.cards_location[location_num].erase(card)
+	remove_child(card)
+	redraw_location()
+
 func add_enemy_card(card):	
 	gui_state.cards_location_enemy[location_num].append(card)	
 	add_child(card)

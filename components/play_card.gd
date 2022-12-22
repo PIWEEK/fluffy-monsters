@@ -22,7 +22,6 @@ func init(player: int, card_id, card: Card):
 	self.card_id = card_id
 	self.player = player
 	self.name = "%s-%s" % [player, card_id]
-	print("HOLA", player, card_id)
 	self.slug = card.name
 	self.energy = card.cost
 	self.power = card.power
