@@ -1,13 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dim0lew6t2nyh"]
+[gd_scene load_steps=8 format=3 uid="uid://dim0lew6t2nyh"]
 
 [ext_resource type="Script" path="res://components/play_area_location.gd" id="1_0u7xl"]
 [ext_resource type="Texture2D" uid="uid://cr001skgrcope" path="res://resources/images/ui/area-frame.png" id="2_7m8p7"]
 [ext_resource type="Texture2D" uid="uid://d2tftqu4felpr" path="res://resources/images/locations/loc-city-ok.png" id="3_2cv3n"]
 [ext_resource type="Texture2D" uid="uid://bnxo6e0k8ju6q" path="res://resources/images/ui/loc-frame-win.png" id="4_vp8cp"]
 [ext_resource type="Texture2D" uid="uid://cj5dlw1n3e5nb" path="res://resources/images/ui/loc-frame-lose.png" id="5_60w02"]
+[ext_resource type="FontFile" uid="uid://dtd3tst48g77p" path="res://resources/fonts/mrsmonster.ttf" id="6_5btja"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pt4o8"]
-font_size = 48
+font = ExtResource("6_5btja")
+font_size = 55
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 3)
 
 [node name="Location" type="Control"]
 layout_mode = 3

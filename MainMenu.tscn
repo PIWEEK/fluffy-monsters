@@ -9,7 +9,7 @@
 font = ExtResource("3_yeu5x")
 font_size = 50
 shadow_size = 12
-shadow_color = Color(0.717647, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(1, 3)
 
 [node name="MainMenu" type="Control"]

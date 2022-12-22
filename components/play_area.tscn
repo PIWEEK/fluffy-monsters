@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b733hc0h3768l"]
+[gd_scene load_steps=30 format=3 uid="uid://b733hc0h3768l"]
 
 [ext_resource type="Script" path="res://components/play_area.gd" id="1_by8b4"]
 [ext_resource type="Texture2D" uid="uid://1xlwogbg6v04" path="res://resources/images/ui/table-bg-eyes.jpg" id="2_iqh1c"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://src/DummyPlayerAI.gd" id="6_hjkqc"]
 [ext_resource type="LabelSettings" path="res://resources/label_p2.tres" id="7_xet36"]
 [ext_resource type="Script" path="res://src/GameLogic.gd" id="8_bu3mp"]
+[ext_resource type="Texture2D" uid="uid://cdivp6mafh1sw" path="res://resources/images/ui/FM-logo-color.png" id="8_f7qw0"]
 [ext_resource type="Script" path="res://src/game/services/CardExecutorService.gd" id="9_w0r8w"]
 [ext_resource type="Script" path="res://src/game/services/DeckService.gd" id="10_8mxr3"]
 [ext_resource type="Texture2D" uid="uid://boel53y0aaghm" path="res://resources/images/avatars/cat-wizard.png" id="11_b0pjs"]
@@ -45,13 +46,17 @@ font_size = 31
 font_color = Color(0.12549, 0.929412, 0.780392, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qcjg0"]
-font_size = 64
+font = ExtResource("20_qujc1")
+font_size = 96
 outline_size = 9
 outline_color = Color(0.745098, 0.447059, 0.00784314, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 3)
 
 [node name="PlayArea" type="Node2D"]
 script = ExtResource("1_by8b4")
-metadata/_edit_vertical_guides_ = [1893.0, 27.0]
+metadata/_edit_vertical_guides_ = [1893.0, 27.0, 961.0]
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -65,12 +70,15 @@ offset_right = 1920.0
 offset_bottom = 165.0
 
 [node name="Player1" type="Control" parent="Header"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
+offset_left = -13.0
+offset_right = -13.0
 grow_vertical = 2
 
 [node name="Avatar" type="TextureRect" parent="Header/Player1"]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -84,6 +92,7 @@ ignore_texture_size = true
 stretch_mode = 6
 
 [node name="Frame" type="TextureRect" parent="Header/Player1"]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -95,6 +104,7 @@ grow_vertical = 2
 texture = ExtResource("3_db27m")
 
 [node name="Label" type="Label" parent="Header/Player1"]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -107,15 +117,18 @@ text = "PLAYER1"
 label_settings = ExtResource("5_7fqpa")
 
 [node name="Player2" type="Control" parent="Header"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 12.0
+offset_right = 12.0
 grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Avatar" type="TextureRect" parent="Header/Player2"]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -132,6 +145,7 @@ ignore_texture_size = true
 stretch_mode = 6
 
 [node name="Frame" type="TextureRect" parent="Header/Player2"]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -146,6 +160,7 @@ grow_vertical = 2
 texture = ExtResource("4_optvh")
 
 [node name="Label" type="Label" parent="Header/Player2"]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -160,6 +175,22 @@ grow_vertical = 2
 text = "PLAYER2"
 label_settings = ExtResource("7_xet36")
 
+[node name="Logo" type="TextureRect" parent="Header"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -57.5
+offset_right = 832.0
+offset_bottom = 406.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_f7qw0")
+
 [node name="Actions" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -168,17 +199,19 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="RetreatButton" type="TextureButton" parent="Actions"]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 27.0
-offset_top = -90.0
+offset_top = -82.0
 offset_right = 474.0
-offset_bottom = 36.0
+offset_bottom = 44.0
 grow_vertical = 2
 texture_normal = ExtResource("21_l3nov")
 
 [node name="Label" type="Label" parent="Actions/RetreatButton"]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -191,20 +224,22 @@ text = "RUN AWAY"
 label_settings = SubResource("LabelSettings_nvghn")
 
 [node name="EndTurnButton" type="TextureButton" parent="Actions"]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -477.0
-offset_top = -100.0
-offset_right = -30.0
-offset_bottom = 26.0
+offset_left = -475.0
+offset_top = -82.0
+offset_right = -28.0
+offset_bottom = 44.0
 grow_horizontal = 0
 grow_vertical = 2
 texture_normal = ExtResource("23_dmo0n")
 
 [node name="Label" type="Label" parent="Actions/EndTurnButton"]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -220,6 +255,7 @@ text = "END TURN"
 label_settings = SubResource("LabelSettings_r806y")
 
 [node name="Rounds" type="Label" parent="Actions/EndTurnButton"]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -235,6 +271,7 @@ text = "Round 4/6"
 label_settings = SubResource("LabelSettings_naqao")
 
 [node name="Energy" type="TextureRect" parent="Actions/EndTurnButton"]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -247,15 +284,16 @@ scale = Vector2(0.816164, 0.816164)
 texture = ExtResource("24_ff2xd")
 
 [node name="Label" type="Label" parent="Actions/EndTurnButton/Energy"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.0496
-offset_top = -46.7252
-offset_right = 26.9504
-offset_bottom = 44.2748
+offset_left = -29.5
+offset_top = -54.5
+offset_right = 27.5
+offset_bottom = 51.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "4"
@@ -301,6 +339,7 @@ color_p1 = Color(1, 0.294118, 0.443137, 1)
 color_p2 = Color(0.27451, 0.490196, 1, 1)
 
 [node name="ClearLogBtn" type="Button" parent="ActionsLog"]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
