@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2ihuwyk3jaiq"]
+[gd_scene load_steps=8 format=3 uid="uid://d2ihuwyk3jaiq"]
 
 [ext_resource type="Texture2D" uid="uid://c5r4h2lnahvdv" path="res://resources/images/ui/splash-bg.jpg" id="1_2cr5s"]
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_p2nm4"]
 [ext_resource type="Texture2D" uid="uid://d0j477cin18u6" path="res://resources/images/ui/button-home-bg.png" id="2_bcbq7"]
 [ext_resource type="FontFile" uid="uid://dtd3tst48g77p" path="res://resources/fonts/mrsmonster.ttf" id="3_yeu5x"]
 [ext_resource type="Texture2D" uid="uid://clkvnv7i666l4" path="res://resources/images/ui/button-home-bg-hover.png" id="4_lvtrt"]
+[ext_resource type="AudioStream" uid="uid://cecaumk78dt8d" path="res://resources/sound/Adventures in Adventureland.mp3" id="6_r08i0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kolod"]
 font = ExtResource("3_yeu5x")
@@ -99,6 +100,10 @@ text = "PROFILE"
 label_settings = SubResource("LabelSettings_kolod")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_r08i0")
+autoplay = true
 
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="ProfileButton" to="." method="_on_profile_button_pressed"]

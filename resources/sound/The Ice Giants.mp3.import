@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0u3ratxffbvq"
+path="res://.godot/imported/The Ice Giants.mp3-81385d52dc781cb2d8f2fb7b20191124.mp3str"
+
+[deps]
+
+source_file="res://resources/sound/The Ice Giants.mp3"
+dest_files=["res://.godot/imported/The Ice Giants.mp3-81385d52dc781cb2d8f2fb7b20191124.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

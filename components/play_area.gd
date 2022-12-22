@@ -5,6 +5,10 @@ var card_zoom_scene = preload("res://components/card_zoom.tscn")
 var location_zoom_scene = preload("res://components/location_zoom.tscn")
 var end_game_scene = preload("res://components/end_game.tscn")
 
+var sound_place_card = preload("res://resources/sound/flipcard.wav")
+var sound_flip_card = preload("res://resources/sound/flip.wav")
+var sound_turn = preload("res://resources/sound/turn.wav")
+
 var state: GameState
 var player_turn: Array[PlayerAction] = []
 var current_player: int
@@ -124,6 +128,9 @@ func reveal_cards(player_cards, enemy_cards):
 		cards = enemy_cards + player_cards
 
 	for card in cards:
+		$Audio.stream = sound_flip_card
+		$Audio.play()
+	
 		await card.reveal()
 		var location = locations[card.played_location]
 		game_state_service.resolve_action(state, card.player, PlayerAction.new(card.card_id, location.location_id))
@@ -195,7 +202,10 @@ func _on_stop_drag_card(card):
 	if gui_state.dragging_location != null:
 		play_card(card, gui_state.dragging_location)
 
-func play_card(card, location):	
+func play_card(card, location):
+	$Audio.stream = sound_place_card
+	$Audio.play()
+	
 	gui_state.current_energy -= card.energy
 	$Hand.remove_card(card)
 	location.add_card(card)
@@ -220,6 +230,9 @@ func _on_show_zoom_location(location):
 	
 
 func _on_end_turn_button_pressed():
+	$Audio.stream = sound_turn
+	$Audio.play()
+	
 	events.emit_signal("play_end", current_player, player_turn)
 	
 func _on_finish_game_start():
