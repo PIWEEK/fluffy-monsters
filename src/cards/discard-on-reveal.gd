@@ -1,4 +1,4 @@
-extends Node
+extends OnSelfReveal
 
 func execute(state: GameState, card: PlayedCard, player: int, location: GameLocation):
 	var player_data = state.get_player_data(player)

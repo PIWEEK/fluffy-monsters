@@ -1,4 +1,4 @@
-extends Node
+extends OnSelfReveal
 
 func execute(state: GameState, card: PlayedCard, player: int, location: GameLocation):
 	var cards = location.get_opponent_cards(player)

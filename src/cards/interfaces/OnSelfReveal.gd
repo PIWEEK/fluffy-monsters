@@ -1,5 +1,6 @@
 extends Node
 
-## Template on self reveal
+class_name OnSelfReveal
+
 func execute(state: GameState, card: PlayedCard, player: int, location: GameLocation):
 	pass
