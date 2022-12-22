@@ -65,7 +65,7 @@ script = ExtResource("1_i6w5y")
 
 [node name="armed-monkey" type="Node" parent="Cards" node_paths=PackedStringArray("on_self_reveal")]
 script = ExtResource("1_7pqrb")
-card_name = "Armed Monkey (1/2)"
+card_name = "Armed Monkey"
 cost = 2
 power = 0
 image = ExtResource("3_6xvau")
@@ -77,7 +77,7 @@ script = ExtResource("4_prnhv")
 
 [node name="astronaut-mouse" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Astro Mouse (1/2)"
+card_name = "Astro Mouse"
 cost = 1
 power = 2
 image = ExtResource("4_2dedb")
@@ -85,7 +85,7 @@ text = ""
 
 [node name="baby-hydra" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Baby Hydra (1/2)"
+card_name = "Baby Hydra"
 cost = 1
 power = 2
 image = ExtResource("5_v323v")
@@ -93,7 +93,7 @@ text = ""
 
 [node name="baby-kaiju" type="Node" parent="Cards" node_paths=PackedStringArray("on_card_play")]
 script = ExtResource("1_7pqrb")
-card_name = "Baby Kaiju (1/2)"
+card_name = "Baby Kaiju"
 cost = 1
 power = 2
 image = ExtResource("6_w8n1h")
@@ -105,7 +105,7 @@ script = ExtResource("8_201w8")
 
 [node name="broccoli-monster" type="Node" parent="Cards" node_paths=PackedStringArray("on_self_reveal")]
 script = ExtResource("1_7pqrb")
-card_name = "Broccoli Monster (1/2)"
+card_name = "Broccoli Monster"
 cost = 1
 power = 2
 image = ExtResource("7_nc67n")
@@ -117,7 +117,7 @@ script = ExtResource("9_pyqvg")
 
 [node name="chaos-hamster" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Chaos Hamster (1/2)"
+card_name = "Chaos Hamster"
 cost = 1
 power = 2
 image = ExtResource("8_1cic4")
@@ -125,7 +125,7 @@ text = ""
 
 [node name="cyber-deer" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Cyber Deer (1/2)"
+card_name = "Cyber Deer"
 cost = 1
 power = 2
 image = ExtResource("9_ubeou")
@@ -133,7 +133,7 @@ text = ""
 
 [node name="eye-cloud" type="Node" parent="Cards" node_paths=PackedStringArray("on_self_reveal")]
 script = ExtResource("1_7pqrb")
-card_name = "Eye Cloud (1/2)"
+card_name = "Eye Cloud"
 cost = 1
 power = 2
 image = ExtResource("10_af6cn")
@@ -152,7 +152,7 @@ image = ExtResource("30_jfcgs")
 
 [node name="evil-carrot" type="Node" parent="Cards" node_paths=PackedStringArray("on_card_play")]
 script = ExtResource("1_7pqrb")
-card_name = "Evil Carrot (1/2)"
+card_name = "Evil Carrot"
 cost = 1
 power = 2
 image = ExtResource("19_6nl8i")
@@ -164,14 +164,14 @@ script = ExtResource("8_c6duh")
 
 [node name="evil-eggplant" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Evil Eggplant (1/2)"
+card_name = "Evil Eggplant"
 cost = 1
 power = 2
 image = ExtResource("20_u56hk")
 
 [node name="evil-pumpkin" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Evil Pumpkin (1/2)"
+card_name = "Evil Pumpkin"
 cost = 1
 power = 2
 image = ExtResource("21_potah")
@@ -185,7 +185,7 @@ image = ExtResource("28_y4s7r")
 
 [node name="fire-dragon" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Fire Dragon (1/2)"
+card_name = "Fire Dragon"
 cost = 1
 power = 2
 image = ExtResource("11_2hn5t")
@@ -193,7 +193,7 @@ text = ""
 
 [node name="fire-tardigrade" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Fire Tardigrade (1/2)"
+card_name = "Fire Tardigrade"
 cost = 1
 power = 2
 image = ExtResource("12_jj8xx")
@@ -201,7 +201,7 @@ text = ""
 
 [node name="genius-mouse" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Genius Mouse (1/2)"
+card_name = "Genius Mouse"
 cost = 1
 power = 2
 image = ExtResource("13_ciaof")
@@ -223,7 +223,7 @@ image = ExtResource("26_3uh7l")
 
 [node name="monster-knight" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Monster Knight (1/2)"
+card_name = "Monster Knight"
 cost = 1
 power = 2
 image = ExtResource("14_5rln7")
@@ -231,7 +231,7 @@ text = ""
 
 [node name="monster-ninja" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Monster Ninja (1/2)"
+card_name = "Monster Ninja"
 cost = 1
 power = 2
 image = ExtResource("23_xvo5v")
@@ -245,7 +245,7 @@ image = ExtResource("24_lmp0d")
 
 [node name="monster-samurai" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Monster Samurai (1/2)"
+card_name = "Monster Samurai"
 cost = 1
 power = 2
 image = ExtResource("15_g5x6q")
@@ -253,7 +253,7 @@ text = ""
 
 [node name="pirate-kraken" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Pirate Kraken (1/2)"
+card_name = "Pirate Kraken"
 cost = 1
 power = 2
 image = ExtResource("16_8f4dr")
@@ -261,7 +261,7 @@ text = ""
 
 [node name="plant-dragon" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Plant Dragon (1/2)"
+card_name = "Plant Dragon"
 cost = 1
 power = 2
 image = ExtResource("17_rwgb6")
@@ -269,7 +269,7 @@ text = ""
 
 [node name="raging-bigfoot" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Raging Bigfoot (1/2)"
+card_name = "Raging Bigfoot"
 cost = 1
 power = 2
 image = ExtResource("18_5lubo")
@@ -312,7 +312,7 @@ image = ExtResource("26_0xwuf")
 
 [node name="wizard-cat" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Wizard Cat (1/2)"
+card_name = "Wizard Cat"
 cost = 1
 power = 2
 image = ExtResource("22_yd4iu")
