@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ddtxl63o8somk" path="res://components/play_card.tscn" id="1_sl3t6"]
 [ext_resource type="LabelSettings" uid="uid://diu8e1ivofp05" path="res://resources/label_zoom.tres" id="3_2v010"]
 
-[sub_resource type="Theme" id="Theme_w4x3x"]
+[sub_resource type="Theme" id="Theme_5tyab"]
 default_font_size = 30
 
 [node name="CardZoom" type="Control"]
@@ -47,7 +47,7 @@ offset_right = 330.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = SubResource("Theme_w4x3x")
+theme = SubResource("Theme_5tyab")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 bbcode_enabled = true
