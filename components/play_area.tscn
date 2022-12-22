@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b733hc0h3768l"]
+[gd_scene load_steps=32 format=3 uid="uid://b733hc0h3768l"]
 
 [ext_resource type="Script" path="res://components/play_area.gd" id="1_by8b4"]
 [ext_resource type="Texture2D" uid="uid://1xlwogbg6v04" path="res://resources/images/ui/table-bg-eyes.jpg" id="2_iqh1c"]
@@ -16,11 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://cdivp6mafh1sw" path="res://resources/images/ui/FM-logo-color.png" id="8_f7qw0"]
 [ext_resource type="Script" path="res://src/game/services/CardExecutorService.gd" id="9_w0r8w"]
 [ext_resource type="Script" path="res://src/game/services/DeckService.gd" id="10_8mxr3"]
+[ext_resource type="Texture2D" uid="uid://be608afk2sjba" path="res://resources/images/ui/button-runaway-bg-hover.png" id="10_h2m6j"]
 [ext_resource type="Texture2D" uid="uid://boel53y0aaghm" path="res://resources/images/avatars/cat-wizard.png" id="11_b0pjs"]
 [ext_resource type="Script" path="res://src/game/services/GameStateService.gd" id="11_o8a10"]
 [ext_resource type="Script" path="res://src/game/services/HandService.gd" id="12_prqrw"]
 [ext_resource type="Script" path="res://src/game/services/LocationService.gd" id="13_keehl"]
 [ext_resource type="Texture2D" uid="uid://bamg0uolmktpu" path="res://resources/images/avatars/cyber-deer.png" id="13_lyh0i"]
+[ext_resource type="Texture2D" uid="uid://bgrob1r0lg8ah" path="res://resources/images/ui/button-turn-bg-hover.png" id="13_o6kgf"]
 [ext_resource type="FontFile" uid="uid://dtd3tst48g77p" path="res://resources/fonts/mrsmonster.ttf" id="20_qujc1"]
 [ext_resource type="Texture2D" uid="uid://cekb4ioimffpb" path="res://resources/images/ui/button-runaway-bg.png" id="21_l3nov"]
 [ext_resource type="Texture2D" uid="uid://cf76yyye6at8u" path="res://resources/images/ui/button-turn-bg.png" id="23_dmo0n"]
@@ -209,6 +211,7 @@ offset_right = 474.0
 offset_bottom = 44.0
 grow_vertical = 2
 texture_normal = ExtResource("21_l3nov")
+texture_hover = ExtResource("10_h2m6j")
 
 [node name="Label" type="Label" parent="Actions/RetreatButton"]
 layout_mode = 1
@@ -237,6 +240,7 @@ offset_bottom = 44.0
 grow_horizontal = 0
 grow_vertical = 2
 texture_normal = ExtResource("23_dmo0n")
+texture_hover = ExtResource("13_o6kgf")
 
 [node name="Label" type="Label" parent="Actions/EndTurnButton"]
 layout_mode = 1

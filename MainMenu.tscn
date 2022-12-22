@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2ihuwyk3jaiq"]
+[gd_scene load_steps=7 format=3 uid="uid://d2ihuwyk3jaiq"]
 
 [ext_resource type="Texture2D" uid="uid://c5r4h2lnahvdv" path="res://resources/images/ui/splash-bg.jpg" id="1_2cr5s"]
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_p2nm4"]
 [ext_resource type="Texture2D" uid="uid://d0j477cin18u6" path="res://resources/images/ui/button-home-bg.png" id="2_bcbq7"]
 [ext_resource type="FontFile" uid="uid://dtd3tst48g77p" path="res://resources/fonts/mrsmonster.ttf" id="3_yeu5x"]
+[ext_resource type="Texture2D" uid="uid://clkvnv7i666l4" path="res://resources/images/ui/button-home-bg-hover.png" id="4_lvtrt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kolod"]
 font = ExtResource("3_yeu5x")
@@ -44,6 +45,7 @@ offset_bottom = 138.5
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_bcbq7")
+texture_hover = ExtResource("4_lvtrt")
 ignore_texture_size = true
 stretch_mode = 0
 
