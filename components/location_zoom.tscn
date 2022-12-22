@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://dijkmjgls8jey"]
+
+[ext_resource type="Script" path="res://components/location_zoom.gd" id="1_trkf1"]
+[ext_resource type="Texture2D" uid="uid://c3v7xfxona5s5" path="res://resources/images/locations/loc-farm-ok.png" id="2_h6spu"]
+[ext_resource type="LabelSettings" uid="uid://diu8e1ivofp05" path="res://resources/label_zoom.tres" id="3_k6p6s"]
+
+[node name="LocationZoom" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_trkf1")
+metadata/_edit_vertical_guides_ = [960.0]
+metadata/_edit_horizontal_guides_ = [544.0]
+
+[node name="Veil" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.584314)
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -382.0
+offset_right = 958.0
+offset_bottom = 642.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_h6spu")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 662.0
+offset_top = 285.0
+offset_right = 1260.0
+offset_bottom = 342.0
+text = "UNCLE SAM'S FARM"
+label_settings = ExtResource("3_k6p6s")
+horizontal_alignment = 1

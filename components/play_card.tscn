@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://o87mggkkk13e" path="res://resources/images/ui/bg-square-2x.png" id="11_ojw1b"]
 [ext_resource type="Texture2D" uid="uid://17yuxvsa30js" path="res://resources/images/ui/bg-circle-2x.png" id="12_1fnwi"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_0cbqw"]
+[sub_resource type="LabelSettings" id="LabelSettings_v8pci"]
 font = ExtResource("7_bqcxb")
 font_size = 196
 shadow_size = 12
@@ -122,7 +122,7 @@ offset_top = 31.0
 offset_right = 414.0
 offset_bottom = 382.0
 text = "99"
-label_settings = SubResource("LabelSettings_0cbqw")
+label_settings = SubResource("LabelSettings_v8pci")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -139,7 +139,7 @@ offset_top = 30.0
 offset_right = 361.0
 offset_bottom = 339.0
 text = "99"
-label_settings = SubResource("LabelSettings_0cbqw")
+label_settings = SubResource("LabelSettings_v8pci")
 horizontal_alignment = 1
 vertical_alignment = 1
 

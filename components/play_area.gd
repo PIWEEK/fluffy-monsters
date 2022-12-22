@@ -2,6 +2,7 @@ extends Node2D
 
 var play_card_scene = preload("res://components/play_card.tscn")
 var card_zoom_scene = preload("res://components/card_zoom.tscn")
+var location_zoom_scene = preload("res://components/location_zoom.tscn")
 var end_game_scene = preload("res://components/end_game.tscn")
 
 var state: GameState
@@ -26,6 +27,7 @@ var player_played_cards = []
 func _ready():	
 	gui_events.connect("stop_drag_card", _on_stop_drag_card)
 	gui_events.connect("show_zoom_card", _on_show_zoom_card)
+	gui_events.connect("show_zoom_location", _on_show_zoom_location)
 	events.connect("begin_turn_start", _on_begin_turn_start)
 	events.connect("begin_game_start", _on_begin_game_start)
 	events.connect("play_start", _on_play_start)
@@ -152,6 +154,12 @@ func _on_show_zoom_card(card):
 	var card_scene = card_zoom_scene.instantiate()
 	card_scene.init(card)
 	add_child(card_scene)
+	
+func _on_show_zoom_location(location):
+	var location_scene = location_zoom_scene.instantiate()
+	location_scene.init(location)
+	add_child(location_scene)
+	
 
 func _on_end_turn_button_pressed():
 	events.emit_signal("play_end", current_player, player_turn)

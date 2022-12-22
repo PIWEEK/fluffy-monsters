@@ -117,5 +117,6 @@ offset_right = 990.0
 offset_bottom = 320.0
 color = Color(1, 1, 1, 0.196078)
 
+[connection signal="gui_input" from="Place" to="." method="_on_place_gui_input"]
 [connection signal="mouse_entered" from="Player1" to="." method="_on_player_1_mouse_entered"]
 [connection signal="mouse_exited" from="Player1/Highlight" to="." method="_on_player_1_highlight_mouse_exited"]

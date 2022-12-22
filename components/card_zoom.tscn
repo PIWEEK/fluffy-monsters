@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://components/card_zoom.gd" id="1_6oa8r"]
 [ext_resource type="PackedScene" uid="uid://ddtxl63o8somk" path="res://components/play_card.tscn" id="1_sl3t6"]
-[ext_resource type="LabelSettings" path="res://resources/label_zoom.tres" id="3_2v010"]
+[ext_resource type="LabelSettings" uid="uid://diu8e1ivofp05" path="res://resources/label_zoom.tres" id="3_2v010"]
 
 [node name="CardZoom" type="Control"]
 layout_mode = 3

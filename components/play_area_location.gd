@@ -11,6 +11,7 @@ var location_id
 var location_num
 var location_name
 var text
+var texture
 
 var power_up = 0
 var power_down = 0
@@ -29,6 +30,7 @@ func init2(location_num, location_id, game_location):
 	self.location_num = location_num
 	self.location_name = game_location.location_name
 	self.text = game_location.text
+	self.texture = game_location.image
 	$Place/Image.texture = game_location.image
 	
 func _process(delta):
@@ -85,3 +87,8 @@ func mouse_entered():
 func mouse_exited():
 	$Player1/Highlight.visible = false
 	gui_state.dragging_location = null
+
+
+func _on_place_gui_input(event):	
+	if event is InputEventMouseButton and event.button_index == 2 and event.pressed:
+		gui_events.emit_signal("show_zoom_location", self)
