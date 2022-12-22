@@ -1,12 +1,16 @@
-[gd_scene load_steps=55 format=3 uid="uid://06tx7d8o4ake"]
+[gd_scene load_steps=60 format=3 uid="uid://06tx7d8o4ake"]
 
 [ext_resource type="Script" path="res://src/db/Card.gd" id="1_7pqrb"]
 [ext_resource type="Script" path="res://autoloads/DB.gd" id="1_i6w5y"]
+[ext_resource type="Script" path="res://src/cards/on-self-reveal.gd" id="2_6relb"]
 [ext_resource type="Texture2D" uid="uid://bfbowhnjsilk8" path="res://resources/images/monsters/armed-monkey.png" id="3_6xvau"]
 [ext_resource type="Script" path="res://src/db/Location.gd" id="3_qdwtv"]
 [ext_resource type="Script" path="res://src/db/CustomDeck.gd" id="3_qj7j8"]
+[ext_resource type="Script" path="res://src/cards/on-card-play.gd" id="3_uou5y"]
 [ext_resource type="Texture2D" uid="uid://umj4al7xkce4" path="res://resources/images/monsters/astrounaut-mouse.png" id="4_2dedb"]
+[ext_resource type="Script" path="res://src/cards/on-discard.gd" id="4_5cf7r"]
 [ext_resource type="Script" path="res://src/cards/add-power-on-reveal.gd" id="4_prnhv"]
+[ext_resource type="Script" path="res://src/cards/on-destroy.gd" id="5_ee6th"]
 [ext_resource type="Texture2D" uid="uid://b3mu1qlgqmxc1" path="res://resources/images/monsters/baby-hydra.png" id="5_v323v"]
 [ext_resource type="Texture2D" uid="uid://dceoxlqrvw7uk" path="res://resources/images/monsters/baby-kaiju.png" id="6_w8n1h"]
 [ext_resource type="Script" path="res://src/cards/discard-on-reveal.gd" id="7_7jpwo"]
@@ -14,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://d1ibvup3jis15" path="res://resources/images/monsters/chaos-hamster.png" id="8_1cic4"]
 [ext_resource type="Script" path="res://src/cards/destroy-first-card.gd" id="9_pyqvg"]
 [ext_resource type="Texture2D" uid="uid://d4en2s4ty1jvm" path="res://resources/images/monsters/cyber-deer.png" id="9_ubeou"]
+[ext_resource type="Script" path="res://src/cards/plus-two-card-played.gd" id="10_4p66i"]
 [ext_resource type="Texture2D" uid="uid://b27feen576jmo" path="res://resources/images/monsters/eye-cloud.png" id="10_af6cn"]
 [ext_resource type="Texture2D" uid="uid://v2cvvy1elhhy" path="res://resources/images/monsters/fire-dragon.png" id="11_2hn5t"]
 [ext_resource type="Texture2D" uid="uid://f52gc525um0u" path="res://resources/images/monsters/fire-tardigrade.png" id="12_jj8xx"]
@@ -61,10 +66,16 @@ script = ExtResource("1_i6w5y")
 [node name="Hooks" type="Node" parent="."]
 
 [node name="on-self-reveal" type="Node" parent="Hooks"]
+script = ExtResource("2_6relb")
 
 [node name="on-card-play" type="Node" parent="Hooks"]
+script = ExtResource("3_uou5y")
 
-[node name="on-card-reveal" type="Node" parent="Hooks"]
+[node name="on-discard" type="Node" parent="Hooks"]
+script = ExtResource("4_5cf7r")
+
+[node name="on-destroy" type="Node" parent="Hooks"]
+script = ExtResource("5_ee6th")
 
 [node name="on-end-turn" type="Node" parent="Hooks"]
 
@@ -106,6 +117,9 @@ cost = 1
 power = 2
 image = ExtResource("6_w8n1h")
 text = ""
+
+[node name="on-card-play" type="Node" parent="Cards/baby-kaiju"]
+script = ExtResource("10_4p66i")
 
 [node name="broccoli-monster" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
@@ -158,6 +172,9 @@ card_name = "Evil Carrot (1/2)"
 cost = 1
 power = 2
 image = ExtResource("19_6nl8i")
+
+[node name="on-card-play" type="Node" parent="Cards/evil-carrot"]
+script = ExtResource("10_4p66i")
 
 [node name="evil-eggplant" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")

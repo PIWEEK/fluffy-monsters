@@ -3,8 +3,8 @@ extends Control
 @onready var gui_state = get_node("/root/GuiState")
 
 func _ready():
-	# seed(0)
-	randomize()
+	seed(0)
+	#randomize()
 	load_profile()
 
 func _on_start_game_button_pressed():

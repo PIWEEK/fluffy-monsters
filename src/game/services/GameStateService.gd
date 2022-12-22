@@ -56,11 +56,13 @@ func resolve_action(state: GameState, player: int, action: PlayerAction):
 	var card: HandCard = hand_service.remove_card(hand, action.card_id)
 
 	var played_card = PlayedCard.new(card)
-	card_executor_service.play_card(state, played_card, player, location)
+	card_executor_service.before_reveal(state, played_card, player, location)
 	if player == 1:
 		location.cards_p1.append(played_card)
 	else:
 		location.cards_p2.append(played_card)
+		
+	card_executor_service.after_reveal(state, played_card, player, location)
 
 func resolve_play(state: GameState):
 	var winner = get_winner(state)
@@ -112,23 +114,29 @@ func get_winner(state: GameState) -> int:
 	
 func end_turn(state: GameState):
 	# Remove discard from hand
-	for i in range(len(state.player1_data.hand)-1, -1, -1):
-		if state.player1_data.hand[i].flags.has("discard"):
-			state.player1_data.hand.remove_at(i)
-
-	for i in range(len(state.player2_data.hand)-1, -1, -1):
-		if state.player2_data.hand[i].flags.has("discard"):
-			state.player2_data.hand.remove_at(i)
+	if len(state.player1_data.hand) > 0:
+		for i in range(len(state.player1_data.hand)-1, -1, -1):
+			if state.player1_data.hand[i].flags.has("discard"):
+				state.player1_data.hand.remove_at(i)
+				card_executor_service.after_discard(state, state.player1_data.hand[i], 1)
+	
+	if len(state.player2_data.hand):
+		for i in range(len(state.player2_data.hand)-1, -1, -1):
+			if state.player2_data.hand[i].flags.has("discard"):
+				state.player2_data.hand.remove_at(i)
+				card_executor_service.after_discard(state, state.player2_data.hand[i], 2)
 	
 	# Remove destroyed cards
 	for loc in state.get_locations():
 		for i in range(len(loc.cards_p1)-1, 0, -1):
 			if loc.cards_p1[i].flags.has("destroy"):
 				loc.cards_p1.remove_at(i)
+				card_executor_service.after_destroy(state, loc.cards_p1[i], 1, loc)
 		
 		for i in range(len(loc.cards_p2)-1, 0, -1):
 			if loc.cards_p2[i].flags.has("destroy"):
 				loc.cards_p2.remove_at(i)
+				card_executor_service.after_destroy(state, loc.cards_p1[i], 1, loc)
 
 func check_end_game(state: GameState) -> bool:
 	return state.turn == 6
