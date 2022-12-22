@@ -69,7 +69,7 @@ card_name = "Armed Monkey (1/2)"
 cost = 2
 power = 0
 image = ExtResource("3_6xvau")
-text = "+2 Power for every other card you have in this location"
+text = "[b]On reveal: [/b] +2 Power for every other card you have in this location"
 on_self_reveal = NodePath("On Reveal, +2 power per card")
 
 [node name="On Reveal, +2 power per card" type="Node" parent="Cards/armed-monkey"]
@@ -97,7 +97,7 @@ card_name = "Baby Kaiju (1/2)"
 cost = 1
 power = 2
 image = ExtResource("6_w8n1h")
-text = ""
+text = "Gets +1 power for each card played"
 on_card_play = NodePath("+1 power for each card played")
 
 [node name="+1 power for each card played" type="Node" parent="Cards/baby-kaiju"]
@@ -109,7 +109,7 @@ card_name = "Broccoli Monster (1/2)"
 cost = 1
 power = 2
 image = ExtResource("7_nc67n")
-text = ""
+text = "[b]On reveal[/b]: Destroys the first card your opponent played"
 on_self_reveal = NodePath("destroy opponent card in first position")
 
 [node name="destroy opponent card in first position" type="Node" parent="Cards/broccoli-monster"]
@@ -137,7 +137,7 @@ card_name = "Eye Cloud (1/2)"
 cost = 1
 power = 2
 image = ExtResource("10_af6cn")
-text = ""
+text = "[b]On reveal:[/b] Discards the leftmost card in your hand"
 on_self_reveal = NodePath("discard first card on hand")
 
 [node name="discard first card on hand" type="Node" parent="Cards/eye-cloud"]
@@ -156,6 +156,7 @@ card_name = "Evil Carrot (1/2)"
 cost = 1
 power = 2
 image = ExtResource("19_6nl8i")
+text = "Each card played in the same location gives this +2 power"
 on_card_play = NodePath("+2 when card played in same location")
 
 [node name="+2 when card played in same location" type="Node" parent="Cards/evil-carrot"]
@@ -300,6 +301,7 @@ script = ExtResource("1_7pqrb")
 card_name = "Victory!!!"
 power = 20
 image = ExtResource("36_4poit")
+text = "[i]The PIWEEK CUP IS OURS!!! MUA HA HA HA[/i]"
 
 [node name="water-dragon" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")

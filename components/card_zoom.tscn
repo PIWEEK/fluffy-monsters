@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://i35fad3nbci"]
+[gd_scene load_steps=5 format=3 uid="uid://i35fad3nbci"]
 
 [ext_resource type="Script" path="res://components/card_zoom.gd" id="1_6oa8r"]
 [ext_resource type="PackedScene" uid="uid://ddtxl63o8somk" path="res://components/play_card.tscn" id="1_sl3t6"]
 [ext_resource type="LabelSettings" uid="uid://diu8e1ivofp05" path="res://resources/label_zoom.tres" id="3_2v010"]
+
+[sub_resource type="Theme" id="Theme_w4x3x"]
+default_font_size = 30
 
 [node name="CardZoom" type="Control"]
 layout_mode = 3
@@ -20,14 +23,34 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.584314)
 
 [node name="DetailedCard" parent="." instance=ExtResource("1_sl3t6")]
-position = Vector2(979, 519)
-scale = Vector2(0.85, 0.85)
+position = Vector2(982, 525)
+scale = Vector2(0.638854, 0.638854)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 662.0
-offset_top = 73.0
-offset_right = 1260.0
-offset_bottom = 130.0
+offset_top = 21.0
+offset_right = 1307.0
+offset_bottom = 111.0
 text = "MAD MONKEY"
 label_settings = ExtResource("3_2v010")
 horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -298.0
+offset_top = -154.0
+offset_right = 330.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_w4x3x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+bbcode_enabled = true
+text = "[center][b]Reveal[/b]: Next card you play has +2 power[/center]"
+fit_content_height = true
+scroll_active = false
