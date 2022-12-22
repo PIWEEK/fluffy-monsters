@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://sn4c65mnu2yd"]
+[gd_scene load_steps=18 format=3 uid="uid://sn4c65mnu2yd"]
 
 [ext_resource type="Script" path="res://profile.gd" id="1_xlsgm"]
 [ext_resource type="Texture2D" uid="uid://chstwrwam0ibi" path="res://resources/images/ui/bg-lab.jpg" id="2_osdcx"]
@@ -10,16 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://djsnktsc0jvmg" path="res://resources/images/avatars/broccolli.png" id="6_ochrr"]
 [ext_resource type="Texture2D" uid="uid://boel53y0aaghm" path="res://resources/images/avatars/cat-wizard.png" id="7_7t7pd"]
 [ext_resource type="Texture2D" uid="uid://clkvnv7i666l4" path="res://resources/images/ui/button-home-bg-hover.png" id="7_a3dpm"]
-[ext_resource type="Script" path="res://src/GameLogic.gd" id="8_h3npy"]
-[ext_resource type="Script" path="res://src/game/services/CardExecutorService.gd" id="9_jw1dw"]
 [ext_resource type="Texture2D" uid="uid://bamg0uolmktpu" path="res://resources/images/avatars/cyber-deer.png" id="9_s76pw"]
 [ext_resource type="Texture2D" uid="uid://k3fgvo6wba0r" path="res://resources/images/avatars/dark-yeti.png" id="10_ps7di"]
-[ext_resource type="Script" path="res://src/game/services/DeckService.gd" id="10_qlh2l"]
-[ext_resource type="Script" path="res://src/game/services/GameStateService.gd" id="11_e4lw7"]
 [ext_resource type="Texture2D" uid="uid://5slkn7j2dgvd" path="res://resources/images/avatars/grass-dragon.png" id="11_fres1"]
-[ext_resource type="Script" path="res://src/game/services/HandService.gd" id="12_50opq"]
 [ext_resource type="Texture2D" uid="uid://dohbohm1q0rut" path="res://resources/images/avatars/pirate-kraken.png" id="12_edfed"]
-[ext_resource type="Script" path="res://src/game/services/LocationService.gd" id="13_0g723"]
 [ext_resource type="Texture2D" uid="uid://e21iqg12nlew" path="res://resources/images/avatars/astrounaut-mouse.png" id="13_n0ykn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uo8i2"]
@@ -137,49 +131,65 @@ grow_vertical = 2
 theme_override_constants/h_separation = 14
 columns = 4
 
-[node name="Avatar1" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
+[node name="astrounaut-mouse" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
+avatar_name = "astrounaut-mouse"
+deck_id = "deck-1"
+avatar_texture = ExtResource("13_n0ykn")
+
+[node name="broccolli" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
+offset_left = 134.0
+offset_right = 254.0
+avatar_name = "broccolli"
+deck_id = "deck-2"
 avatar_texture = ExtResource("6_ochrr")
 
-[node name="Avatar2" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
-offset_left = 134.0
-offset_right = 254.0
+[node name="cat-wizard" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
+offset_left = 268.0
+offset_right = 388.0
+avatar_name = "cat-wizard"
+deck_id = "deck-3"
 avatar_texture = ExtResource("7_7t7pd")
 
-[node name="Avatar3" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
-offset_left = 268.0
-offset_right = 388.0
-avatar_texture = ExtResource("5_gun64")
-
-[node name="Avatar4" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
+[node name="chaos-hamster" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
 offset_left = 402.0
 offset_right = 522.0
-avatar_texture = ExtResource("9_s76pw")
+avatar_name = "chaos-hamster"
+deck_id = "deck-4"
+avatar_texture = ExtResource("5_gun64")
 
-[node name="Avatar5" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
+[node name="cyber-deer" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
 offset_top = 124.0
 offset_bottom = 244.0
-avatar_texture = ExtResource("10_ps7di")
+avatar_name = "cyber-deer"
+deck_id = "deck-5"
+avatar_texture = ExtResource("9_s76pw")
 
-[node name="Avatar6" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
+[node name="dark-yeti" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
 offset_left = 134.0
 offset_top = 124.0
 offset_right = 254.0
 offset_bottom = 244.0
-avatar_texture = ExtResource("11_fres1")
+avatar_name = "dark-yeti"
+deck_id = "deck-6"
+avatar_texture = ExtResource("10_ps7di")
 
-[node name="Avatar7" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
+[node name="grass-dragon" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
 offset_left = 268.0
 offset_top = 124.0
 offset_right = 388.0
 offset_bottom = 244.0
-avatar_texture = ExtResource("12_edfed")
+avatar_name = "grass-dragon"
+deck_id = "deck-7"
+avatar_texture = ExtResource("11_fres1")
 
-[node name="Avatar8" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
+[node name="pirate-kraken" parent="Bg/Control/GridContainer" instance=ExtResource("5_qxaht")]
 offset_left = 402.0
 offset_top = 124.0
 offset_right = 522.0
 offset_bottom = 244.0
-avatar_texture = ExtResource("13_n0ykn")
+avatar_name = "pirate-kraken"
+deck_id = "deck-8"
+avatar_texture = ExtResource("12_edfed")
 
 [node name="ProfileButton" type="TextureButton" parent="Bg/Control"]
 anchors_preset = 7
@@ -214,23 +224,5 @@ text = "SAVE"
 label_settings = SubResource("LabelSettings_sqg34")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="GameLogic" type="Node" parent="."]
-script = ExtResource("8_h3npy")
-
-[node name="CardExecutorService" type="Node" parent="GameLogic"]
-script = ExtResource("9_jw1dw")
-
-[node name="DeckService" type="Node" parent="GameLogic"]
-script = ExtResource("10_qlh2l")
-
-[node name="GameStateService" type="Node" parent="GameLogic"]
-script = ExtResource("11_e4lw7")
-
-[node name="HandService" type="Node" parent="GameLogic"]
-script = ExtResource("12_50opq")
-
-[node name="LocationService" type="Node" parent="GameLogic"]
-script = ExtResource("13_0g723")
 
 [connection signal="pressed" from="Bg/Control/ProfileButton" to="." method="_on_profile_button_pressed"]

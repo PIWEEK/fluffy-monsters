@@ -45,6 +45,15 @@
 [ext_resource type="Texture2D" uid="uid://dpxcki8tbn7wc" path="res://resources/images/monsters/santa-monster.png" id="29_wd3tp"]
 [ext_resource type="Texture2D" uid="uid://bao5nxx7aheni" path="res://resources/images/monsters/evil-banana.png" id="30_jfcgs"]
 [ext_resource type="Texture2D" uid="uid://bg6oku50s2t4j" path="res://resources/images/monsters/snowman-monster.png" id="31_b2ld3"]
+[ext_resource type="Script" path="res://src/db/Avatar.gd" id="45_nvuv5"]
+[ext_resource type="Texture2D" uid="uid://e21iqg12nlew" path="res://resources/images/avatars/astrounaut-mouse.png" id="46_itrou"]
+[ext_resource type="Texture2D" uid="uid://djsnktsc0jvmg" path="res://resources/images/avatars/broccolli.png" id="47_fe5ty"]
+[ext_resource type="Texture2D" uid="uid://boel53y0aaghm" path="res://resources/images/avatars/cat-wizard.png" id="48_7al4q"]
+[ext_resource type="Texture2D" uid="uid://7bdu148lucdt" path="res://resources/images/avatars/chaos-hamster.png" id="49_0tx81"]
+[ext_resource type="Texture2D" uid="uid://bamg0uolmktpu" path="res://resources/images/avatars/cyber-deer.png" id="50_gb752"]
+[ext_resource type="Texture2D" uid="uid://k3fgvo6wba0r" path="res://resources/images/avatars/dark-yeti.png" id="51_su7um"]
+[ext_resource type="Texture2D" uid="uid://5slkn7j2dgvd" path="res://resources/images/avatars/grass-dragon.png" id="52_i44p3"]
+[ext_resource type="Texture2D" uid="uid://dohbohm1q0rut" path="res://resources/images/avatars/pirate-kraken.png" id="53_vtugq"]
 
 [node name="DB" type="Node"]
 script = ExtResource("1_i6w5y")
@@ -389,3 +398,125 @@ card9 = NodePath("../../Cards/evil-banana")
 card10 = NodePath("../../Cards/evil-carrot")
 card11 = NodePath("../../Cards/evil-eggplant")
 card12 = NodePath("../../Cards/evil-pumpkin")
+
+[node name="deck-4" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
+script = ExtResource("3_qj7j8")
+deck_name = "Test Deck"
+card1 = NodePath("../../Cards/armed-monkey")
+card2 = NodePath("../../Cards/astronaut-mouse")
+card3 = NodePath("../../Cards/baby-hydra")
+card4 = NodePath("../../Cards/baby-kaiju")
+card5 = NodePath("../../Cards/broccoli-monster")
+card6 = NodePath("../../Cards/chaos-hamster")
+card7 = NodePath("../../Cards/cyber-deer")
+card8 = NodePath("../../Cards/eye-cloud")
+card9 = NodePath("../../Cards/evil-banana")
+card10 = NodePath("../../Cards/evil-carrot")
+card11 = NodePath("../../Cards/evil-eggplant")
+card12 = NodePath("../../Cards/evil-pumpkin")
+
+[node name="deck-5" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
+script = ExtResource("3_qj7j8")
+deck_name = "Test Deck"
+card1 = NodePath("../../Cards/armed-monkey")
+card2 = NodePath("../../Cards/astronaut-mouse")
+card3 = NodePath("../../Cards/baby-hydra")
+card4 = NodePath("../../Cards/baby-kaiju")
+card5 = NodePath("../../Cards/broccoli-monster")
+card6 = NodePath("../../Cards/chaos-hamster")
+card7 = NodePath("../../Cards/cyber-deer")
+card8 = NodePath("../../Cards/eye-cloud")
+card9 = NodePath("../../Cards/evil-banana")
+card10 = NodePath("../../Cards/evil-carrot")
+card11 = NodePath("../../Cards/evil-eggplant")
+card12 = NodePath("../../Cards/evil-pumpkin")
+
+[node name="deck-6" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
+script = ExtResource("3_qj7j8")
+deck_name = "Test Deck"
+card1 = NodePath("../../Cards/armed-monkey")
+card2 = NodePath("../../Cards/astronaut-mouse")
+card3 = NodePath("../../Cards/baby-hydra")
+card4 = NodePath("../../Cards/baby-kaiju")
+card5 = NodePath("../../Cards/broccoli-monster")
+card6 = NodePath("../../Cards/chaos-hamster")
+card7 = NodePath("../../Cards/cyber-deer")
+card8 = NodePath("../../Cards/eye-cloud")
+card9 = NodePath("../../Cards/evil-banana")
+card10 = NodePath("../../Cards/evil-carrot")
+card11 = NodePath("../../Cards/evil-eggplant")
+card12 = NodePath("../../Cards/evil-pumpkin")
+
+[node name="deck-7" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
+script = ExtResource("3_qj7j8")
+deck_name = "Test Deck"
+card1 = NodePath("../../Cards/armed-monkey")
+card2 = NodePath("../../Cards/astronaut-mouse")
+card3 = NodePath("../../Cards/baby-hydra")
+card4 = NodePath("../../Cards/baby-kaiju")
+card5 = NodePath("../../Cards/broccoli-monster")
+card6 = NodePath("../../Cards/chaos-hamster")
+card7 = NodePath("../../Cards/cyber-deer")
+card8 = NodePath("../../Cards/eye-cloud")
+card9 = NodePath("../../Cards/evil-banana")
+card10 = NodePath("../../Cards/evil-carrot")
+card11 = NodePath("../../Cards/evil-eggplant")
+card12 = NodePath("../../Cards/evil-pumpkin")
+
+[node name="deck-8" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
+script = ExtResource("3_qj7j8")
+deck_name = "Test Deck"
+card1 = NodePath("../../Cards/armed-monkey")
+card2 = NodePath("../../Cards/astronaut-mouse")
+card3 = NodePath("../../Cards/baby-hydra")
+card4 = NodePath("../../Cards/baby-kaiju")
+card5 = NodePath("../../Cards/broccoli-monster")
+card6 = NodePath("../../Cards/chaos-hamster")
+card7 = NodePath("../../Cards/cyber-deer")
+card8 = NodePath("../../Cards/eye-cloud")
+card9 = NodePath("../../Cards/evil-banana")
+card10 = NodePath("../../Cards/evil-carrot")
+card11 = NodePath("../../Cards/evil-eggplant")
+card12 = NodePath("../../Cards/evil-pumpkin")
+
+[node name="Avatars" type="Node" parent="."]
+
+[node name="astrounaut-mouse" type="Node" parent="Avatars"]
+script = ExtResource("45_nvuv5")
+avatar_name = "astrounaut-mouse"
+image = ExtResource("46_itrou")
+
+[node name="broccolli" type="Node" parent="Avatars"]
+script = ExtResource("45_nvuv5")
+avatar_name = "broccolli"
+image = ExtResource("47_fe5ty")
+
+[node name="cat-wizard" type="Node" parent="Avatars"]
+script = ExtResource("45_nvuv5")
+avatar_name = "cat-wizard"
+image = ExtResource("48_7al4q")
+
+[node name="chaos-hamster" type="Node" parent="Avatars"]
+script = ExtResource("45_nvuv5")
+avatar_name = "chaos-hamster"
+image = ExtResource("49_0tx81")
+
+[node name="cyber-deer" type="Node" parent="Avatars"]
+script = ExtResource("45_nvuv5")
+avatar_name = "cyber-deer"
+image = ExtResource("50_gb752")
+
+[node name="dark-yeti" type="Node" parent="Avatars"]
+script = ExtResource("45_nvuv5")
+avatar_name = "dark-yeti"
+image = ExtResource("51_su7um")
+
+[node name="grass-dragon" type="Node" parent="Avatars"]
+script = ExtResource("45_nvuv5")
+avatar_name = "grass-dragon"
+image = ExtResource("52_i44p3")
+
+[node name="pirate-kraken" type="Node" parent="Avatars"]
+script = ExtResource("45_nvuv5")
+avatar_name = "pirate-kraken"
+image = ExtResource("53_vtugq")

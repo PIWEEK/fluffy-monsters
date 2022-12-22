@@ -10,3 +10,6 @@ func get_location(id: String) -> Location:
 	
 func get_deck(id: String) -> CustomDeck:
 	return get_node("Decks/%s" % [id])
+	
+func get_avatar(id: String) -> Avatar:
+	return get_node("Avatars/%s" % [id])

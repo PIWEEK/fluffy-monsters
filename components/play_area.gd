@@ -37,12 +37,9 @@ func _ready():
 	events.connect("resolve_turn_start", _on_resolve_turn_start)
 	events.connect("finish_game_start", _on_finish_game_start)	
 
-func _on_begin_game_start():
-	if gui_state.player_name != "":
-		$GameLogic.state.player1.player_name = gui_state.player_name
-	if gui_state.player_avatar != null:
-		$GameLogic.state.player1.avatar = gui_state.player_avatar
-		
+	$PlayerController.join_game(gui_state.player_name, db.get_avatar(gui_state.player_avatar).image, gui_state.player_deck)
+
+func _on_begin_game_start():	
 	$Header/Player1/Label.text = $GameLogic.state.player1.player_name
 	$Header/Player1/Avatar.texture = $GameLogic.state.player1.avatar
 	$Header/Player2/Label.text = $GameLogic.state.player2.player_name

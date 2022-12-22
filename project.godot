@@ -10,6 +10,11 @@ config_version=5
 
 _global_script_classes=[{
 "base": "Node",
+"class": &"Avatar",
+"language": &"GDScript",
+"path": "res://src/db/Avatar.gd"
+}, {
+"base": "Node",
 "class": &"Card",
 "language": &"GDScript",
 "path": "res://src/db/Card.gd"
@@ -95,6 +100,7 @@ _global_script_classes=[{
 "path": "res://src/game/model/PlayerGameData.gd"
 }]
 _global_script_class_icons={
+"Avatar": "",
 "Card": "",
 "CardExecutorService": "",
 "CustomDeck": "",

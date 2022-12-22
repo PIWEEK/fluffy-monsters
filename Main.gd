@@ -23,8 +23,7 @@ func _ready():
 	gui_events.connect("stop_drag_card", _on_stop_drag_card)
 	gui_events.connect("cursor_hover_card_start", _on_cursor_hover_card_start)
 	gui_events.connect("cursor_hover_card_end", _on_cursor_hover_card_end)
-	
-	
+
 
 func resize_viewport():
 	var new_size = DisplayServer.window_get_size()

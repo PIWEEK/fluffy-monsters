@@ -11,5 +11,6 @@ var cards_hand = []
 var cards_location = [[], [], []]
 var cards_location_enemy = [[], [], []]
 
-var player_name = ""
-var player_avatar = null
+var player_name = "Unnamed Player"
+var player_avatar = "astrounaut-mouse"
+var player_deck = "deck-1"

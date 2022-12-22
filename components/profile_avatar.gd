@@ -2,6 +2,8 @@ extends TextureRect
 
 @onready var gui_events = get_node("/root/GuiEvents")
 
+@export var avatar_name : String = ""
+@export var deck_id : String = ""
 @export var avatar_texture : Texture = null
 
 # Called when the node enters the scene tree for the first time.

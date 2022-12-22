@@ -8,10 +8,13 @@ extends Node
 
 var current_player: int
 
-func _on_game_start():
-	# TODO This info should come from the player configuration
+func join_game(name, avatar, deck):	
+	self.player_name = name
+	self.player_avatar = avatar
+	self.player_deck = deck
+	
 	var player = Player.new()
-	player.player_name = player_name
+	player.player_name = name
 	player.avatar = player_avatar
 	events.emit_signal("player_join_start", player, player_deck)
 	
@@ -35,7 +38,7 @@ func _on_finish_game_start():
 	events.emit_signal("finish_game_end", current_player)
 
 func _ready():
-	events.connect("game_start", _on_game_start)
+	#events.connect("game_start", _on_game_start)
 	events.connect("player_join_end", _on_player_join_end)
 	events.connect("begin_game_start", _on_begin_game_start)
 	events.connect("begin_turn_start", _on_begin_turn_start)

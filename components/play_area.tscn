@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b733hc0h3768l"]
+[gd_scene load_steps=31 format=3 uid="uid://b733hc0h3768l"]
 
 [ext_resource type="Script" path="res://components/play_area.gd" id="1_by8b4"]
 [ext_resource type="Texture2D" uid="uid://1xlwogbg6v04" path="res://resources/images/ui/table-bg-eyes.jpg" id="2_iqh1c"]
@@ -17,7 +17,6 @@
 [ext_resource type="Script" path="res://src/game/services/CardExecutorService.gd" id="9_w0r8w"]
 [ext_resource type="Script" path="res://src/game/services/DeckService.gd" id="10_8mxr3"]
 [ext_resource type="Texture2D" uid="uid://be608afk2sjba" path="res://resources/images/ui/button-runaway-bg-hover.png" id="10_h2m6j"]
-[ext_resource type="Texture2D" uid="uid://boel53y0aaghm" path="res://resources/images/avatars/cat-wizard.png" id="11_b0pjs"]
 [ext_resource type="Script" path="res://src/game/services/GameStateService.gd" id="11_o8a10"]
 [ext_resource type="Script" path="res://src/game/services/HandService.gd" id="12_prqrw"]
 [ext_resource type="Script" path="res://src/game/services/LocationService.gd" id="13_keehl"]
@@ -72,7 +71,7 @@ offset_right = 1920.0
 offset_bottom = 165.0
 
 [node name="Player1" type="Control" parent="Header"]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = -13.0
@@ -80,7 +79,6 @@ offset_right = -13.0
 grow_vertical = 2
 
 [node name="Avatar" type="TextureRect" parent="Header/Player1"]
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -94,7 +92,6 @@ ignore_texture_size = true
 stretch_mode = 6
 
 [node name="Frame" type="TextureRect" parent="Header/Player1"]
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -106,7 +103,6 @@ grow_vertical = 2
 texture = ExtResource("3_db27m")
 
 [node name="Label" type="Label" parent="Header/Player1"]
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -119,7 +115,7 @@ text = "PLAYER1"
 label_settings = ExtResource("5_7fqpa")
 
 [node name="Player2" type="Control" parent="Header"]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -130,7 +126,6 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Avatar" type="TextureRect" parent="Header/Player2"]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -147,7 +142,6 @@ ignore_texture_size = true
 stretch_mode = 6
 
 [node name="Frame" type="TextureRect" parent="Header/Player2"]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -162,7 +156,6 @@ grow_vertical = 2
 texture = ExtResource("4_optvh")
 
 [node name="Label" type="Label" parent="Header/Player2"]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -178,7 +171,6 @@ text = "PLAYER2"
 label_settings = ExtResource("7_xet36")
 
 [node name="Logo" type="TextureRect" parent="Header"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -200,7 +192,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="RetreatButton" type="TextureButton" parent="Actions"]
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -213,7 +204,6 @@ texture_normal = ExtResource("21_l3nov")
 texture_hover = ExtResource("10_h2m6j")
 
 [node name="Label" type="Label" parent="Actions/RetreatButton"]
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -226,7 +216,6 @@ text = "RUN AWAY"
 label_settings = SubResource("LabelSettings_nvghn")
 
 [node name="EndTurnButton" type="TextureButton" parent="Actions"]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -242,7 +231,6 @@ texture_normal = ExtResource("23_dmo0n")
 texture_hover = ExtResource("13_o6kgf")
 
 [node name="Label" type="Label" parent="Actions/EndTurnButton"]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -258,7 +246,6 @@ text = "END TURN"
 label_settings = SubResource("LabelSettings_r806y")
 
 [node name="Rounds" type="Label" parent="Actions/EndTurnButton"]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -274,7 +261,6 @@ text = "Round 4/6"
 label_settings = SubResource("LabelSettings_naqao")
 
 [node name="Energy" type="TextureRect" parent="Actions/EndTurnButton"]
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -287,7 +273,6 @@ scale = Vector2(0.816164, 0.816164)
 texture = ExtResource("24_ff2xd")
 
 [node name="Label" type="Label" parent="Actions/EndTurnButton/Energy"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -343,7 +328,6 @@ color_p1 = Color(1, 0.294118, 0.443137, 1)
 color_p2 = Color(0.27451, 0.490196, 1, 1)
 
 [node name="ClearLogBtn" type="Button" parent="ActionsLog"]
-layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -354,9 +338,8 @@ text = "CLEAR"
 
 [node name="PlayerController" type="Node" parent="."]
 script = ExtResource("6_d4rga")
-player_name = "Fluffymons"
-player_avatar = ExtResource("11_b0pjs")
-player_deck = "deck-3"
+player_name = "aaa"
+player_deck = "deck-1"
 
 [node name="DummyPlayerAI" type="Node" parent="."]
 script = ExtResource("6_hjkqc")
