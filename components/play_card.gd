@@ -46,22 +46,27 @@ func _ready():
 	
 func show_back():
 	revealed = false
+	scale.x = -1
 	$Front.visible = false
 	$Back.visible = true
 	
 func reveal():
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate:a", 0, 1)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(self, "scale:x", 0, 0.3)
 	tween.tween_callback(end_reveal)
 
 func end_reveal():
 	revealed = true
 	$Front.visible = true
 	$Back.visible = false
+	
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate:a", 1, 1)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(self, "scale:x", 1, 0.3)
 	tween.tween_callback(end_reveal)
-
 
 func _on_front_gui_input(event):
 	if event is InputEventMouseButton:
