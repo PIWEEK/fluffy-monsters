@@ -7,10 +7,11 @@ const HAND_GAP = 50
 
 func redraw():
 	var width = len(gui_state.cards_hand) * (gui_state.CARD_WIDTH + HAND_GAP) - HAND_GAP	
-	var x = size.x / 2 - width / 2
+	var x = size.x / 2 - width / 2 + gui_state.CARD_WIDTH / 2
 	
 	for card in gui_state.cards_hand:
 		card.position.x = x
+		card.position.y = gui_state.CARD_HEIGHT / 2
 		x += (gui_state.CARD_WIDTH + HAND_GAP)
 		
 func add_card(card):

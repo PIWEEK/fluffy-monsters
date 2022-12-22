@@ -49,5 +49,5 @@ func _on_stop_drag_card(card):
 func _process(delta):	
 	if cursor_card != null:
 		var mousepos = get_global_mouse_position()
-		cursor_card.position = Vector2(mousepos.x - cursor_card_pos.x, mousepos.y - cursor_card_pos.y)
+		cursor_card.position = Vector2(mousepos.x, mousepos.y)
 

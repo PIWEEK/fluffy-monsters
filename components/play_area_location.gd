@@ -4,6 +4,9 @@ const AREA_GAP = 33
 @onready var gui_events = get_node("/root/GuiEvents")
 @onready var gui_state = get_node("/root/GuiState")
 
+var OFFSET_PLAYER
+var OFFSET_ENEMY
+
 var location_id
 var location_num
 var location_name
@@ -15,6 +18,8 @@ var drop_rect
 
 
 func _ready():
+	OFFSET_PLAYER = Vector2(46 + gui_state.CARD_WIDTH / 2, 1055 + gui_state.CARD_HEIGHT / 2)
+	OFFSET_ENEMY = Vector2(46 + gui_state.CARD_WIDTH / 2, 35 + gui_state.CARD_HEIGHT / 2)
 	drop_rect = Rect2($Player1/Frame.global_position, Vector2($Player1/Frame.size.x / 2, $Player1/Frame.size.y / 2))
 	draw_rect(drop_rect, Color(1,0,0))
 	
@@ -37,16 +42,16 @@ func _process(delta):
 		
 
 func redraw_location():	
-	var x = 46
+	var x = OFFSET_PLAYER.x
 	for card in gui_state.cards_location[location_num]:
 		card.position.x = x
-		card.position.y = 1055
+		card.position.y = OFFSET_PLAYER.y
 		x += gui_state.CARD_WIDTH + AREA_GAP
 		
-	x = 46
+	x = OFFSET_ENEMY.x
 	for card in gui_state.cards_location_enemy[location_num]:
 		card.position.x = x
-		card.position.y = 35
+		card.position.y = OFFSET_ENEMY.y
 		x += gui_state.CARD_WIDTH + AREA_GAP
 		
 	$Place/PowerUp.text = str(power_up)
