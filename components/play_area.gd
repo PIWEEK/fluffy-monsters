@@ -99,6 +99,7 @@ func create_enemy_card_from_action(action):
 	card_scene.belongs_to_player = false
 	card_scene.draggable = false
 	card_scene.played_location = action.target_location_id
+	card_scene.set_played_mode(true)
 	locations[action.target_location_id].add_enemy_card(card_scene)
 	return card_scene
 	
@@ -140,6 +141,7 @@ func _on_stop_drag_card(card):
 func play_card(card, location):	
 	$Hand.remove_card(card)
 	location.add_card(card)
+	card.set_played_mode(true)
 	card.draggable = false
 	card.belongs_to_player = true
 	card.played_location = location.location_id

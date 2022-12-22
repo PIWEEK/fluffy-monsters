@@ -1,35 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddtxl63o8somk"]
+[gd_scene load_steps=10 format=3 uid="uid://ddtxl63o8somk"]
 
 [ext_resource type="Script" path="res://components/play_card.gd" id="1_4tw3x"]
 [ext_resource type="Texture2D" uid="uid://co47ol66wip8y" path="res://resources/images/ui/card-reverse.png" id="2_il07s"]
+[ext_resource type="Texture2D" uid="uid://16swggsj7rb4" path="res://resources/images/ui/card-frame-small-2x.png" id="6_bf3jk"]
 [ext_resource type="Texture2D" uid="uid://umj4al7xkce4" path="res://resources/images/monsters/astrounaut-mouse.png" id="8_3o5b7"]
 [ext_resource type="Texture2D" uid="uid://b6odiva21sn1a" path="res://resources/images/ui/card-frame-2x.png" id="9_5822b"]
 [ext_resource type="Texture2D" uid="uid://dl4h3qd4yena2" path="res://resources/images/ui/card-frame-red-2x.png" id="10_wdace"]
 [ext_resource type="Texture2D" uid="uid://o87mggkkk13e" path="res://resources/images/ui/bg-square-2x.png" id="11_ojw1b"]
 [ext_resource type="Texture2D" uid="uid://17yuxvsa30js" path="res://resources/images/ui/bg-circle-2x.png" id="12_1fnwi"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_wqj4b"]
+[sub_resource type="LabelSettings" id="LabelSettings_0cbqw"]
 font_size = 160
 
 [node name="PlayCard" type="Node2D"]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_4tw3x")
-
-[node name="Back" type="TextureRect" parent="."]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -494.0
-offset_top = -595.0
-offset_right = 494.0
-offset_bottom = 595.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_il07s")
-flip_h = true
 
 [node name="Front" type="Control" parent="."]
 layout_mode = 3
@@ -53,10 +38,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -439.5
-offset_top = -528.0
-offset_right = 439.5
-offset_bottom = 528.0
+offset_left = -450.0
+offset_top = -550.0
+offset_right = 450.0
+offset_bottom = 545.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -67,13 +52,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -522.0
-offset_top = -522.0
-offset_right = 502.0
-offset_bottom = 502.0
+offset_left = -547.0
+offset_top = -552.0
+offset_right = 477.0
+offset_bottom = 472.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.02, 1.02)
+scale = Vector2(1.08, 1.08)
 texture = ExtResource("8_3o5b7")
 
 [node name="Frame" type="TextureRect" parent="Front"]
@@ -92,6 +77,7 @@ grow_vertical = 2
 texture = ExtResource("9_5822b")
 
 [node name="FrameSelected" type="TextureRect" parent="Front"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -105,6 +91,22 @@ offset_bottom = 595.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_wdace")
+
+[node name="FrameSmall" type="TextureRect" parent="Front"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = -595.0
+offset_right = 494.0
+offset_bottom = 595.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_bf3jk")
 
 [node name="Power" type="TextureRect" parent="Front"]
 layout_mode = 0
@@ -121,7 +123,7 @@ offset_top = 31.0
 offset_right = 414.0
 offset_bottom = 382.0
 text = "99"
-label_settings = SubResource("LabelSettings_wqj4b")
+label_settings = SubResource("LabelSettings_0cbqw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -140,9 +142,25 @@ offset_top = 30.0
 offset_right = 361.0
 offset_bottom = 339.0
 text = "99"
-label_settings = SubResource("LabelSettings_wqj4b")
+label_settings = SubResource("LabelSettings_0cbqw")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Back" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = -595.0
+offset_right = 494.0
+offset_bottom = 595.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_il07s")
+flip_h = true
 
 [connection signal="gui_input" from="Front" to="." method="_on_front_gui_input"]
 [connection signal="mouse_entered" from="Front" to="." method="_on_front_mouse_entered"]

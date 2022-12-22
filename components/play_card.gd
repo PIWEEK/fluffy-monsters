@@ -44,10 +44,24 @@ func redraw():
 func _ready():
 	pass
 	
+func set_played_mode(is_played):
+	if is_played:
+		$Front/Frame.visible = false
+		$Front/FrameSmall.visible = true
+		$Front/Energy.visible = false
+		$Front/Power.position.x = 255
+		$Front/Power.position.y = 900
+	else:
+		$Front/Frame.visible = true
+		$Front/FrameSmall.visible = false
+		$Front/Energy.visible = true
+		$Front/Power.position.x = 573
+		$Front/Power.position.y = 807
+	
 func show_back():
 	revealed = false
-	scale.x = -1
-	$Front.visible = false
+	scale.x = -0.2
+	$Front/Power.visible = false
 	$Back.visible = true
 	
 func reveal():
@@ -60,11 +74,12 @@ func reveal():
 	revealed = true
 	$Front.visible = true
 	$Back.visible = false
+	$Front/Power.visible = true
 	
 	tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(self, "scale:x", 1, 0.3)
+	tween.tween_property(self, "scale:x", 0.2, 0.3)
 	await tween.finished
 	
 
@@ -78,7 +93,8 @@ func _on_front_gui_input(event):
 		elif event.button_index == 1 and !event.pressed and draggable:
 			gui_state.dragging = false
 			gui_events.emit_signal("stop_drag_card", self)
-			position.y += 35
+			if draggable:
+				position.y += 35
 			$Front/FrameSelected.visible = false
 			gui_state.dragging_card = null
 		elif event.button_index == 2 and event.pressed:
