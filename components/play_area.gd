@@ -128,8 +128,7 @@ func reveal_cards(player_cards, enemy_cards):
 		cards = enemy_cards + player_cards
 
 	for card in cards:
-		$Audio.stream = sound_flip_card
-		$Audio.play()
+		play_sound(sound_flip_card)
 	
 		await card.reveal()
 		var location = locations[card.played_location]
@@ -203,9 +202,8 @@ func _on_stop_drag_card(card):
 		play_card(card, gui_state.dragging_location)
 
 func play_card(card, location):
-	$Audio.stream = sound_place_card
-	$Audio.play()
-	
+	play_sound(sound_place_card)
+		
 	gui_state.current_energy -= card.energy
 	$Hand.remove_card(card)
 	location.add_card(card)
@@ -230,9 +228,8 @@ func _on_show_zoom_location(location):
 	
 
 func _on_end_turn_button_pressed():
-	$Audio.stream = sound_turn
-	$Audio.play()
-	
+	play_sound(sound_turn)
+		
 	events.emit_signal("play_end", current_player, player_turn)
 	
 func _on_finish_game_start():
@@ -241,8 +238,11 @@ func _on_finish_game_start():
 	scene.init(winner == current_player, current_player)
 	add_child(scene)
 	
-
-
-
 func _on_retreat_button_pressed():
 	get_tree().change_scene_to_file("res://MainMenu.tscn")
+	
+func play_sound(sound):
+	if gui_state.sound_on:
+		$Audio.stream = sound
+		$Audio.play()
+		

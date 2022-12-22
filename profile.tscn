@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://sn4c65mnu2yd"]
+[gd_scene load_steps=20 format=3 uid="uid://sn4c65mnu2yd"]
 
 [ext_resource type="Script" path="res://profile.gd" id="1_xlsgm"]
 [ext_resource type="Texture2D" uid="uid://chstwrwam0ibi" path="res://resources/images/ui/bg-lab.jpg" id="2_osdcx"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://5slkn7j2dgvd" path="res://resources/images/avatars/grass-dragon.png" id="11_fres1"]
 [ext_resource type="Texture2D" uid="uid://dohbohm1q0rut" path="res://resources/images/avatars/pirate-kraken.png" id="12_edfed"]
 [ext_resource type="Texture2D" uid="uid://e21iqg12nlew" path="res://resources/images/avatars/astrounaut-mouse.png" id="13_n0ykn"]
+[ext_resource type="Texture2D" uid="uid://p568qirsoxg4" path="res://resources/images/ui/volume.png" id="16_78ae7"]
 [ext_resource type="AudioStream" uid="uid://by8w2nj52t3it" path="res://resources/sound/Aquarium.mp3" id="16_uo6qf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uo8i2"]
@@ -199,9 +200,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -205.5
-offset_top = -250.0
+offset_top = -183.0
 offset_right = 205.5
-offset_bottom = -137.0
+offset_bottom = -70.0
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("6_el0sh")
@@ -226,8 +227,22 @@ label_settings = SubResource("LabelSettings_sqg34")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SoundButton" type="Button" parent="Bg/Control"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -41.5
+offset_top = -312.0
+offset_right = 41.5
+offset_bottom = -229.0
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("16_78ae7")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_uo6qf")
-autoplay = true
 
 [connection signal="pressed" from="Bg/Control/ProfileButton" to="." method="_on_profile_button_pressed"]
+[connection signal="pressed" from="Bg/Control/SoundButton" to="." method="_on_sound_button_pressed"]

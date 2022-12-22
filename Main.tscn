@@ -25,4 +25,3 @@ stretch_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_kikvg")
-autoplay = true

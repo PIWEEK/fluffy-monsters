@@ -6,6 +6,8 @@ func _ready():
 	seed(0)
 	#randomize()
 	load_profile()
+	if gui_state.sound_on:
+		$AudioStreamPlayer.play()
 
 func _on_start_game_button_pressed():
 	get_tree().change_scene_to_file("res://Main.tscn")
@@ -20,3 +22,5 @@ func load_profile():
 		gui_state.player_name = data.player_name
 		gui_state.player_avatar = data.player_avatar
 		gui_state.player_deck = data.player_deck
+		if data.has('sound_on'):
+			gui_state.sound_on = data.sound_on

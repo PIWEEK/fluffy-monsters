@@ -103,7 +103,6 @@ vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_r08i0")
-autoplay = true
 
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="ProfileButton" to="." method="_on_profile_button_pressed"]
