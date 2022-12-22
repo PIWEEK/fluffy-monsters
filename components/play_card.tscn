@@ -8,17 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://daa8h83c1m1yy" path="res://resources/images/ui/bg-circle.png" id="6_1l3c0"]
 [ext_resource type="Texture2D" uid="uid://8hpuf67pktry" path="res://resources/images/ui/bg-square.png" id="7_j1pp4"]
 
-[sub_resource type="FontVariation" id="FontVariation_cb5pn"]
+[sub_resource type="FontVariation" id="FontVariation_eo3qs"]
 variation_embolden = 1.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_c3pr0"]
-font = SubResource("FontVariation_cb5pn")
+[sub_resource type="LabelSettings" id="LabelSettings_jgv0g"]
+font = SubResource("FontVariation_eo3qs")
 font_size = 28
 outline_size = 8
 outline_color = Color(0.0901961, 0.545098, 0.392157, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_dm1xy"]
-font = SubResource("FontVariation_cb5pn")
+[sub_resource type="LabelSettings" id="LabelSettings_7jhec"]
+font = SubResource("FontVariation_eo3qs")
 font_size = 28
 outline_size = 8
 outline_color = Color(0.764706, 0.443137, 0, 1)
@@ -83,7 +83,7 @@ offset_top = 14.0
 offset_right = 66.0
 offset_bottom = 56.0
 text = "6"
-label_settings = SubResource("LabelSettings_c3pr0")
+label_settings = SubResource("LabelSettings_jgv0g")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -100,7 +100,7 @@ offset_top = 13.0
 offset_right = 56.0
 offset_bottom = 56.0
 text = "6"
-label_settings = SubResource("LabelSettings_dm1xy")
+label_settings = SubResource("LabelSettings_7jhec")
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cenh7jkiaba15"]
+[gd_scene load_steps=43 format=3 uid="uid://cenh7jkiaba15"]
 
 [ext_resource type="Script" path="res://src/db/Card.gd" id="1_7pqrb"]
 [ext_resource type="Script" path="res://autoloads/DB.gd" id="1_i6w5y"]
@@ -33,8 +33,15 @@
 [ext_resource type="Texture2D" uid="uid://dfc617gbbobl4" path="res://resources/images/monsters/monster-pirate.png" id="24_lmp0d"]
 [ext_resource type="Texture2D" uid="uid://bwsibgq100gde" path="res://resources/images/monsters/robo-electric-mouse.png" id="25_2krg4"]
 [ext_resource type="Texture2D" uid="uid://cdboyisqwkro0" path="res://resources/images/locations/loc-embassy-ok.png" id="25_e4nx4"]
+[ext_resource type="Texture2D" uid="uid://14ljamg13xjf" path="res://resources/images/monsters/water-dragon.png" id="26_0xwuf"]
+[ext_resource type="Texture2D" uid="uid://tp1y1txv2irl" path="res://resources/images/monsters/ice-dragon.png" id="26_3uh7l"]
 [ext_resource type="Texture2D" uid="uid://c3v7xfxona5s5" path="res://resources/images/locations/loc-farm-ok.png" id="26_v76g8"]
+[ext_resource type="Texture2D" uid="uid://c3dhvpbekxgu4" path="res://resources/images/monsters/grinch-monster.png" id="27_7wsm1"]
 [ext_resource type="Texture2D" uid="uid://f8tgdgyamen0" path="res://resources/images/locations/loc-lab-ok.png" id="27_8xquj"]
+[ext_resource type="Texture2D" uid="uid://cwdw8eqbv8hao" path="res://resources/images/monsters/elf-monster.png" id="28_y4s7r"]
+[ext_resource type="Texture2D" uid="uid://dpxcki8tbn7wc" path="res://resources/images/monsters/santa-monster.png" id="29_wd3tp"]
+[ext_resource type="Texture2D" uid="uid://bao5nxx7aheni" path="res://resources/images/monsters/evil-banana.png" id="30_jfcgs"]
+[ext_resource type="Texture2D" uid="uid://bg6oku50s2t4j" path="res://resources/images/monsters/snowman-monster.png" id="31_b2ld3"]
 
 [node name="DB" type="Node"]
 script = ExtResource("1_i6w5y")
@@ -105,6 +112,41 @@ power = 2
 image = ExtResource("10_af6cn")
 text = ""
 
+[node name="evil-banana" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Evil Banana"
+cost = 1
+power = 2
+image = ExtResource("30_jfcgs")
+
+[node name="evil-carrot" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Evil Carrot (1/2)"
+cost = 1
+power = 2
+image = ExtResource("19_6nl8i")
+
+[node name="evil-eggplant" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Evil Eggplant (1/2)"
+cost = 1
+power = 2
+image = ExtResource("20_u56hk")
+
+[node name="evil-pumpkin" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Evil Pumpkin (1/2)"
+cost = 1
+power = 2
+image = ExtResource("21_potah")
+
+[node name="elf-monster" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Elf Monster"
+cost = 1
+power = 2
+image = ExtResource("28_y4s7r")
+
 [node name="fire-dragon" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
 card_name = "Fire Dragon (1/2)"
@@ -129,6 +171,20 @@ power = 2
 image = ExtResource("13_ciaof")
 text = ""
 
+[node name="grinch-monster" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Grinch Monster"
+cost = 1
+power = 2
+image = ExtResource("27_7wsm1")
+
+[node name="ice-dragon" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Ice Dragon"
+cost = 1
+power = 2
+image = ExtResource("26_3uh7l")
+
 [node name="monster-knight" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
 card_name = "Monster Knight (1/2)"
@@ -136,6 +192,20 @@ cost = 1
 power = 2
 image = ExtResource("14_5rln7")
 text = ""
+
+[node name="monster-ninja" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Monster Ninja (1/2)"
+cost = 1
+power = 2
+image = ExtResource("23_xvo5v")
+
+[node name="monster-pirate" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Monster Pirate"
+cost = 1
+power = 2
+image = ExtResource("24_lmp0d")
 
 [node name="monster-samurai" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
@@ -169,26 +239,33 @@ power = 2
 image = ExtResource("18_5lubo")
 text = ""
 
-[node name="evil-carrot" type="Node" parent="Cards"]
+[node name="robo-electric-mouse" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Evil Carrot (1/2)"
+card_name = "Robo Electric Mouse"
 cost = 1
 power = 2
-image = ExtResource("19_6nl8i")
+image = ExtResource("25_2krg4")
 
-[node name="evil-eggplant" type="Node" parent="Cards"]
+[node name="santa-monster" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Evil Eggplant (1/2)"
+card_name = "Santa Monster"
 cost = 1
 power = 2
-image = ExtResource("20_u56hk")
+image = ExtResource("29_wd3tp")
 
-[node name="evil-pumpkin" type="Node" parent="Cards"]
+[node name="snowman-monster" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
-card_name = "Evil Pumpkin (1/2)"
+card_name = "Snowman Monster"
 cost = 1
 power = 2
-image = ExtResource("21_potah")
+image = ExtResource("31_b2ld3")
+
+[node name="water-dragon" type="Node" parent="Cards"]
+script = ExtResource("1_7pqrb")
+card_name = "Water Dragon"
+cost = 1
+power = 2
+image = ExtResource("26_0xwuf")
 
 [node name="wizard-cat" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
@@ -196,27 +273,6 @@ card_name = "Wizard Cat (1/2)"
 cost = 1
 power = 2
 image = ExtResource("22_yd4iu")
-
-[node name="monster-ninja" type="Node" parent="Cards"]
-script = ExtResource("1_7pqrb")
-card_name = "Monster Ninja (1/2)"
-cost = 1
-power = 2
-image = ExtResource("23_xvo5v")
-
-[node name="monster-pirate" type="Node" parent="Cards"]
-script = ExtResource("1_7pqrb")
-card_name = "Monster Pirate"
-cost = 1
-power = 2
-image = ExtResource("24_lmp0d")
-
-[node name="robo-electric-mouse" type="Node" parent="Cards"]
-script = ExtResource("1_7pqrb")
-card_name = "Robo Electric Mouse"
-cost = 1
-power = 2
-image = ExtResource("25_2krg4")
 
 [node name="Locations" type="Node" parent="."]
 
