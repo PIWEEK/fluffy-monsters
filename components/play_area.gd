@@ -103,16 +103,16 @@ func create_enemy_card_from_action(action):
 	return card_scene
 	
 func reveal_cards(cards):
+	await get_tree().create_timer(1).timeout
 	for card in cards:
-			await get_tree().create_timer(1).timeout
-			card.reveal()			
-			await get_tree().create_timer(1).timeout
-			if card.belongs_to_player:
-				locations[card.played_location].power_down += card.power
-			else:
-				locations[card.played_location].power_up += card.power
-			locations[card.played_location].redraw_location()
-			
+		await card.reveal()
+
+		if card.belongs_to_player:
+			locations[card.played_location].power_down += card.power
+		else:
+			locations[card.played_location].power_up += card.power
+		locations[card.played_location].redraw_location()
+
 func _on_draw_start():
 	# Now it's deleting the whole hand and redrawing
 	$Hand.remove_all_cards()
