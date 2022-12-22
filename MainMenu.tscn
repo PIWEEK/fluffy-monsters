@@ -41,9 +41,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -205.5
-offset_top = 25.5
+offset_top = -30.5
 offset_right = 205.5
-offset_bottom = 138.5
+offset_bottom = 82.5
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_bcbq7")
@@ -66,5 +66,42 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "START A GAME"
 label_settings = SubResource("LabelSettings_kolod")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProfileButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.5
+offset_top = 100.5
+offset_right = 205.5
+offset_bottom = 213.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_bcbq7")
+texture_hover = ExtResource("4_lvtrt")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ProfileButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -32.5
+offset_right = 144.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "PROFILE"
+label_settings = SubResource("LabelSettings_kolod")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="ProfileButton" to="." method="_on_profile_button_pressed"]

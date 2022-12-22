@@ -10,3 +10,6 @@ var dragging_location = null
 var cards_hand = []
 var cards_location = [[], [], []]
 var cards_location_enemy = [[], [], []]
+
+var player_name = ""
+var player_avatar = null

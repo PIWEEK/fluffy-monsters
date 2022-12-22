@@ -35,9 +35,14 @@ func _ready():
 	events.connect("play_start", _on_play_start)
 	events.connect("draw_start", _on_draw_start)
 	events.connect("resolve_turn_start", _on_resolve_turn_start)
-	events.connect("finish_game_start", _on_finish_game_start)
+	events.connect("finish_game_start", _on_finish_game_start)	
 
 func _on_begin_game_start():
+	if gui_state.player_name != "":
+		$GameLogic.state.player1.player_name = gui_state.player_name
+	if gui_state.player_avatar != null:
+		$GameLogic.state.player1.avatar = gui_state.player_avatar
+		
 	$Header/Player1/Label.text = $GameLogic.state.player1.player_name
 	$Header/Player1/Avatar.texture = $GameLogic.state.player1.avatar
 	$Header/Player2/Label.text = $GameLogic.state.player2.player_name

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://vj00b71lugih"]
+
+[ext_resource type="Texture2D" uid="uid://7bdu148lucdt" path="res://resources/images/avatars/chaos-hamster.png" id="1_dv4j1"]
+[ext_resource type="Script" path="res://components/profile_avatar.gd" id="1_v2n56"]
+[ext_resource type="Texture2D" uid="uid://sdrog451r48e" path="res://resources/images/ui/avatar-frame.png" id="2_7q1g7"]
+[ext_resource type="Texture2D" uid="uid://bvw72a6kdv7mh" path="res://resources/images/ui/avatar-frame-selected.png" id="3_r0a8k"]
+
+[node name="Avatar" type="TextureRect"]
+offset_right = 120.0
+offset_bottom = 120.0
+texture = ExtResource("2_7q1g7")
+script = ExtResource("1_v2n56")
+
+[node name="Hole" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 115.0
+offset_bottom = 115.0
+
+[node name="Image" type="TextureRect" parent="Hole"]
+offset_left = -3.0
+offset_top = -5.0
+offset_right = 253.0
+offset_bottom = 251.0
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_dv4j1")
+
+[node name="Frame" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_7q1g7")
+
+[node name="FrameSelected" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_r0a8k")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
