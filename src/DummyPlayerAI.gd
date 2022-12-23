@@ -12,7 +12,7 @@ var current_player
 
 ### MAIN LOGIC FOR THE BOT
 ###  - Selects all the cards that can play in a greedy fashion
-###  - Plays them in the first location with available slots
+###  - Plays them in a random location with available slots
 func play_turn() -> Array[PlayerAction]:
 	var player_turn: Array[PlayerAction] = []
 	
@@ -23,6 +23,7 @@ func play_turn() -> Array[PlayerAction]:
 	var played_cards = Dictionary()
 	var current_energy = player_data.energy
 	for card in player_data.hand:
+		locations.shuffle()
 		if card.current_cost <= current_energy:
 			for loc in locations:
 				if loc.location_id not in played_cards:
