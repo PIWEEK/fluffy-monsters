@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dijkmjgls8jey"]
+[gd_scene load_steps=4 format=3 uid="uid://b5d428s043sjd"]
 
 [ext_resource type="Script" path="res://components/location_zoom.gd" id="1_trkf1"]
 [ext_resource type="Texture2D" uid="uid://c3v7xfxona5s5" path="res://resources/images/locations/loc-farm-ok.png" id="2_h6spu"]

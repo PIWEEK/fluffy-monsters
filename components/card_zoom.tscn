@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ddtxl63o8somk" path="res://components/play_card.tscn" id="1_sl3t6"]
 [ext_resource type="LabelSettings" uid="uid://diu8e1ivofp05" path="res://resources/label_zoom.tres" id="3_2v010"]
 
-[sub_resource type="Theme" id="Theme_5rfxs"]
-default_font_size = 30
+[sub_resource type="Theme" id="Theme_ormnk"]
+default_font_size = 38
 
 [node name="CardZoom" type="Control"]
 layout_mode = 3
@@ -15,7 +15,6 @@ offset_bottom = 1080.0
 script = ExtResource("1_6oa8r")
 
 [node name="Veil" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,7 +27,6 @@ position = Vector2(982, 525)
 scale = Vector2(0.638854, 0.638854)
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
 offset_left = 662.0
 offset_top = 21.0
 offset_right = 1307.0
@@ -38,7 +36,6 @@ label_settings = ExtResource("3_2v010")
 horizontal_alignment = 1
 
 [node name="Description" type="RichTextLabel" parent="."]
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -50,7 +47,7 @@ offset_right = 330.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-Stheme = SubResource("Theme_5rfxs")
+theme = SubResource("Theme_ormnk")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 bbcode_enabled = true

@@ -1,27 +1,31 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddtxl63o8somk"]
+[gd_scene load_steps=13 format=3 uid="uid://ddtxl63o8somk"]
 
 [ext_resource type="Script" path="res://components/play_card.gd" id="1_4tw3x"]
 [ext_resource type="Texture2D" uid="uid://co47ol66wip8y" path="res://resources/images/ui/card-reverse.png" id="2_il07s"]
+[ext_resource type="Texture2D" uid="uid://dnfjgxthrepoi" path="res://resources/images/ui/card-frame-over-2x.png" id="4_qrkt7"]
 [ext_resource type="Texture2D" uid="uid://16swggsj7rb4" path="res://resources/images/ui/card-frame-small-2x.png" id="6_bf3jk"]
+[ext_resource type="FontVariation" uid="uid://bkihmcnk3j1rc" path="res://resources/numbers_font_variation.tres" id="7_l5ctn"]
 [ext_resource type="Texture2D" uid="uid://umj4al7xkce4" path="res://resources/images/monsters/astrounaut-mouse.png" id="8_3o5b7"]
 [ext_resource type="Texture2D" uid="uid://b6odiva21sn1a" path="res://resources/images/ui/card-frame-2x.png" id="9_5822b"]
-[ext_resource type="Texture2D" uid="uid://dl4h3qd4yena2" path="res://resources/images/ui/card-frame-red-2x.png" id="10_wdace"]
 [ext_resource type="Texture2D" uid="uid://o87mggkkk13e" path="res://resources/images/ui/bg-square-2x.png" id="11_ojw1b"]
 [ext_resource type="Texture2D" uid="uid://17yuxvsa30js" path="res://resources/images/ui/bg-circle-2x.png" id="12_1fnwi"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_3w72r"]
+[sub_resource type="LabelSettings" id="LabelSettings_jnkhy"]
+font = ExtResource("7_l5ctn")
 font_size = 200
 outline_size = 33
 outline_color = Color(0.0352941, 0.392157, 0.32549, 1)
 shadow_size = 0
 
-[sub_resource type="LabelSettings" id="LabelSettings_3delf"]
+[sub_resource type="LabelSettings" id="LabelSettings_a1r3h"]
+font = ExtResource("7_l5ctn")
 font_size = 185
 outline_size = 38
 outline_color = Color(0.0352941, 0.392157, 0.32549, 1)
 shadow_size = 0
 
-[sub_resource type="LabelSettings" id="LabelSettings_2su75"]
+[sub_resource type="LabelSettings" id="LabelSettings_hd7c2"]
+font = ExtResource("7_l5ctn")
 font_size = 200
 outline_size = 33
 outline_color = Color(0.764706, 0.443137, 0, 1)
@@ -110,7 +114,7 @@ offset_right = 494.0
 offset_bottom = 595.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("10_wdace")
+texture = ExtResource("4_qrkt7")
 
 [node name="FrameSmall" type="TextureRect" parent="Front"]
 visible = false
@@ -135,12 +139,12 @@ offset_bottom = 1253.0
 texture = ExtResource("11_ojw1b")
 
 [node name="PowerLabel" type="Label" parent="Front/Power"]
-offset_left = 68.0
+offset_left = 58.0
 offset_top = 31.0
-offset_right = 414.0
+offset_right = 404.0
 offset_bottom = 382.0
-text = "99"
-label_settings = SubResource("LabelSettings_3w72r")
+text = "20"
+label_settings = SubResource("LabelSettings_jnkhy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -154,12 +158,12 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("11_ojw1b")
 
 [node name="PowerLabel" type="Label" parent="Front/PowerPlayed"]
-offset_left = 68.0001
-offset_top = 31.0
-offset_right = 414.0
-offset_bottom = 382.0
+offset_left = 63.8333
+offset_top = 35.1667
+offset_right = 409.833
+offset_bottom = 386.167
 text = "99"
-label_settings = SubResource("LabelSettings_3delf")
+label_settings = SubResource("LabelSettings_a1r3h")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -171,12 +175,12 @@ offset_bottom = 1254.0
 texture = ExtResource("12_1fnwi")
 
 [node name="EnergyLabel" type="Label" parent="Front/Energy"]
-offset_left = 54.0
+offset_left = 39.0
 offset_top = 30.0
-offset_right = 361.0
+offset_right = 346.0
 offset_bottom = 339.0
-text = "99"
-label_settings = SubResource("LabelSettings_2su75")
+text = "6"
+label_settings = SubResource("LabelSettings_hd7c2")
 horizontal_alignment = 1
 vertical_alignment = 1
 

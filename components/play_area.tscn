@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b733hc0h3768l"]
+[gd_scene load_steps=33 format=3 uid="uid://b733hc0h3768l"]
 
 [ext_resource type="Script" path="res://components/play_area.gd" id="1_by8b4"]
 [ext_resource type="AudioStream" uid="uid://d0u3ratxffbvq" path="res://resources/sound/The Ice Giants.mp3" id="2_ak7t4"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://src/game/services/LocationService.gd" id="13_keehl"]
 [ext_resource type="Texture2D" uid="uid://bamg0uolmktpu" path="res://resources/images/avatars/cyber-deer.png" id="13_lyh0i"]
 [ext_resource type="Texture2D" uid="uid://bgrob1r0lg8ah" path="res://resources/images/ui/button-turn-bg-hover.png" id="13_o6kgf"]
+[ext_resource type="FontVariation" uid="uid://bkihmcnk3j1rc" path="res://resources/numbers_font_variation.tres" id="16_yv5tm"]
 [ext_resource type="FontFile" uid="uid://dtd3tst48g77p" path="res://resources/fonts/mrsmonster.ttf" id="20_qujc1"]
 [ext_resource type="Texture2D" uid="uid://cekb4ioimffpb" path="res://resources/images/ui/button-runaway-bg.png" id="21_l3nov"]
 [ext_resource type="Texture2D" uid="uid://cf76yyye6at8u" path="res://resources/images/ui/button-turn-bg.png" id="23_dmo0n"]
@@ -48,6 +49,7 @@ font_size = 31
 font_color = Color(0.12549, 0.929412, 0.780392, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qcjg0"]
+font = ExtResource("16_yv5tm")
 font_size = 88
 outline_size = 16
 outline_color = Color(0.745098, 0.447059, 0.00784314, 1)
