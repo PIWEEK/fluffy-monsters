@@ -146,7 +146,6 @@ vertical_alignment = 1
 
 [node name="PowerPlayed" type="TextureRect" parent="Front"]
 visible = false
-layout_mode = 1
 offset_left = 248.0
 offset_top = 937.0
 offset_right = 695.0
@@ -155,7 +154,6 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("11_ojw1b")
 
 [node name="PowerLabel" type="Label" parent="Front/PowerPlayed"]
-layout_mode = 1
 offset_left = 68.0001
 offset_top = 31.0
 offset_right = 414.0

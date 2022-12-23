@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqg8s18o30kyj"]
+[gd_scene load_steps=4 format=3 uid="uid://bqg8s18o30kyj"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_pyw5d"]
 [ext_resource type="Texture2D" uid="uid://1xlwogbg6v04" path="res://resources/images/ui/table-bg-eyes.jpg" id="2_v0q3q"]
 [ext_resource type="PackedScene" uid="uid://b733hc0h3768l" path="res://components/play_area.tscn" id="3_siphl"]
-[ext_resource type="AudioStream" uid="uid://d0u3ratxffbvq" path="res://resources/sound/The Ice Giants.mp3" id="4_kikvg"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_pyw5d")
@@ -22,6 +21,3 @@ texture = ExtResource("2_v0q3q")
 stretch_mode = 1
 
 [node name="PlayArea" parent="." instance=ExtResource("3_siphl")]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_kikvg")

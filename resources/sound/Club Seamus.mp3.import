@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btuwyjy2gc8sy"
+path="res://.godot/imported/Club Seamus.mp3-5f19975afa569b96c856b26b5664a255.mp3str"
+
+[deps]
+
+source_file="res://resources/sound/Club Seamus.mp3"
+dest_files=["res://.godot/imported/Club Seamus.mp3-5f19975afa569b96c856b26b5664a255.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

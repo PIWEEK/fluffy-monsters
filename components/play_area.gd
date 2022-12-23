@@ -8,6 +8,10 @@ var end_game_scene = preload("res://components/end_game.tscn")
 var sound_place_card = preload("res://resources/sound/flipcard.wav")
 var sound_flip_card = preload("res://resources/sound/flip.wav")
 var sound_turn = preload("res://resources/sound/turn.wav")
+var sound_disappear = preload("res://resources/sound/disappear.wav")
+
+var song_victory = preload("res://resources/sound/Club Seamus.mp3")
+
 
 var state: GameState
 var player_turn: Array[PlayerAction] = []
@@ -43,6 +47,8 @@ func _ready():
 	events.connect("draw_start", _on_draw_start)
 	events.connect("resolve_turn_start", _on_resolve_turn_start)
 	events.connect("finish_game_start", _on_finish_game_start)	
+	if gui_state.sound_on:
+		$Music.play()
 	
 
 	$PlayerController.join_game(gui_state.player_name, db.get_avatar(gui_state.player_avatar).image, gui_state.player_deck)
@@ -241,6 +247,10 @@ func _on_finish_game_start():
 	var winner = $GameLogic/GameStateService.get_winner(state)
 	scene.init(winner == current_player, current_player)
 	add_child(scene)
+	if gui_state.sound_on:
+		$Music.stream = song_victory
+		$Music.play()
+	
 	
 func _on_retreat_button_pressed():
 	get_tree().change_scene_to_file("res://MainMenu.tscn")
