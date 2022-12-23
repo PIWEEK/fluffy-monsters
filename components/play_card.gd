@@ -40,6 +40,7 @@ func copy(card):
 func redraw():
 	$Front/Energy/EnergyLabel.text = str(energy)
 	$Front/Power/PowerLabel.text = str(power)
+	$Front/PowerPlayed/PowerLabel.text = str(power)
 	# $Front/Hole/Image.texture = load("res://resources/images/monsters/" + slug + ".png")
 	$Front/Hole/Image.texture = card_image
 
@@ -51,14 +52,14 @@ func set_played_mode(is_played):
 		$Front/Frame.visible = false
 		$Front/FrameSmall.visible = true
 		$Front/Energy.visible = false
-		$Front/Power.position.x = 255
-		$Front/Power.position.y = 900
+		$Front/Power.visible = false
+		$Front/PowerPlayed.visible = true
 	else:
 		$Front/Frame.visible = true
 		$Front/FrameSmall.visible = false
 		$Front/Energy.visible = true
-		$Front/Power.position.x = 573
-		$Front/Power.position.y = 807
+		$Front/Power.visible = true
+		$Front/PowerPlayed.visible = false
 	
 func show_back():
 	revealed = false
@@ -117,6 +118,7 @@ func _on_front_mouse_exited():
 
 func set_power(value: int):
 	$Front/Power/PowerLabel.text = str(value)
+	$Front/PowerPlayed/PowerLabel.text = str(power)
 	
 func show_disabled():
 	$Front/Hole/Veil.visible = gui_state.current_energy < energy

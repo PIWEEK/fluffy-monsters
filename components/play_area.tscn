@@ -47,10 +47,10 @@ font_size = 31
 font_color = Color(0.12549, 0.929412, 0.780392, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qcjg0"]
-font_size = 82
-outline_size = 9
+font_size = 88
+outline_size = 16
 outline_color = Color(0.745098, 0.447059, 0.00784314, 1)
-shadow_size = 6
+shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(1, 3)
 

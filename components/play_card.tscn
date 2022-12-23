@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddtxl63o8somk"]
+[gd_scene load_steps=12 format=3 uid="uid://ddtxl63o8somk"]
 
 [ext_resource type="Script" path="res://components/play_card.gd" id="1_4tw3x"]
 [ext_resource type="Texture2D" uid="uid://co47ol66wip8y" path="res://resources/images/ui/card-reverse.png" id="2_il07s"]
@@ -9,15 +9,21 @@
 [ext_resource type="Texture2D" uid="uid://o87mggkkk13e" path="res://resources/images/ui/bg-square-2x.png" id="11_ojw1b"]
 [ext_resource type="Texture2D" uid="uid://17yuxvsa30js" path="res://resources/images/ui/bg-circle-2x.png" id="12_1fnwi"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_h7fnt"]
-font_size = 164
-outline_size = 25
+[sub_resource type="LabelSettings" id="LabelSettings_cd07b"]
+font_size = 200
+outline_size = 33
 outline_color = Color(0.0352941, 0.392157, 0.32549, 1)
 shadow_size = 0
 
-[sub_resource type="LabelSettings" id="LabelSettings_64xmq"]
-font_size = 164
-outline_size = 25
+[sub_resource type="LabelSettings" id="LabelSettings_eo20a"]
+font_size = 185
+outline_size = 38
+outline_color = Color(0.0352941, 0.392157, 0.32549, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ta3nl"]
+font_size = 200
+outline_size = 33
 outline_color = Color(0.764706, 0.443137, 0, 1)
 shadow_size = 0
 
@@ -41,7 +47,7 @@ grow_vertical = 2
 
 [node name="Hole" type="Control" parent="Front"]
 clip_contents = true
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -55,6 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Image" type="TextureRect" parent="Front/Hole"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -71,6 +78,7 @@ texture = ExtResource("8_3o5b7")
 
 [node name="Veil" type="ColorRect" parent="Front/Hole"]
 visible = false
+layout_mode = 0
 offset_left = -44.0
 offset_top = -44.9999
 offset_right = 944.0
@@ -78,6 +86,7 @@ offset_bottom = 1145.0
 color = Color(1, 1, 1, 0.588235)
 
 [node name="Frame" type="TextureRect" parent="Front"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -93,6 +102,7 @@ texture = ExtResource("9_5822b")
 
 [node name="FrameSelected" type="TextureRect" parent="Front"]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -108,6 +118,7 @@ texture = ExtResource("10_wdace")
 
 [node name="FrameSmall" type="TextureRect" parent="Front"]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -122,6 +133,7 @@ grow_vertical = 2
 texture = ExtResource("6_bf3jk")
 
 [node name="Power" type="TextureRect" parent="Front"]
+layout_mode = 0
 offset_left = 573.0
 offset_top = 807.0
 offset_right = 1020.0
@@ -129,16 +141,39 @@ offset_bottom = 1253.0
 texture = ExtResource("11_ojw1b")
 
 [node name="PowerLabel" type="Label" parent="Front/Power"]
+layout_mode = 0
 offset_left = 68.0
 offset_top = 31.0
 offset_right = 414.0
 offset_bottom = 382.0
 text = "99"
-label_settings = SubResource("LabelSettings_h7fnt")
+label_settings = SubResource("LabelSettings_cd07b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PowerPlayed" type="TextureRect" parent="Front"]
+visible = false
+layout_mode = 1
+offset_left = 248.0
+offset_top = 937.0
+offset_right = 695.0
+offset_bottom = 1383.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("11_ojw1b")
+
+[node name="PowerLabel" type="Label" parent="Front/PowerPlayed"]
+layout_mode = 1
+offset_left = 68.0001
+offset_top = 31.0
+offset_right = 414.0
+offset_bottom = 382.0
+text = "99"
+label_settings = SubResource("LabelSettings_eo20a")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Energy" type="TextureRect" parent="Front"]
+layout_mode = 0
 offset_left = -40.0
 offset_top = 842.0
 offset_right = 373.0
@@ -146,12 +181,13 @@ offset_bottom = 1254.0
 texture = ExtResource("12_1fnwi")
 
 [node name="EnergyLabel" type="Label" parent="Front/Energy"]
+layout_mode = 0
 offset_left = 54.0
 offset_top = 30.0
 offset_right = 361.0
 offset_bottom = 339.0
 text = "99"
-label_settings = SubResource("LabelSettings_64xmq")
+label_settings = SubResource("LabelSettings_ta3nl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
