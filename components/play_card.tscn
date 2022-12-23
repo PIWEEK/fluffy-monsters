@@ -9,19 +9,19 @@
 [ext_resource type="Texture2D" uid="uid://o87mggkkk13e" path="res://resources/images/ui/bg-square-2x.png" id="11_ojw1b"]
 [ext_resource type="Texture2D" uid="uid://17yuxvsa30js" path="res://resources/images/ui/bg-circle-2x.png" id="12_1fnwi"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_kqmfk"]
+[sub_resource type="LabelSettings" id="LabelSettings_3w72r"]
 font_size = 200
 outline_size = 33
 outline_color = Color(0.0352941, 0.392157, 0.32549, 1)
 shadow_size = 0
 
-[sub_resource type="LabelSettings" id="LabelSettings_fit85"]
+[sub_resource type="LabelSettings" id="LabelSettings_3delf"]
 font_size = 185
 outline_size = 38
 outline_color = Color(0.0352941, 0.392157, 0.32549, 1)
 shadow_size = 0
 
-[sub_resource type="LabelSettings" id="LabelSettings_chj68"]
+[sub_resource type="LabelSettings" id="LabelSettings_2su75"]
 font_size = 200
 outline_size = 33
 outline_color = Color(0.764706, 0.443137, 0, 1)
@@ -140,7 +140,7 @@ offset_top = 31.0
 offset_right = 414.0
 offset_bottom = 382.0
 text = "99"
-label_settings = SubResource("LabelSettings_kqmfk")
+label_settings = SubResource("LabelSettings_3w72r")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -159,7 +159,7 @@ offset_top = 31.0
 offset_right = 414.0
 offset_bottom = 382.0
 text = "99"
-label_settings = SubResource("LabelSettings_fit85")
+label_settings = SubResource("LabelSettings_3delf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -176,7 +176,7 @@ offset_top = 30.0
 offset_right = 361.0
 offset_bottom = 339.0
 text = "99"
-label_settings = SubResource("LabelSettings_chj68")
+label_settings = SubResource("LabelSettings_2su75")
 horizontal_alignment = 1
 vertical_alignment = 1
 

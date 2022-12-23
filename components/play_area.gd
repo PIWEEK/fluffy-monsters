@@ -11,6 +11,7 @@ var sound_turn = preload("res://resources/sound/turn.wav")
 var sound_disappear = preload("res://resources/sound/disappear.wav")
 
 var song_victory = preload("res://resources/sound/Club Seamus.mp3")
+var song_defeat = preload("res://resources/sound/Anguish.mp3")
 
 
 var state: GameState
@@ -247,11 +248,11 @@ func _on_end_turn_button_pressed():
 	
 func _on_finish_game_start():
 	var scene = end_game_scene.instantiate()
-	var winner = $GameLogic/GameStateService.get_winner(state)
-	scene.init(winner == current_player, current_player)
+	var is_winner = $GameLogic/GameStateService.get_winner(state) == current_player
+	scene.init(is_winner, current_player)
 	add_child(scene)
 	if gui_state.sound_on:
-		$Music.stream = song_victory
+		$Music.stream = song_victory if is_winner else song_defeat
 		$Music.play()
 	
 	
