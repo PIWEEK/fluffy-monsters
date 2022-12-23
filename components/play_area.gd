@@ -118,11 +118,12 @@ func create_enemy_card_from_action(action):
 	var card_scene = play_card_scene.instantiate()
 	var player = 2 if current_player == 1 else 1
 	card_scene.init(player, action.card_id, card)
+	card_scene.set_played_mode(true)
 	card_scene.show_back()
 	card_scene.belongs_to_player = false
 	card_scene.draggable = false
 	card_scene.played_location = action.target_location_id
-	card_scene.set_played_mode(true)
+	
 	locations[action.target_location_id].add_enemy_card(card_scene)
 	return card_scene
 	
