@@ -150,11 +150,7 @@ func reveal_cards(player_cards, enemy_cards):
 				if card_node:
 					card_node.set_power(c1.current_power)
 					if c1.flags.has("destroy"):
-						var tween: Tween = get_tree().create_tween()
-						tween.set_ease(Tween.EASE_IN_OUT)
-						tween.set_trans(Tween.TRANS_QUAD)
-						tween.tween_property(card_node, "modulate:a", 0, 0.5)
-						await tween.finished
+						await card_dissapear(card_node)
 						locations[loc.location_id].remove_card(card_node)
 
 			for c2 in loc.cards_p2:
@@ -162,11 +158,7 @@ func reveal_cards(player_cards, enemy_cards):
 				if card_node:
 					card_node.set_power(c2.current_power)
 					if c2.flags.has("destroy"):
-						var tween: Tween = get_tree().create_tween()
-						tween.set_ease(Tween.EASE_IN_OUT)
-						tween.set_trans(Tween.TRANS_QUAD)
-						tween.tween_property(card_node, "modulate:a", 0, 0.5)
-						await tween.finished
+						await card_dissapear(card_node)
 						locations[loc.location_id].remove_card(card_node)
 
 			locations[loc.location_id].power_down = loc.get_total_power(1) if current_player == 1 else loc.get_total_power(2)
@@ -178,14 +170,24 @@ func reveal_cards(player_cards, enemy_cards):
 			if hand_card.flags.has("discard"):
 				var card_node = $Hand.get_node("%s-%s" % [current_player, hand_card.card_id])
 				if card_node:
-					var tween: Tween = get_tree().create_tween()
-					tween.set_ease(Tween.EASE_IN_OUT)
-					tween.set_trans(Tween.TRANS_QUAD)
-					tween.tween_property(card_node, "modulate:a", 0, 0.5)
-					await tween.finished
+					await card_dissapear(card_node)
 					$Hand.remove_card(card_node)
 		
 		await get_tree().create_timer(0.5).timeout
+
+func card_dissapear(card_node):
+	play_sound(sound_disappear)
+	var tween: Tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(card_node, "scale", Vector2(3, 3), 0.8)
+	
+	var tween2: Tween = get_tree().create_tween()
+	tween2.set_ease(Tween.EASE_IN_OUT)
+	tween2.set_trans(Tween.TRANS_QUAD)
+	tween2.tween_property(card_node, "modulate:a", 0, 0.8)
+	
+	await tween.finished
 
 func _on_draw_start():
 	# Now it's deleting the whole hand and redrawing
