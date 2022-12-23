@@ -121,3 +121,5 @@ func set_power(power: int):
 func show_disabled():
 	$Front/Hole/Veil.visible = gui_state.current_energy < energy
 	
+	
+	

@@ -229,6 +229,23 @@ func play_card(card, location):
 	player_played_cards.append(card)
 	player_turn.push_back(PlayerAction.new(card.card_id, location.location_id))	
 	energy_label.text = str(gui_state.current_energy)
+	bounce(card)
+	
+func bounce(card):
+	var tween: Tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(card, "scale", Vector2(0.25, 0.25), 0.2)
+	
+	await get_tree().create_timer(0.2).timeout
+	tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(card, "scale", Vector2(0.2, 0.2), 0.2)
+	
+	
+	
+	
 
 func _on_show_zoom_card(card):
 	var card_scene = card_zoom_scene.instantiate()
