@@ -17,7 +17,7 @@ func init_player(state: GameState, player_num: int, player: Player, deck_id: Str
 		state.player2_data = PlayerGameData.new(player_num, deck)
 
 func init_game(state: GameState):
-	state.turn = 0
+	state.turn = 5
 	
 	# Initialize players decks
 	deck_service.shuffle(state.player1_data.deck)

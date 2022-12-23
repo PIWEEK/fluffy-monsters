@@ -31,6 +31,9 @@ var player_played_cards = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	gui_state.cards_hand = []
+	gui_state.cards_location = [[], [], []]
+	gui_state.cards_location_enemy = [[], [], []]
 	gui_events.connect("stop_drag_card", _on_stop_drag_card)
 	gui_events.connect("show_zoom_card", _on_show_zoom_card)
 	gui_events.connect("show_zoom_location", _on_show_zoom_location)
@@ -40,6 +43,7 @@ func _ready():
 	events.connect("draw_start", _on_draw_start)
 	events.connect("resolve_turn_start", _on_resolve_turn_start)
 	events.connect("finish_game_start", _on_finish_game_start)	
+	
 
 	$PlayerController.join_game(gui_state.player_name, db.get_avatar(gui_state.player_avatar).image, gui_state.player_deck)
 

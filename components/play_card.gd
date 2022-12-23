@@ -64,7 +64,7 @@ func set_played_mode(is_played):
 func show_back():
 	revealed = false
 	scale.x = -0.2
-	$Front/Power.visible = false
+	$Front/PowerPlayed.visible = false
 	$Back.visible = true
 	
 func reveal():
@@ -77,7 +77,7 @@ func reveal():
 	revealed = true
 	$Front.visible = true
 	$Back.visible = false
-	$Front/Power.visible = true
+	$Front/PowerPlayed.visible = true
 	
 	tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
