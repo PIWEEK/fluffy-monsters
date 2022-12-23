@@ -47,7 +47,7 @@ grow_vertical = 2
 
 [node name="Hole" type="Control" parent="Front"]
 clip_contents = true
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -61,7 +61,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Image" type="TextureRect" parent="Front/Hole"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -78,7 +77,6 @@ texture = ExtResource("8_3o5b7")
 
 [node name="Veil" type="ColorRect" parent="Front/Hole"]
 visible = false
-layout_mode = 0
 offset_left = -44.0
 offset_top = -44.9999
 offset_right = 944.0
@@ -86,7 +84,6 @@ offset_bottom = 1145.0
 color = Color(1, 1, 1, 0.588235)
 
 [node name="Frame" type="TextureRect" parent="Front"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -102,7 +99,6 @@ texture = ExtResource("9_5822b")
 
 [node name="FrameSelected" type="TextureRect" parent="Front"]
 visible = false
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -118,7 +114,6 @@ texture = ExtResource("10_wdace")
 
 [node name="FrameSmall" type="TextureRect" parent="Front"]
 visible = false
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -133,7 +128,6 @@ grow_vertical = 2
 texture = ExtResource("6_bf3jk")
 
 [node name="Power" type="TextureRect" parent="Front"]
-layout_mode = 0
 offset_left = 573.0
 offset_top = 807.0
 offset_right = 1020.0
@@ -141,7 +135,6 @@ offset_bottom = 1253.0
 texture = ExtResource("11_ojw1b")
 
 [node name="PowerLabel" type="Label" parent="Front/Power"]
-layout_mode = 0
 offset_left = 68.0
 offset_top = 31.0
 offset_right = 414.0
@@ -173,7 +166,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Energy" type="TextureRect" parent="Front"]
-layout_mode = 0
 offset_left = -40.0
 offset_top = 842.0
 offset_right = 373.0
@@ -181,7 +173,6 @@ offset_bottom = 1254.0
 texture = ExtResource("12_1fnwi")
 
 [node name="EnergyLabel" type="Label" parent="Front/Energy"]
-layout_mode = 0
 offset_left = 54.0
 offset_top = 30.0
 offset_right = 361.0

@@ -86,16 +86,16 @@ text = ""
 [node name="baby-hydra" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
 card_name = "Baby Hydra"
-cost = 1
-power = 2
+cost = 3
+power = 4
 image = ExtResource("5_v323v")
 text = ""
 
 [node name="baby-kaiju" type="Node" parent="Cards" node_paths=PackedStringArray("on_card_play")]
 script = ExtResource("1_7pqrb")
 card_name = "Baby Kaiju"
-cost = 1
-power = 2
+cost = 3
+power = 1
 image = ExtResource("6_w8n1h")
 text = "Gets +1 power for each card played"
 on_card_play = NodePath("+1 power for each card played")
@@ -107,7 +107,7 @@ script = ExtResource("8_201w8")
 script = ExtResource("1_7pqrb")
 card_name = "Broccoli Monster"
 cost = 1
-power = 2
+power = 1
 image = ExtResource("7_nc67n")
 text = "[b]On reveal[/b]: Destroys the first card your opponent played"
 on_self_reveal = NodePath("destroy opponent card in first position")
@@ -118,16 +118,16 @@ script = ExtResource("9_pyqvg")
 [node name="chaos-hamster" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
 card_name = "Chaos Hamster"
-cost = 1
-power = 2
+cost = 4
+power = 6
 image = ExtResource("8_1cic4")
 text = ""
 
 [node name="cyber-deer" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
 card_name = "Cyber Deer"
-cost = 1
-power = 2
+cost = 4
+power = 6
 image = ExtResource("9_ubeou")
 text = ""
 
@@ -153,8 +153,8 @@ image = ExtResource("30_jfcgs")
 [node name="evil-carrot" type="Node" parent="Cards" node_paths=PackedStringArray("on_card_play")]
 script = ExtResource("1_7pqrb")
 card_name = "Evil Carrot"
-cost = 1
-power = 2
+cost = 2
+power = 0
 image = ExtResource("19_6nl8i")
 text = "Each card played in the same location gives this +2 power"
 on_card_play = NodePath("+2 when card played in same location")
@@ -165,8 +165,8 @@ script = ExtResource("8_c6duh")
 [node name="evil-eggplant" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
 card_name = "Evil Eggplant"
-cost = 1
-power = 2
+cost = 2
+power = 4
 image = ExtResource("20_u56hk")
 
 [node name="evil-pumpkin" type="Node" parent="Cards"]
@@ -299,6 +299,7 @@ image = ExtResource("31_b2ld3")
 [node name="victory-piweek" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
 card_name = "Victory!!!"
+cost = 6
 power = 20
 image = ExtResource("36_4poit")
 text = "[i]The PIWEEK CUP IS OURS!!! MUA HA HA HA[/i]"
@@ -396,12 +397,12 @@ card12 = NodePath("../../Cards/monster-knight")
 [node name="deck-3" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
 script = ExtResource("3_qj7j8")
 deck_name = "Test Deck"
-card1 = NodePath("../../Cards/armed-monkey")
+card1 = NodePath("../../Cards/victory-piweek")
 card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/victory-piweek")
+card6 = NodePath("../../Cards/armed-monkey")
 card7 = NodePath("../../Cards/cyber-deer")
 card8 = NodePath("../../Cards/eye-cloud")
 card9 = NodePath("../../Cards/chaos-hamster")
@@ -412,12 +413,12 @@ card12 = NodePath("../../Cards/evil-pumpkin")
 [node name="deck-4" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
 script = ExtResource("3_qj7j8")
 deck_name = "Test Deck"
-card1 = NodePath("../../Cards/armed-monkey")
+card1 = NodePath("../../Cards/victory-piweek")
 card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/victory-piweek")
+card6 = NodePath("../../Cards/armed-monkey")
 card7 = NodePath("../../Cards/cyber-deer")
 card8 = NodePath("../../Cards/eye-cloud")
 card9 = NodePath("../../Cards/chaos-hamster")
@@ -428,12 +429,12 @@ card12 = NodePath("../../Cards/evil-pumpkin")
 [node name="deck-5" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
 script = ExtResource("3_qj7j8")
 deck_name = "Test Deck"
-card1 = NodePath("../../Cards/armed-monkey")
+card1 = NodePath("../../Cards/victory-piweek")
 card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/victory-piweek")
+card6 = NodePath("../../Cards/armed-monkey")
 card7 = NodePath("../../Cards/cyber-deer")
 card8 = NodePath("../../Cards/eye-cloud")
 card9 = NodePath("../../Cards/chaos-hamster")
@@ -444,12 +445,12 @@ card12 = NodePath("../../Cards/evil-pumpkin")
 [node name="deck-6" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
 script = ExtResource("3_qj7j8")
 deck_name = "Test Deck"
-card1 = NodePath("../../Cards/armed-monkey")
+card1 = NodePath("../../Cards/victory-piweek")
 card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/victory-piweek")
+card6 = NodePath("../../Cards/armed-monkey")
 card7 = NodePath("../../Cards/cyber-deer")
 card8 = NodePath("../../Cards/eye-cloud")
 card9 = NodePath("../../Cards/chaos-hamster")
@@ -460,12 +461,12 @@ card12 = NodePath("../../Cards/evil-pumpkin")
 [node name="deck-7" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
 script = ExtResource("3_qj7j8")
 deck_name = "Test Deck"
-card1 = NodePath("../../Cards/armed-monkey")
+card1 = NodePath("../../Cards/victory-piweek")
 card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/victory-piweek")
+card6 = NodePath("../../Cards/armed-monkey")
 card7 = NodePath("../../Cards/cyber-deer")
 card8 = NodePath("../../Cards/eye-cloud")
 card9 = NodePath("../../Cards/chaos-hamster")
@@ -476,12 +477,12 @@ card12 = NodePath("../../Cards/evil-pumpkin")
 [node name="deck-8" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
 script = ExtResource("3_qj7j8")
 deck_name = "Test Deck"
-card1 = NodePath("../../Cards/armed-monkey")
+card1 = NodePath("../../Cards/victory-piweek")
 card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/victory-piweek")
+card6 = NodePath("../../Cards/armed-monkey")
 card7 = NodePath("../../Cards/cyber-deer")
 card8 = NodePath("../../Cards/eye-cloud")
 card9 = NodePath("../../Cards/chaos-hamster")
