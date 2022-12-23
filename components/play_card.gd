@@ -102,8 +102,6 @@ func _on_front_gui_input(event):
 		elif event.button_index == 2 and event.pressed:
 			gui_events.emit_signal("show_zoom_card", self)
 
-
-
 func _on_front_mouse_entered():
 	if draggable and not gui_state.dragging and gui_state.current_energy >= energy:
 		$Front/FrameSelected.visible = true
@@ -116,8 +114,8 @@ func _on_front_mouse_exited():
 		gui_events.emit_signal("cursor_hover_card_end")
 		position.y += 35
 
-func set_power(value: int):
-	$Front/Power/PowerLabel.text = str(value)
+func set_power(power: int):
+	$Front/Power/PowerLabel.text = str(power)
 	$Front/PowerPlayed/PowerLabel.text = str(power)
 	
 func show_disabled():

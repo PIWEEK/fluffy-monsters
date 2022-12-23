@@ -66,22 +66,23 @@ script = ExtResource("1_i6w5y")
 [node name="armed-monkey" type="Node" parent="Cards" node_paths=PackedStringArray("on_self_reveal")]
 script = ExtResource("1_7pqrb")
 card_name = "Armed Monkey"
-cost = 2
+cost = 3
 power = 0
 image = ExtResource("3_6xvau")
-text = "[b]On reveal: [/b] +2 Power for every other card you have in this location"
-on_self_reveal = NodePath("On Reveal, +2 power per card")
+text = ""
+on_self_reveal = NodePath("")
 
-[node name="On Reveal, +2 power per card" type="Node" parent="Cards/armed-monkey"]
-script = ExtResource("4_prnhv")
-
-[node name="astronaut-mouse" type="Node" parent="Cards"]
+[node name="astronaut-mouse" type="Node" parent="Cards" node_paths=PackedStringArray("on_self_reveal")]
 script = ExtResource("1_7pqrb")
 card_name = "Astro Mouse"
 cost = 1
 power = 2
 image = ExtResource("4_2dedb")
-text = ""
+text = "[b]On reveal: [/b] +2 Power for every other card you have in this location"
+on_self_reveal = NodePath("On Reveal, +2 power per card")
+
+[node name="On Reveal, +2 power per card" type="Node" parent="Cards/astronaut-mouse"]
+script = ExtResource("4_prnhv")
 
 [node name="baby-hydra" type="Node" parent="Cards"]
 script = ExtResource("1_7pqrb")
@@ -137,7 +138,7 @@ card_name = "Eye Cloud"
 cost = 1
 power = 2
 image = ExtResource("10_af6cn")
-text = "[b]On reveal:[/b] Discards the leftmost card in your hand"
+text = ""
 on_self_reveal = NodePath("")
 
 [node name="evil-banana" type="Node" parent="Cards"]
@@ -153,7 +154,7 @@ card_name = "Evil Carrot"
 cost = 2
 power = 0
 image = ExtResource("19_6nl8i")
-text = "Each card played in the same location gives this +2 power"
+text = ""
 on_card_play = NodePath("")
 
 [node name="evil-eggplant" type="Node" parent="Cards"]
@@ -196,10 +197,10 @@ text = ""
 [node name="genius-mouse" type="Node" parent="Cards" node_paths=PackedStringArray("on_card_play")]
 script = ExtResource("1_7pqrb")
 card_name = "Genius Mouse"
-cost = 1
-power = 2
+cost = 2
+power = 0
 image = ExtResource("13_ciaof")
-text = ""
+text = "Each card played in the same location gives this +2 power"
 on_card_play = NodePath("+2 when card played in same location")
 
 [node name="+2 when card played in same location" type="Node" parent="Cards/genius-mouse"]
@@ -255,7 +256,7 @@ card_name = "Pirate Kraken"
 cost = 1
 power = 2
 image = ExtResource("16_8f4dr")
-text = ""
+text = "[b]On reveal:[/b] Discards the leftmost card in your hand"
 on_self_reveal = NodePath("discard first card on hand")
 
 [node name="discard first card on hand" type="Node" parent="Cards/pirate-kraken"]
@@ -404,12 +405,12 @@ card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/armed-monkey")
+card6 = NodePath("../../Cards/astronaut-mouse")
 card7 = NodePath("../../Cards/robo-electric-mouse")
 card8 = NodePath("../../Cards/pirate-kraken")
 card9 = NodePath("../../Cards/chaos-hamster")
 card10 = NodePath("../../Cards/genius-mouse")
-card11 = NodePath("../../Cards/genius-mouse")
+card11 = NodePath("../../Cards/wizard-cat")
 card12 = NodePath("../../Cards/evil-pumpkin")
 
 [node name="deck-4" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
@@ -420,12 +421,12 @@ card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/armed-monkey")
+card6 = NodePath("../../Cards/astronaut-mouse")
 card7 = NodePath("../../Cards/robo-electric-mouse")
 card8 = NodePath("../../Cards/pirate-kraken")
 card9 = NodePath("../../Cards/chaos-hamster")
 card10 = NodePath("../../Cards/genius-mouse")
-card11 = NodePath("../../Cards/genius-mouse")
+card11 = NodePath("../../Cards/wizard-cat")
 card12 = NodePath("../../Cards/evil-pumpkin")
 
 [node name="deck-5" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
@@ -436,12 +437,12 @@ card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/armed-monkey")
+card6 = NodePath("../../Cards/astronaut-mouse")
 card7 = NodePath("../../Cards/robo-electric-mouse")
 card8 = NodePath("../../Cards/pirate-kraken")
 card9 = NodePath("../../Cards/chaos-hamster")
 card10 = NodePath("../../Cards/genius-mouse")
-card11 = NodePath("../../Cards/genius-mouse")
+card11 = NodePath("../../Cards/wizard-cat")
 card12 = NodePath("../../Cards/evil-pumpkin")
 
 [node name="deck-6" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
@@ -452,12 +453,12 @@ card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/armed-monkey")
+card6 = NodePath("../../Cards/astronaut-mouse")
 card7 = NodePath("../../Cards/robo-electric-mouse")
 card8 = NodePath("../../Cards/pirate-kraken")
 card9 = NodePath("../../Cards/chaos-hamster")
 card10 = NodePath("../../Cards/genius-mouse")
-card11 = NodePath("../../Cards/genius-mouse")
+card11 = NodePath("../../Cards/wizard-cat")
 card12 = NodePath("../../Cards/evil-pumpkin")
 
 [node name="deck-7" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
@@ -468,12 +469,12 @@ card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/armed-monkey")
+card6 = NodePath("../../Cards/astronaut-mouse")
 card7 = NodePath("../../Cards/robo-electric-mouse")
 card8 = NodePath("../../Cards/pirate-kraken")
 card9 = NodePath("../../Cards/chaos-hamster")
 card10 = NodePath("../../Cards/genius-mouse")
-card11 = NodePath("../../Cards/genius-mouse")
+card11 = NodePath("../../Cards/wizard-cat")
 card12 = NodePath("../../Cards/evil-pumpkin")
 
 [node name="deck-8" type="Node" parent="Decks" node_paths=PackedStringArray("card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12")]
@@ -484,12 +485,12 @@ card2 = NodePath("../../Cards/astronaut-mouse")
 card3 = NodePath("../../Cards/baby-hydra")
 card4 = NodePath("../../Cards/baby-kaiju")
 card5 = NodePath("../../Cards/broccoli-monster")
-card6 = NodePath("../../Cards/armed-monkey")
+card6 = NodePath("../../Cards/astronaut-mouse")
 card7 = NodePath("../../Cards/robo-electric-mouse")
 card8 = NodePath("../../Cards/pirate-kraken")
 card9 = NodePath("../../Cards/chaos-hamster")
 card10 = NodePath("../../Cards/genius-mouse")
-card11 = NodePath("../../Cards/genius-mouse")
+card11 = NodePath("../../Cards/wizard-cat")
 card12 = NodePath("../../Cards/evil-pumpkin")
 
 [node name="Avatars" type="Node" parent="."]
